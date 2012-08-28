@@ -28,6 +28,7 @@ Recientemente hemos incorporado la tecnología offset digital, que combina las v
 					"mores-impresion-pequeño-formato-xeikon0021.jpg",
 					"mores-impresion-pequeño-formato-xeikon0022.jpg",
 					"Impresión_offset_digital_–_Ryobi_0003.jpg",
+					
 
 				);
 

@@ -167,19 +167,23 @@ function enviarMail($mail_destino,$mail_asunto,$mail_mensaje){
 }
 
 
-function creaListaGaleria($array_imagenes,$ruta){
+function creaListaGaleria($array_imagenes,$ruta,$titulos = null){
 	$result = '';
 	$imagen_titulo = '';
-	foreach($array_imagenes as $imagen){
-		if(strlen($imagen) >= 18){
-			$imagen_titulo = str_replace("_", " ", $imagen);
-			$imagen_titulo = str_replace("-", " ", $imagen_titulo);
-			$imagen_titulo = str_replace("", "", $imagen_titulo);
-			$imagen_titulo = str_replace("(", "", $imagen_titulo);
-			$imagen_titulo = str_replace(range(0,9),'',$imagen_titulo);
-			$imagen_titulo = preg_replace('/\..*$/','',$imagen_titulo); 
+	foreach($array_imagenes as $index=>$imagen){
+		if(is_null($titulos )){
+			if(strlen($imagen) >= 18){
+				$imagen_titulo = str_replace("_", " ", $imagen);
+				$imagen_titulo = str_replace("-", " ", $imagen_titulo);
+				$imagen_titulo = str_replace("", "", $imagen_titulo);
+				$imagen_titulo = str_replace("(", "", $imagen_titulo);
+				$imagen_titulo = str_replace(range(0,9),'',$imagen_titulo);
+				$imagen_titulo = preg_replace('/\..*$/','',$imagen_titulo); 
+			}else{
+				$imagen_titulo = '';
+			}
 		}else{
-			$imagen_titulo = '';
+			$imagen_titulo =  $titulos[$index];
 		}
 		$result .= '<li><a class="galeriaitem" title="'.$imagen_titulo.'" href="'.$ruta.$imagen.'" data-fancybox-group="fancybox"><img src="mini-imagenes/'.$ruta.$imagen.'" title="'.$imagen_titulo.'" alt="'.$imagen_titulo.'"/></a></li>';
 	}
@@ -205,6 +209,6 @@ function checkEmail($email){
 		}
 	}
 
-	return $result;
+	return $n;
 }
 ?>

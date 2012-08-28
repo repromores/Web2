@@ -123,6 +123,16 @@ $('#recuperapassfrm').ajaxForm({
 
 }); 
 
+$('#newsletterform').ajaxForm({
+	clearForm: 	true,
+	beforeSubmit : function(){
+		$(".btn-newsletter").attr("disabled", "true").val("Guardando...");
+	},
+	success : function(){
+		$(".btn-newsletter").val("Guardado!");
+	}
+
+});
 
 $(".recuperapassbtn").on("click",function(e){
 	e.preventDefault();

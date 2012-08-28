@@ -104,8 +104,10 @@
   <div class="newsletter">
     <h2>Newsletter</h2>
     <p>¡Apúntate a nuestra newsletter para enterarte de todas nuestras ofertas y novedades!</p>
-    <input type="email" class="input" placeholder="Danos tu email">
-    <input type="submit" class="btn" value="Enviar email">
+    <form class="form" method="post" id="newsletterform" action="inc/agregaemails.php">
+      <input type="email" class="input" name="email" required="required" placeholder="Danos tu email">
+      <input type="submit" class="btn btn-newsletter" value="Enviar email">
+    </form>
   </div>
 
 

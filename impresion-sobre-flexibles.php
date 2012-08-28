@@ -32,6 +32,7 @@
 					"Vinilo_impreso_para_rotulación_de_vallas_publicitarias_01.jpg"
 				);
 
+
 				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/flexibles/");
 			?>
 		</ul>

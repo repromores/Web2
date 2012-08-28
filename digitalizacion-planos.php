@@ -26,13 +26,7 @@ Así, encontrará la solución perfecta para la presentación de sus proyectos d
 <p>
 Le ofrecemos la posibilidad de visualizar los documentos e imágenes correspondientes a  proyectos técnicos o planes generales de urbanismo, permitiendo un fácil manejo y consulta informática de estos contenidos.
 </p>
-		<ul class="galeria">
-			<li><a class="galeriaitem" title="Lone Tree Yellows" href="http://www.spaceforaname.com/galleryview/img/photos/bp1.jpg" data-fancybox-group="fancybox"><img src="http://www.spaceforaname.com/galleryview/img/photos/bp1.jpg" title="Lone Tree Yellows"/></a></li>
-			<li><a class="galeriaitem" href="http://www.spaceforaname.com/galleryview/img/photos/bp2.jpg" title="Is He Still There" data-fancybox-group="fancybox"><img src="http://www.spaceforaname.com/galleryview/img/photos/bp2.jpg" title="Is He Still There"/></a></li>
-			<li><a class="galeriaitem" href="http://www.spaceforaname.com/galleryview/img/photos/bp4.jpg" data-fancybox-group="fancybox"><img src="http://www.spaceforaname.com/galleryview/img/photos/bp4.jpg" title="Noni Nectar For G"/></a></li>
-			<li><a class="galeriaitem" href="http://www.spaceforaname.com/galleryview/img/photos/bp7.jpg" data-fancybox-group="fancybox"><img src="http://www.spaceforaname.com/galleryview/img/photos/bp7.jpg" title="Flight of an Eagl"/></a></li>
-			<li><a class="galeriaitem" href="http://www.spaceforaname.com/galleryview/img/photos/bp14.jpg" title="Winter Lollipops" data-fancybox-group="fancybox"><img src="http://www.spaceforaname.com/galleryview/img/photos/bp14.jpg" title="Winter Lollipops"/></a></li>
-		</ul>	
+	
 
   	</div>
   </div>

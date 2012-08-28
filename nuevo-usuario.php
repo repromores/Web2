@@ -21,11 +21,11 @@
 
 <?php if(isset($_GET["error"])&& $_GET["error"]==2){ ?>
     <div class="alert alert-error">
-      <p>¡Error! Ese email ya está en la base de datos.</p>
+      <p>¡Error! Ese email ya está en la base de datos. <a href="login.php">Loguéate o recupera la contraseña</a></p>
     </div>
 <?php } ?>
 
-	<form action="nuevo-usuario-alta.php" class="form-horizontal contacto" method="POST">
+	<form action="nuevo-usuario-alta.php" class="form-horizontal contacto redirect" method="POST">
 		<input type="hidden" name="ip" value="<?php echo getIp(); ?>">
 	    <fieldset>
 	    <div class="control-group">

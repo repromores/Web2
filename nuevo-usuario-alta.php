@@ -33,21 +33,22 @@ if($nombre =="" || $ape =="" ||  $email =="" ||  $pobl =="" ||  $tel =="" ||  $p
 	}
 }
 
-if($error==0 && !$update){
-	$q = mysql_query('INSERT INTO usuarios (email, password,nombre, apellidos, direccion, poblacion, provincia, telefono, cif, newsletter) VALUES 
-	("'.$email.'","'.$pass.'","'.$nombre.'","'.$ape.'","'.$dir.'","'.$pobl.'","","'.$tel.'","'.$cif.'",'.$news.')');
-}else if($error==0 && $update){
-	$q = mysql_query('UPDATE usuarios SET
+if($error == 0 && $update == 0){
+	$q = 'INSERT INTO usuarios (email, password,nombre, apellidos, direccion, poblacion, provincia, telefono, cif, newsletter) VALUES 
+	("'.$email.'","'.$pass.'","'.$nombre.'","'.$ape.'","'.$dir.'","'.$pobl.'","","'.$tel.'","'.$cif.'",'.$news.')';
+	mysql_query($q);
+}else if($error==0 && $update == 1){
+	$q = 'UPDATE usuarios SET
 	nombre ="'. $nombre .'",
 	apellidos ="'. $ape .'",
 	direccion ="'. $dir .'",
 	poblacion ="'. $pobl .'",
 	telefono ="'. $tel .'",
 	password ="'. $pass .'",
-	cif ="'. $cif .'",
- WHERE email = "'.$_SESSION["usr_email"].'"');
+	cif ="'. $cif .'"
+ WHERE email = "'.$email.'"';
+ mysql_query($q);
 }
-
 if($error > 0){
 	header("location: nuevo-usuario.php?error=".$error);
 }else{

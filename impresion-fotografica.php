@@ -22,13 +22,19 @@ Papel fotográfico (brillo, semi-mate, perla), Duratrans.
 			<?php 
 				$array_imagenes = array(
 					"Impresión_fotográfica_en_Durst_Lambda_01.jpg",
+					"Impresión_fotográfica_en_Durst_Lambda_03.jpg",
 					"Impresión_fotográfica_en_Durst_Lambda_02.jpg",
 					"Impresión_fotográfica_en_duratrans_en_Durst_Lambda_02.jpg",
-					"Impresión_fotográfica_en_Durst_Lambda_06.jpg",
-					"Impresión_fotográfica_en_Durst_Lambda_03.jpg",
+					"Impresión_fotográfica_en_Durst_Lambda_06.jpg"	
 					);
-
-				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/imp_fotografica/");
+				$array_titulos = array(
+					"Impresión fotográfica en Durst Lambda",
+					"Impresión fotográfica en Durst Lambda",
+					"Impresión fotográfica de alta calidad",
+					"Cajas de luz impresas en Durst Lambda",
+					"Impresión fotográfica para interiores"
+				);
+				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/imp_fotografica/",$array_titulos);
 			?>
 		</ul>	
 <h3>APLICACIONES</h3>

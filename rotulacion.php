@@ -29,8 +29,14 @@ Le ofrecemos un servicio completo que incluye desde la impresión o corte de sus
           "Impresión_y_rotulación_de_autobuses_04.jpg",
           "Impresión_y_rotulación_de_flotas_de_vehículos_01.jpg",
         );
-
-        echo creaListaGaleria($array_imagenes,"imagenes/rotulacion/rotulacion/");
+        $array_titulos = array(
+          "Rotulación de fachada en vinilo perforado",
+          "Rotulación de vestuarios",
+          "Rotulación de autobuses",
+          "Rotulación de autobuses",
+          "Rotulación de flotas de vehículos"
+        );
+        echo creaListaGaleria($array_imagenes,"imagenes/rotulacion/rotulacion/", $array_titulos);
       ?>
     </ul>
 

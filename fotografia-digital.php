@@ -26,8 +26,13 @@ Mediante modernos minilab digitales, ofrecemos el procesado e impresión de pel�
           "Minilab-fotográfico300000000002.jpg",
           "Impresión fotográfica20100624_0185.jpg"
         );
-
-        echo creaListaGaleria($array_imagenes,"imagenes/fotografia/");
+        $array_titulos = array(
+          "Album digital",
+          "Minilab fotográfico",
+          "Minilab fotográfico",
+          "Impresión en lienzo"
+        );
+        echo creaListaGaleria($array_imagenes,"imagenes/fotografia/",$array_titulos);
       ?>
     </ul>
   </div>

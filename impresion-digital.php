@@ -29,8 +29,12 @@ Nuestro sistema de impresión digital está concebido para facilitarle la impres
 					"mores-impresion-pequeño-formato-xeikon0018.jpg",
 					"mores-impresion-offset-digital-Ryobi-0001.jpg"
 				);
-
-				echo creaListaGaleria($array_imagenes,"imagenes/impresion/impresion/");
+				$array_titulos = array(
+					"Impresión pequeño formato en Xeikon (2)",
+					"Ejemplos de trabajos realizados en Xeikon",
+					"Impresión offset digital en Ryobi (eliminar esta foto)"
+				);
+				echo creaListaGaleria($array_imagenes,"imagenes/impresion/impresion/",$array_titulos);
 			?>
 		</ul>
 </div>

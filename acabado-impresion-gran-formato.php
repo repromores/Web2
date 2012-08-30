@@ -24,8 +24,14 @@ Entendemos que la presentación es un factor fundamental en la valoración de un
 					"Soportes_modulares_impresos.jpg",
 					"Impresión_de_lonas_para_eventos.jpg"
 				);
-
-				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/acabado/");
+			$array_titulos = array(
+				"Vinilo impreso instalado para punto de información",
+				"Vinilo impreso instalado en oficinas",
+				"Vinilo impreso aplicado en vallas publicitarias",
+				"Soportes modulares impresos ",
+				"Lonas impresas instaladas en evento"
+			);
+				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/acabado/",$array_titulos);
 			?>
 		</ul>
 </div>

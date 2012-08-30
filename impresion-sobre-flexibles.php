@@ -31,9 +31,19 @@
 					"Vinilo_impreso_para_punto_de_información.jpg",
 					"Vinilo_impreso_para_rotulación_de_vallas_publicitarias_01.jpg"
 				);
+				$array_titulos = array(
+					"Impresión de lonas para eventos",
+					"Impresión de lonas para fachada de edificios",
+					"Impresión de mupis",
+					"Impresión en mobiliario urbano",
+					"Vinilo impreso para decoración de interiores",
+					"Impresión fotográfica ",
+					"Impresión e instalación de banderolas",
+					"Vinilo impreso para punto de información",
+					"Vinilo impreso para vallas publicitarias"
+				);
 
-
-				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/flexibles/");
+				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/flexibles/",$array_titulos);
 			?>
 		</ul>
 

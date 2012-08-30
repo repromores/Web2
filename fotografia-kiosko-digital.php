@@ -22,8 +22,12 @@ En combinación con nuestro departamento de impresión digital, le ofrecemos la 
           "mores-fotografia-kiosko-digital-08.jpg",
           "Minilab-fotográfico300000000002.jpg",
         );
-
-        echo creaListaGaleria($array_imagenes,"imagenes/fotografia/");
+        $array_titulos = array(
+          "Album digital",
+          "Kiosko digital",
+          "Minilab fotográfico"
+        );
+        echo creaListaGaleria($array_imagenes,"imagenes/fotografia/",$array_titulos);
       ?>
     </ul>
   </div>

@@ -23,8 +23,14 @@ A través de este servicio, le ofrecemos la posibilidad de encuadernar sus traba
           "tornillo_8.jpg",
           "tornillo_20.jpg",
         );
-
-        echo creaListaGaleria($array_imagenes,"imagenes/encuadernacion/rapida/");
+        $array_titulos = array(
+          "Enlomado ",
+          "Encuadernación en canutillo",
+          "Encuadernación en canutillo",
+          "Encuadernación de tornillo ",
+          "Encuadernación de tornillo "
+        );
+        echo creaListaGaleria($array_imagenes,"imagenes/encuadernacion/rapida/",$array_titulos);
       ?>
     </ul>
 <h3>Opciones</h3>

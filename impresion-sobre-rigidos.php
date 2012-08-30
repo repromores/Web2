@@ -29,8 +29,14 @@ PVC, metacrilato, cartón pluma, cartón, polipropileno, policarbonato, madera (
 					"Photocall_impreso_sobre_Foam.jpg",
 					"Impresión_directa_de_varios_originales_a_la_vez_02.jpg"
 					);
-
-				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/rigidos/");
+				$array_titulos = array(
+					"Impresión directa en foam",
+					"Photocall impreso en foam",
+					"Impresión directa en madera",
+					"Impresión sobre madera más tinta blanca",
+					"Impresión directa multiplancha"
+				);
+				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/rigidos/",$array_titulos);
 			?>
 		</ul>	
 <h3>Aplicaciones</h3>

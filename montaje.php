@@ -31,8 +31,13 @@ Como complemento a nuestros servicios de cartelería, soportes expositivos y rot
           "Impresión_y_rotulación_de_flotas_de_vehículos_03.jpg",
           "Rotulación_de_clínica_en_vinilo_de_corte_e_impreso.jpg"
         );
-
-        echo creaListaGaleria($array_imagenes,"imagenes/rotulacion/montaje/");
+        $array_titulos = array(
+          "Rotulación integral para evento",
+          "Rotulación en vinilo de corte e impreso",
+          "Vinilo aplicado en flotas de vehículos",
+          "Vinilo impreso y de corte tras instalación"
+        );
+        echo creaListaGaleria($array_imagenes,"imagenes/rotulacion/montaje/",$array_titulos);
       ?>
     </ul>
 

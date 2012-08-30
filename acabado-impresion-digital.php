@@ -23,8 +23,13 @@ Dado que la presentación es un factor fundamental en la valoración de un traba
 				"mores-impresion-offset-digital-Ryobi-0041.jpg",
 				"mores-impresion-offset-digital-Ryobi-0042.jpg",
 			);
-
-			echo creaListaGaleria($array_imagenes,"imagenes/impresion/imprenta/");
+			$array_titulos = array(
+				"Impresiones dispuestas para manipulado",
+				"Manipulado",
+				"Impresión tras manipulado (corte y plegado) ",
+				"Impresiones dispuestas para embalaje",
+			);
+			echo creaListaGaleria($array_imagenes,"imagenes/impresion/imprenta/",$array_titulos);
 		?>
 	</ul>
 

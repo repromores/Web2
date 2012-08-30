@@ -27,8 +27,18 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
           "Round_Up_+_PopUP.jpg",
           "Round_Up_A.jpg"
         );
-
-        echo creaListaGaleria($array_imagenes,"imagenes/stands/");
+        $array_titulos = array(
+          "Bodegón de estructuras",
+          "Elementos dispositivos instalados en evento",
+          "Combinación de estructura con trabajo de impresión",
+          "Espacio de exposición creado en feria con material Reboard",
+          "Suelo técnico impreso para eventos y ferias",
+          "Displays enrollables para eventos",
+          "Panel y maleta mostrador para eventos",
+          "PLV con Round Up + Pop Up",
+          "Ejemplo de estructura para PLV",
+        );
+        echo creaListaGaleria($array_imagenes,"imagenes/stands/",$array_titulos);
       ?>
     </ul>
 <ul>

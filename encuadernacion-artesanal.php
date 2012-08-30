@@ -23,8 +23,14 @@ Siguiendo la tradición de los mejores maestros encuadernadores, realizamos todo
           "mores_encuadernacion_002.jpg",
           "mores_encuadernacion_005.jpg",
         );
-
-        echo creaListaGaleria($array_imagenes,"imagenes/encuadernacion/artesanal/");
+        $array_titulos = array(
+          "Encuadernación con tapa dura",
+          "Encuadernación con tapa dura",
+          "Encuadernación en piel",
+          "Taller de encuadernación artesanal",
+          "Taller de encuadernación artesanal",
+        );
+        echo creaListaGaleria($array_imagenes,"imagenes/encuadernacion/artesanal/",$array_titulos );
       ?>
     </ul>
 <h3>Opciones</h3>

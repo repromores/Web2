@@ -24,15 +24,19 @@ Recientemente hemos incorporado la tecnología offset digital, que combina las v
 		<ul class="galeria">
 			<?php 
 				$array_imagenes = array(
+					"Impresión_offset_digital_–_Ryobi_0003.jpg",
 					"mores-impresion-pequeño-formato-xeikon0020.jpg",
 					"mores-impresion-pequeño-formato-xeikon0021.jpg",
 					"mores-impresion-pequeño-formato-xeikon0022.jpg",
-					"Impresión_offset_digital_–_Ryobi_0003.jpg",
-					
 
 				);
-
-				echo creaListaGaleria($array_imagenes,"imagenes/impresion/acabado/");
+				$array_titulos = array(
+					"Impresión offset digital en Ryobi (poner como primera)",
+					"Ejemplos de trabajos realizados en imprenta digital",
+					"Ejemplos de trabajos realizados en imprenta digital ",
+					"Ejemplos de trabajos realizados en imprenta digital "
+				);
+				echo creaListaGaleria($array_imagenes,"imagenes/impresion/acabado/",$array_titulos);
 			?>
 		</ul>
 </div>

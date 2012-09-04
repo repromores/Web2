@@ -24,8 +24,15 @@ Siguiendo nuestra actividad original, realizamos fotocopias inmediatas en blanco
           "Fotocopiado_digitalización0004.jpg",
 
         );
+        $array_titulos = array(
+          "",
+          "",
+          "",
+          "Fotocopiado/digitalización",
 
-        echo creaListaGaleria($array_imagenes,"imagenes/reprografia/bn/");
+        );
+
+        echo creaListaGaleria($array_imagenes,"imagenes/reprografia/bn/",$array_titulos);
       ?>
     </ul>
   </div>

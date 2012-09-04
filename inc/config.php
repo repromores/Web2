@@ -43,6 +43,7 @@ $emails_nuevo_envio		= "informatica@mores.es";
 
 $url_imgs_mail	= "http://mores.es/beta/img/";
 
+$fotoliaKey = "svBKgX7unls2Y7abxY9pRe8hJacn5MAn";
 
 require_once('class.phpmailer.php');
 

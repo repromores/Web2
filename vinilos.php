@@ -1,4 +1,6 @@
 <?php include "inc/config.php"; ?>
+<?php include "inc/apifotolia.php"; ?>
+
 <?php include "inc/head.php"; 
 $vinilos = 1;
 ?>
@@ -15,28 +17,27 @@ $vinilos = 1;
 <h2>Vinilos</h2>
 <p>
 Ponemos a tu disposición una amplia colección de vinilos para tu hogar o negocio.</p>
+ 
+<form class="form-inline" id="vinilosform" method="post" action="inc/apifotolia.php?function=getBusqueda">
+  <input type="hidden" name="min" id="min" value="0">
 
-<div class="busqueda">
-    <form class="form-inline" id="vinilosform" method="post" action="inc/fotolia.php">
-    Buscar:
-    <input type="text" class="span4" name="query" id="query" placeholder="¿Qué te apetece?">
-    <select name="cat" class="span3">
-      <option value="">Todos</option>
-      <optgroup label="Categorías">
-        <option value="">1</option>
-        <option value="">1</option>
-      <optgroup label="Conceptos">
-        <option value="">1</option>
-        <option value="">1</option>
-    </select>
-    <button type="submit" class="btn btn-primary" id="vinilos-submit">Buscar</button>
-    </form>
-</div>
+  <div class="busqueda">
+      Buscar:
+      <input type="text" class="span4" name="query" id="query" placeholder="¿Qué te apetece?">
+      <select name="cat" class="span3">
+        <option value="0">Todos</option>
+        <?php echo getCatPrimarias() ?>
+      </select>
+      <button type="submit" class="btn btn-primary" id="vinilos-submit">Buscar</button>
+  </div>
 
-<div class="resultados">
-  
-  
-</div>
+  <div class="resultados"></div>
+  <div class="paginacion">
+    <button type="button" class="btn pag patras" disabled="disabled"><</button>
+    <button type="button" class="btn pag palante">></button> 
+  </div> 
+</form>
+
 
   	</div>
   </div>

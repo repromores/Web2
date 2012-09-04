@@ -35,6 +35,7 @@ Como complemento a nuestros servicios de cartelería, soportes expositivos y rot
           "Rotulación integral para evento",
           "Rotulación en vinilo de corte e impreso",
           "Vinilo aplicado en flotas de vehículos",
+          "Vinilo aplicado en flotas de vehículos",
           "Vinilo impreso y de corte tras instalación"
         );
         echo creaListaGaleria($array_imagenes,"imagenes/rotulacion/montaje/",$array_titulos);

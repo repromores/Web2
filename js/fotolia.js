@@ -6,6 +6,7 @@ $('#vinilosform').ajaxForm({
 	},
 	success : function(data){
 		$("#vinilos-submit").text("Buscar");
+		$(".paginacion").show();
 		resultados.checkRes(data);
 	}
 }); 
@@ -13,24 +14,28 @@ $('#vinilosform').ajaxForm({
 var resultados = {
 	init : function(){
 		Resultados 				= this;
-		Resultados.key 			= "";
 		Resultados.target 		= ".resultados"; 
 		Resultados.plantilla 	= '<li class="item"><div class="box"><img src="{{imgsrc}}" data-id="{{id}}" title="{{title}}" alt="{{title}}"/></div></li>';
-	
+		
+		Resultados.pag 			= ".paginacion";
+		Resultados.pagValue		= "#min";
+
 		Resultados.eventListener();
+
+		$(Resultados.pagValue).val(0);
 	},
 
 	eventListener : function(){
-		$(Resultados.target).on("click","img", Resultados.verBorrador);
+		$(Resultados.target).on("click","img", Resultados.getBorrador);
+		$(Resultados.pag).on("click",".pag", Resultados.paginacion);
 	},
 
 	checkRes : function(data){
 		resp = '';
+		console.log(data);
 		nresultados = parseInt(data.nb_results);
 		
-		nresultados = 2;
-
-		for(i = 0; i < nresultados; i++){
+		for(i = 0; i < 32; i++){
 			item 	= "";
 			id		= data[i].id;
 			title	= data[i].title;
@@ -49,24 +54,39 @@ var resultados = {
 		$(Resultados.target).html(res);
 	},
 
-	getBorrador : function(id){
-		url = "http://"+ Resultados.key +"@api.fotolia.com/Rest/1/media/getMediaComp?id="+id;
-		$.getJSON(url,function(data){
-			return data.url;
-		})
-	},
-
-	verBorrador : function(){
+	getBorrador : function(){
 		id = $(this).data("id");
 
-		//url = getBorrador(id);
-		url = "http://fancyapps.com/fancybox/demo/1_b.jpg";
-		$.fancybox.open([
-	        {
-	            href : url
-	        }
-	    ]);
+		url = "inc/apifotolia.php?function=getBorrador&id="+id;
+
+		$.getJSON(url,function(data){
+			url = data.url;
+
+			url = url.replace("http://", "http://svBKgX7unls2Y7abxY9pRe8hJacn5MAn@"); 
+			console.log(url);
+			$.fancybox.open(
+		        {
+		            href : url
+		        }
+		    );
+		})
+	},
+	paginacion : function(e){
+		e.preventDefault();
+		$this = $(this);
+		if($this.hasClass("palante")){
+			$(Resultados.pagValue).val(parseInt($(Resultados.pagValue).val())+32);
+			$(".patras").removeAttr("disabled");
+		}else{
+			min = parseInt($(Resultados.pagValue).val())-32;
+			$(Resultados.pagValue).val(min);
+			if(min == 0){
+				$this.attr("disabled", "disabled");
+			}
+		}
+		$("#vinilosform").submit();
 	}
+
 };
 resultados.init();
 

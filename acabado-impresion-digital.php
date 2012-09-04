@@ -28,6 +28,7 @@ Dado que la presentación es un factor fundamental en la valoración de un traba
 				"Manipulado",
 				"Impresión tras manipulado (corte y plegado) ",
 				"Impresiones dispuestas para embalaje",
+				"Empaquetado"
 			);
 			echo creaListaGaleria($array_imagenes,"imagenes/impresion/imprenta/",$array_titulos);
 		?>

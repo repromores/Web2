@@ -52,7 +52,6 @@
         </li>
         <div class="menu-list menu3">
           <li><a class="menu-item" href="rotulacion.php">Rotulación</a></li>
-          <li><a class="menu-item" href="montaje.php">Montaje</a></li>   
         </div>
 
         <li class="nav-header"  data-menu="menu4">

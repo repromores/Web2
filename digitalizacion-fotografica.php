@@ -14,6 +14,23 @@
 <p> 
 Este servicio incorpora los últimos avances en el tratamiento digital de la imagen fotográfica, lo que permite incorporar textos y realizar todo tipo de correcciones de color y retoques, a partir de un negativo, positivo o cualquier objeto digitalizado.
 </p>
+<div class="clearfix">
+	<ul class="galeria">
+
+	<?php 
+	        $array_imagenes = array(
+	          "_MG_9792.jpg",
+	          "IMG_8337.jpg",
+	        );
+	        $array_titulos = array(
+	          
+	          "Digitalización y restauración de originales",
+	          ""
+	        );
+	        echo creaListaGaleria($array_imagenes,"imagenes/digitalizacion/",$array_titulos);
+	      ?>
+	</ul>
+</div>
 <h3>Aplicaciones</h3>
 <ul>
 <li>Tratamiento fotográfico digital desde cualquier soporte y formato.</li>

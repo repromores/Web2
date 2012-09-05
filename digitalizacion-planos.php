@@ -15,6 +15,21 @@
 <p>
 Nuestro servicio de vectorización de planos le ofrece la posibilidad de reaprovechar la totalidad o una parte de antiguos planos de construcción, topografía e ingeniería, entre otros, convirtiéndolos a formato vectorial editable DXF o DWG.
 </p>
+<div class="clearfix">
+	<ul class="galeria">
+
+	<?php 
+	        $array_imagenes = array(
+	          "DSCF0476_1178.jpg",
+	          "DSCF0427_1129.jpg",
+	          "DSCF0421_1123.jpg"
+	        );
+
+	        echo creaListaGaleria($array_imagenes,"imagenes/digitalizacion/");
+	      ?>
+	</ul>
+</div>
+
 <h3>Montaje de planos</h3>
 <p>
 Nuestro servicio de montaje de planos le ofrece prestaciones como el coloreado de un plano, mediante sistemas de retoque gráfico digital, o la composición en un mismo documento de sus diseños vectoriales con fotografías.

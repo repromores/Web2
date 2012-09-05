@@ -25,7 +25,12 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
           "Impresión_y_venta_de_Roll_Up_01.jpg",
           "Expand_2000_B.jpg",
           "Round_Up_+_PopUP.jpg",
-          "Round_Up_A.jpg"
+          "Round_Up_A.jpg",
+          "_MG_1563A.jpg",
+          "_MG_1630A.jpg",
+          "_MG_2057A.jpg",
+          "2441.jpg",
+          "DSCF2141.jpg",
         );
         $array_titulos = array(
           "Bodegón de estructuras",
@@ -36,7 +41,11 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
           "Displays enrollables para eventos",
           "Panel y maleta mostrador para eventos",
           "PLV con Round Up + Pop Up",
-          "Ejemplo de estructura para PLV",
+          "Stands para eventos",
+          "Stands para eventos",
+          "Stands para eventos",
+          "Stands para eventos",
+          "Stands para eventos",
         );
         echo creaListaGaleria($array_imagenes,"imagenes/stands/",$array_titulos);
       ?>

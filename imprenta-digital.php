@@ -31,7 +31,7 @@ Recientemente hemos incorporado la tecnología offset digital, que combina las v
 
 				);
 				$array_titulos = array(
-					"Impresión offset digital en Ryobi (poner como primera)",
+					"Impresión offset digital en Ryobi",
 					"Ejemplos de trabajos realizados en imprenta digital",
 					"Ejemplos de trabajos realizados en imprenta digital ",
 					"Ejemplos de trabajos realizados en imprenta digital "

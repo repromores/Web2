@@ -48,7 +48,7 @@
     if(!$mantenimiento){
       include "js/analytics.php";
     } ?>
-
+    <script src="js/jquery.touchwipe.min.js"></script>
     <script src="js/navegacion.js"></script> 
  
   <?php if(!empty($vinilos)){ ?>

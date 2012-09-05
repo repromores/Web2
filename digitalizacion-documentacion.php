@@ -14,6 +14,7 @@
 <p>
 Gracias a nuestro moderno servicio de digitalización, le ofrecemos la posibilidad de manejar grandes volúmenes de información, de forma cómoda y segura, aprovechando al máximo el potencial de las nuevas tecnologías. Disponemos de sistemas de escaneado, tanto en blanco y negro como en color, que permiten la digitalización de todo tipo de originales, empleando las resoluciones y tamaños adecuados para cada tipo de documento.
 </p>
+
 <h3>Aplicaciones</h3>
 <ul>
 <li>Archivos de documentación histórica o delicada: pergaminos, libros antiguos, manuscritos, etc.</li>

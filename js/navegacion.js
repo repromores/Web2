@@ -41,12 +41,25 @@ navLat.init();
 $(".galeriaitem").fancybox({
     	openEffect	: 'elastic',
     	closeEffect	: 'elastic',
+    	preload		: 6,
     	helpers : {
     		title : {
     			type : 'inside'
     		}
+    	},
+    	afterShow : function(){
+    		$(".fancybox-wrap").touchwipe({
+			     wipeLeft: function() { $.fancybox.prev(); },
+			     wipeRight: function() { $.fancybox.next(); },
+			     wipeUp: function() { $.fancybox.prev(); },
+			     wipeDown: function() { $.fancybox.next(); },
+			     min_move_x: 20,
+			     min_move_y: 20,
+			     preventDefaultEvents: true
+			});
     	}
 });
+
 $(".mapa").fancybox({
     	openEffect	: 'elastic',
     	closeEffect	: 'elastic',	

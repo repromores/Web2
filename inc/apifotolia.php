@@ -1,6 +1,6 @@
 <?php include_once "config.php"; ?>
 <?php
-$function = empty($_GET["function"])?$_GET["function"] : "";
+$function = !empty($_GET["function"])?$_GET["function"] : "";
 
 switch ($function) {
 	case 'getBorrador':
@@ -26,17 +26,16 @@ function getBorrador(){
 	global $fotoliaKey;
 	$id = $_GET["id"];
 	$url = "http://". $fotoliaKey ."@api.fotolia.com/Rest/1/media/getMediaComp?id=".$id;
-
 	return getJSON($url);
 }
 
 function getBusqueda(){
 	global $fotoliaKey;
 
-	if(empty($_POST["query"])){return "";}
+	//if(empty($_POST["query"])){return "";}
 	$query	 = 'search_parameters[language_id]=5';
 	$query	.= '&search_parameters[offset]='.$_POST["min"];
-	$query	.= !empty($_POST["query"])? '&search_parameters[words]='. $_POST["query"] :"";
+	$query	.= !empty($_POST["query"])? '&search_parameters[words]='. urlencode($_POST["query"]) :"";
 
 	$cat 	 = !empty($_POST["cat"])? $_POST["cat"] : 0;
 

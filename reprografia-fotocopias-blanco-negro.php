@@ -21,14 +21,12 @@ Siguiendo nuestra actividad original, realizamos fotocopias inmediatas en blanco
           "IMG_8120.jpg",
           "IMG_8124.jpg",
           "IMG_8125.jpg",
-          "Fotocopiado_digitalización0004.jpg",
 
         );
         $array_titulos = array(
           "",
           "",
           "",
-          "Fotocopiado/digitalización",
 
         );
 

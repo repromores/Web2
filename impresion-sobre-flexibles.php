@@ -36,7 +36,6 @@
 					"Vinilo impreso para exposición - Laboral 02.jpg",			
 					"Impresión_fotográfica_en_Durst_Lambda_04.jpg",
 					"Impresión_e_instalación_de_lonas_en_farolas.jpg",
-					"Vinilo_impreso_para_punto_de_información.jpg",
 					"Vinilo_impreso_para_rotulación_de_vallas_publicitarias_01.jpg",
 					"IMG_2910.jpg"
 				);
@@ -56,7 +55,6 @@
 					"Vinilo impreso para exposición",			
 					"Impresión fotográfica ",
 					"Impresión e instalación de banderolas",
-					"Vinilo impreso para punto de información",
 					"Vinilo impreso para vallas publicitarias",
 					""
 				);

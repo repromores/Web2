@@ -25,6 +25,13 @@ Reproducimos todo tipo de planos, tanto en blanco y negro como en color, pudiend
         );
 
         echo creaListaGaleria($array_imagenes,"imagenes/reprografia/planos/");
+
+        $array_imagenes = array(
+          "DSCF0427_1129.jpg",
+        );
+
+        echo creaListaGaleria($array_imagenes,"imagenes/digitalizacion/");
+        
       ?>
     </ul>
   </div>
@@ -44,6 +51,24 @@ Reproducimos todo tipo de planos, tanto en blanco y negro como en color, pudiend
 <li><strong>Servicio total</strong>: Disponemos de un servicio de manipulado de planos que, en combinación con nuestros sistemas de plegado automático para múltiples formatos (pestaña, funda, etc), está concebido para satisfacer las necesidades de presentación más exigentes de cualquier profesional.</li>
 </ul>
 
+<h2>Digitalización de planos</h2>
+<h3>Vectorización automática de planos</h3>
+<p>
+Nuestro servicio de vectorización de planos le ofrece la posibilidad de reaprovechar la totalidad o una parte de antiguos planos de construcción, topografía e ingeniería, entre otros, convirtiéndolos a formato vectorial editable DXF o DWG.
+</p>
+
+<h3>Montaje de planos</h3>
+<p>
+Nuestro servicio de montaje de planos le ofrece prestaciones como el coloreado de un plano, mediante sistemas de retoque gráfico digital, o la composición en un mismo documento de sus diseños vectoriales con fotografías.
+</p>
+<p>
+Así, encontrará la solución perfecta para la presentación de sus proyectos de obra civil o estudio medioambiental, de cara a su participación en concursos públicos de arquitectura o ingeniería y certámenes de cualquier especialidad.
+</p>
+<h3>Catálogo visual</h3>
+<p>
+Le ofrecemos la posibilidad de visualizar los documentos e imágenes correspondientes a  proyectos técnicos o planes generales de urbanismo, permitiendo un fácil manejo y consulta informática de estos contenidos.
+</p>
+  
   	</div>
   </div>
 

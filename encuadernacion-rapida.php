@@ -17,18 +17,20 @@ A través de este servicio, le ofrecemos la posibilidad de encuadernar sus traba
     <ul class="galeria">
       <?php 
         $array_imagenes = array(
-          "_MG_9831.jpg",
           "canitillo_1.jpg",
           "canutillo_3.jpg",
           "tornillo_8.jpg",
           "tornillo_20.jpg",
+          "_MG_9831.jpg",
+
         );
         $array_titulos = array(
-          "Enlomado ",
           "Encuadernación en canutillo",
           "Encuadernación en canutillo",
           "Encuadernación de tornillo ",
-          "Encuadernación de tornillo "
+          "Encuadernación de tornillo ",
+          "Enlomado ",
+
         );
         echo creaListaGaleria($array_imagenes,"imagenes/encuadernacion/rapida/",$array_titulos);
       ?>

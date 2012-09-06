@@ -21,35 +21,39 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
           "_MG_1700A.jpg",
           "_MG_2057A.jpg",
           "COGERSA_8.jpg",
-          "Suelo_tecnico_para_eventos_y_ferias_01.jpg",
           "Impresión_y_venta_de_Roll_Up_01.jpg",
           "Expand_2000_B.jpg",
-          "Round_Up_+_PopUP.jpg",
-          "Round_Up_A.jpg",
           "_MG_1563A.jpg",
           "_MG_1630A.jpg",
           "_MG_2057A.jpg",
           "2441.jpg",
           "DSCF2141.jpg",
+          "Round_Up_+_PopUP.jpg",
+          "Round_Up_A.jpg",
+          "Suelo_tecnico_para_eventos_y_ferias_01.jpg",
+
         );
         $array_titulos = array(
           "Bodegón de estructuras",
           "Elementos dispositivos instalados en evento",
           "Combinación de estructura con trabajo de impresión",
           "Espacio de exposición creado en feria con material Reboard",
-          "Suelo técnico impreso para eventos y ferias",
           "Displays enrollables para eventos",
           "Panel y maleta mostrador para eventos",
+          "Stand",
+          "Stand",
+          "Stand",
+          "Stand",
+          "",
           "PLV con Round Up + Pop Up",
-          "Stands para eventos",
-          "Stands para eventos",
-          "Stands para eventos",
-          "Stands para eventos",
-          "Stands para eventos",
+          "Estructura expositiva para PLV",
+          "Suelo técnico impreso para eventos y ferias",
+
         );
         echo creaListaGaleria($array_imagenes,"imagenes/stands/",$array_titulos);
       ?>
     </ul>
+    <h3>Ventajas</h3>
 <ul>
 <li><strong>Calidad e innovación</strong>: Apuesta por primeras marcas (somos distribuidores de prestigiosas firmas como Expand y Spennare).</li>
 <li><strong>Variedad </strong>: Dispondrá de una amplia oferta de elementos al servicio de la comunicación (soportes modulares, enrollables, portafolletos, truss, T3, displays, etc).</li>

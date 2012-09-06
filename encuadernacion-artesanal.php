@@ -24,9 +24,9 @@ Siguiendo la tradición de los mejores maestros encuadernadores, realizamos todo
           "mores_encuadernacion_005.jpg",
         );
         $array_titulos = array(
-          "Encuadernación con tapa dura",
-          "Encuadernación con tapa dura",
-          "Encuadernación en piel",
+          "Encuadernación con cosido",
+          "Encuadernación de libros",
+          "Encuadernación en tesis",
           "Taller de encuadernación artesanal",
           "Taller de encuadernación artesanal",
         );
@@ -35,20 +35,21 @@ Siguiendo la tradición de los mejores maestros encuadernadores, realizamos todo
     </ul>
 <h3>Opciones</h3>
 <ul>
-<li>Libros de tela.</li>
-<li>Encuadernación rústica.</li>
-<li>Encuadernaciones media piel.</li>
-<li>Encuadernaciones media piel con puntas.</li>
-<li>Encuadernaciones media piel con bandas.</li>
-<li>Encuadernaciones piel completa.</li>
+  <li>Libros de tela.</li>
+  <li>Encuadernación rústica.</li>
+  <li>Encuadernaciones media piel.</li>
+  <li>Encuadernaciones media piel con puntas.</li>
+  <li>Encuadernaciones media piel con bandas.</li>
+  <li>Encuadernaciones piel completa.</li>
 </ul>
 <h3>Aplicaciones</h3>
 <ul>
-<li>Fascículos.</li>
-<li>Libros de firmas.</li>
-<li>álbumes de fotos.</li>
-<li>Carpetas portafirmas.</li>
-<li>Cajas y estuches a medida para libros.</li>
+  <li>Tesis doctorales.</li>
+  <li>Fascículos.</li>
+  <li>Libros de firmas.</li>
+  <li>Álbumes de fotos.</li>
+  <li>Carpetas portafirmas.</li>
+  <li>Cajas y estuches a medida para libros.</li>
 </ul>
 
 

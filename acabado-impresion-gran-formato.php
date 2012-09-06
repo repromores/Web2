@@ -14,27 +14,7 @@
 <p>
 Entendemos que la presentación es un factor fundamental en la valoración de un trabajo. Por ello,  a través de nuestros servicios de laminado y montaje, ponemos a su disposición las mejores herramientas para conseguir la mejor presentación de su trabajo:
 </p>
-<div class="clearfix">
-		<ul class="galeria">
-			<?php 
-				$array_imagenes = array(
-					"Vinilo_impreso_para_punto_de_información_-_Valladolid.jpg",
-					"Vinilo_impreso_para_rotulación_de_oficinas.jpg",
-					"Vinilo_impreso_para_rotulación_de_vallas_publicitarias_02.jpg",
-					"Soportes_modulares_impresos.jpg",
-					"Impresión_de_lonas_para_eventos.jpg"
-				);
-			$array_titulos = array(
-				"Vinilo impreso instalado para punto de información",
-				"Vinilo impreso instalado en oficinas",
-				"Vinilo impreso aplicado en vallas publicitarias",
-				"Soportes modulares impresos ",
-				"Lonas impresas instaladas en evento"
-			);
-				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/acabado/",$array_titulos);
-			?>
-		</ul>
-</div>
+
 <ul>
 <li>Plastificado y encapsulado, a una o doble cara, en materiales resistentes a radiaciones UVA, con acabado mate o brillo.</li>
 <li>Laminación de vinilos para exterior.</li>

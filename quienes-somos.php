@@ -36,21 +36,21 @@
 
 				);
 				$array_titulos = array(
-					"Nuetra tienda en Oviedo",
-					"Nuetra tienda en Oviedo",
-					"Nuetra tienda en Oviedo",
-					"Nuetra tienda en Oviedo",
-					"Edificio Covadonga - Parque Tecnológico",
-					"Edificio Covadonga - Parque Tecnológico",
-					"Edificio Covadonga - Parque Tecnológico",
-					"Edificio Covadonga - Parque Tecnológico",
-					"Nuetra tienda en Gijón",
-					"Nuetra tienda en Gijón",
-					"Nuetra tienda en Gijón",
-					"Nuetra tienda en Gijón",
-					"Nuetra tienda en Gijón",
-					"Nuetra tienda en Centro Elena - Parque Tecnológico",
-					"Nuetra tienda en Centro Elena - Parque Tecnológico",
+					"Tienda en Oviedo - Viaducto Marquina",
+					"Tienda en Oviedo - Viaducto Marquina",
+					"Tienda en Oviedo - Viaducto Marquina",
+					"Tienda en Oviedo - Viaducto Marquina",
+					"Edificio Covadonga - Parque Tecnológico de Llanera",
+					"Edificio Covadonga - Parque Tecnológico de Llanera",
+					"Edificio Covadonga - Parque Tecnológico de Llanera",
+					"Edificio Covadonga - Parque Tecnológico de Llanera",
+					"Tienda en Gijón - Marqués de San Esteban",
+					"Tienda en Gijón - Marqués de San Esteban",
+					"Tienda en Gijón - Marqués de San Esteban",
+					"Tienda en Gijón - Marqués de San Esteban",
+					"Tienda en Gijón - Marqués de San Esteban",
+					"Tienda en Centro Elena - Parque Tecnológico de Llanera",
+					"Tienda en Centro Elena - Parque Tecnológico de Llanera",
 				);
 
 				echo creaListaGaleria($array_imagenes,"imagenes/tiendas/",$array_titulos);

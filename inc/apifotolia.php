@@ -33,24 +33,47 @@ function getBusqueda(){
 	global $fotoliaKey;
 
 	//if(empty($_POST["query"])){return "";}
-	$query	 = 'search_parameters[language_id]=5';
-	$query	.= '&search_parameters[offset]='.$_POST["min"];
-	$query	.= !empty($_POST["query"])? '&search_parameters[words]='. urlencode($_POST["query"]) :"";
+	if(isset($_POST["query"])){
+		$query	 = 'search_parameters[language_id]=5';
+		$query	.= '&search_parameters[offset]='.$_POST["min"];
+		
+		$query	.= !empty($_POST["query"])? '&search_parameters[words]='. urlencode($_POST["query"]) :"";
 
-	$cat 	 = !empty($_POST["cat"])? $_POST["cat"] : 0;
+		$cat 	 = !empty($_POST["cat"])? $_POST["cat"] : 0;
 
-	if($cat != 0){
-		$temp = explode("-", $cat);
-		$cattype = $temp[0];
-		$cat 	 = $temp[1];
 
-		$query	 .= '&search_parameters[cat'.$cattype.'_id]='.$cat;
-	}
-	//$query = urlencode($query);
+		switch ($_POST["tipo"]) {
+			case 'vector':
+				$query	.= '&search_parameters[filters][content_type:vector]=1';
+				break;
+			case 'vector':
+				$query	.= '&search_parameters[filters][content_type:vector]=1';
+				break;
+			case 'foto':
+				$query	.= '&search_parameters[filters][content_type:photo]=1';
+				break;
+			case 'ilus':
+				$query	.= '&search_parameters[filters][content_type:illustration]=1';
+				break;
 
-	$url 	=  "http://". $fotoliaKey ."@api.fotolia.com/Rest/1/search/getSearchResults?".$query;
-//	echo $url;
-	return getJSON($url);
+			default:
+				$query	.= '&search_parameters[filters][content_type:all]=1';
+				break;
+		}
+
+		if($cat != 0){
+			$temp = explode("-", $cat);
+			$cattype = $temp[0];
+			$cat 	 = $temp[1];
+
+			$query	 .= '&search_parameters[cat'.$cattype.'_id]='.$cat;
+		}
+		//$query = urlencode($query);
+
+		$url 	=  "http://". $fotoliaKey ."@api.fotolia.com/Rest/1/search/getSearchResults?".$query;
+	//	echo $url;
+		return getJSON($url);
+	}else{return "";}
 }
 
 function getCatPrimarias(){

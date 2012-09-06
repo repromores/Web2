@@ -15,8 +15,8 @@ var resultados = {
 	init : function(){
 		Resultados 				= this;
 		Resultados.target 		= ".resultados";
-		Resultados.Cabecera		= "<legend>{{nres}} Resultados:</legend>";
-		Resultados.plantilla 	= '<li class="item"><div class="box"><img src="{{imgsrc}}" data-id="{{id}}" title="{{title}}" alt="{{title}}"/></div></li>';
+		Resultados.Cabecera		= "<br><br><legend>{{nres}} Resultados:</legend>";
+		Resultados.plantilla 	= '<li class="item"><div class="box" data-id="{{id}}"><img src="{{imgsrc}}" data-id="{{id}}" title="{{title}}" alt="{{title}}"/><button type="button" class="btn imgbtn" data-id="{{id}}">Seleccionar</button></div></li>';
 		
 		Resultados.pag 			= ".paginacion";
 		Resultados.pagValue		= "#min";
@@ -28,6 +28,7 @@ var resultados = {
 
 	eventListener : function(){
 		$(Resultados.target).on("click","img", Resultados.getBorrador);
+		$(Resultados.target).on("click",".imgbtn", Resultados.selectImg);
 		$(Resultados.pag).on("click",".pag", Resultados.paginacion);
 	},
 
@@ -54,13 +55,14 @@ var resultados = {
 				resp += item;
 			}
 		}else{
-			resp = "<p>No hay resultados, prueba otra vez!</p>";
+			resp = "<br><br><br><p>No hay resultados, prueba otra vez!</p><br><br><br>";
 		}
 		Resultados.publicarRes(resp);
 	},
 
 	publicarRes: function(res){
 		$(Resultados.target).html(res);
+		Resultados.markSelected();
 	},
 
 	getBorrador : function(){
@@ -95,8 +97,45 @@ var resultados = {
 			}
 		}
 		$("#vinilosform").submit();
+	},
+
+	selectImg : function(){
+		$this = $(this);
+		idfoto = $this.data("id");
+
+		if($this.hasClass("selected")){
+			selected = JSON.parse(sessionStorage.getItem("vinilosSelected"));
+			var idx = selected.indexOf(idfoto); 
+			if(idx!=-1) selected.splice(idx, 1);
+
+		}else{
+			(sessionStorage.getItem("vinilosSelected") == null)? selected =  new Array() : selected = JSON.parse(sessionStorage.getItem("vinilosSelected"));
+			selected.push(idfoto); 
+		}
+		Resultados.applySelectedStyling($this);
+		sessionStorage.setItem("vinilosSelected", JSON.stringify(selected));
+	},
+
+	markSelected : function(){
+		if(sessionStorage.getItem("vinilosSelected") != null){
+			selected = JSON.parse(sessionStorage.getItem("vinilosSelected"));
+			$(".box").each(function(){
+				$this = $(this);
+				idfoto = $this.data("id");
+				if( $.inArray(idfoto,selected) > -1){
+					Resultados.applySelectedStyling($this.find("button"));
+				}
+			});
+		}
+	},
+	applySelectedStyling : function(boton){
+		boton.hasClass("selected")? text = "Seleccionar" : text = "Seleccionado";
+		boton.text(text);
+		boton.toggleClass("selected");
+		boton.parent(".box").toggleClass("selected-box");
 	}
 
 };
 resultados.init();
 
+  

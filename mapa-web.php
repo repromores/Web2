@@ -38,18 +38,17 @@
 				<ul>
 				<li><a href="impresion-digital.php">Impresión digital</a></li>
 				<li><a href="imprenta-digital.php">Imprenta digital</a></li>
-				<li><a href="acabado-impresion-digital.php">Acabado impresión digital</a></li>
+				<li><a href="acabado-impresion-digital.php">Acabado</a></li>
 				</ul>
 				</li>
 				<li><a href="rotulacion.php">Rotulación:</a>
 				<ul>
-				<li><a href="rotulacion.php">Rotulación</a></li>
-				<li><a href="montaje.php">Montaje</a></li>
+				<li><a href="rotulacion.php">Rotulación y montaje</a></li>
 				</ul>
 				</li>
-				<li><a href="soportes-expositivos.php">Soportes expositivos:</a>
+				<li><a href="soportes-expositivos.php">Stands y displays:</a>
 				<ul>
-				<li><a href="soportes-expositivos.php">Soportes expositivos</a></li>
+				<li><a href="soportes-expositivos.php">Stands y displays</a></li>
 				</ul>
 				</li>
 				<li><a href="reprografia-fotocopias-blanco-negro.php">Reprografía</a>
@@ -64,13 +63,11 @@
 				<li><a href="digitalizacion-documentacion.php">Histórica, técnica y administrativa</a></li>
 				<li><a href="digitalizacion-fotografica.php">Fotográfica</a></li>
 				<li><a href="digitalizacion-planos.php">Planos</a></li>
-				<li><a href="digitalizacion-otros-servicios.php">Otros servicios</a></li>
 				</ul>
 				</li>
 				<li><a href="fotografia-digital.php">Fotografía digital:</a>
 				<ul>
 				<li><a href="fotografia-digital.php">Fotografía digital</a></li>
-				<li><a href="fotografia-kiosko-digital.php">Kiosko digital</a></li>
 				<li><a href="material-fotografico.php">Material fotográfico</a></li>
 				</ul>
 				</li>

@@ -50,7 +50,9 @@ Señalización interior, suelos escenográficos, PLV´s, vallas de obra, suelos 
 <li><strong>Rapidez</strong>: Gracias a la gran capacidad productiva que aportan las últimas tecnologías (producción continua multiplancha, con espesor máximo de 4 cm).</li>
 </ul>
 
-
+<a target="_blank" href="pdf/re-board-triptico.pdf">
+	<div class="pdfdoc"><img alt="ver dossier" src="img/pdf.png"><span>Reboard</span></div>
+</a>
 		
   	</div>
   </div>

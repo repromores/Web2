@@ -2,29 +2,34 @@
 <?php
 $function = !empty($_GET["function"])?$_GET["function"] : "";
 
-switch ($function) {
-	case 'getBorrador':
-		$result = getBorrador();
-		break;
+if($function != ""){
+	switch ($function) {
+		case 'getBorrador':
+			$result = getBorrador();
+			break;
 
-	case 'getCatPrimarias':
-		$result = getCatPrimarias();
-		break;
+		case 'getCatPrimarias':
+			$result = getCatPrimarias();
+			break;
 
-	case 'getBusqueda':
-		$result = getBusqueda();
-		break;
-	
-	default:
-		$result = getBusqueda();
-		break;
+		case 'getBusqueda':
+			$result = getBusqueda();
+			break;
+		case 'getInfoFoto':
+			$result = getInfoFoto();
+			break;
+		
+		default:
+			//$result = getBusqueda();
+			break;
+	}
+	echo($result);
 }
 
-echo($result);
 
-function getBorrador(){
+function getBorrador($id=""){
 	global $fotoliaKey;
-	$id = $_GET["id"];
+	$id = empty($id)? $_GET["id"] : $id;
 	$url = "http://". $fotoliaKey ."@api.fotolia.com/Rest/1/media/getMediaComp?id=".$id;
 	return getJSON($url);
 }
@@ -74,6 +79,21 @@ function getBusqueda(){
 	//	echo $url;
 		return getJSON($url);
 	}else{return "";}
+}
+
+function getInfoFoto($id=""){
+	global $fotoliaKey;
+	$id = empty($id)? $_GET["id"] : $id;
+
+	$query	 = 'language_id=5';
+	$query	.= '&thumbnail_size=400';
+	$query	.= '&id='.$id;
+
+
+
+	$url 	=  "http://". $fotoliaKey ."@api.fotolia.com/Rest/1/media/getMediaData?".$query;
+//	echo $url;
+	return getJSON($url);
 }
 
 function getCatPrimarias(){

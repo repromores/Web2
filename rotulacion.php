@@ -10,7 +10,7 @@
   <div class="span10">
   	<div class="content">
 
-<h2>Rotulación</h2>
+<h2>Rotulación y montaje</h2>
 <p>
 Le ofrecemos un servicio completo que incluye desde la impresión o corte de sus diseños en diferentes tonos y colores hasta la colocación en el tipo de superficie adecuado.
 </p>
@@ -50,11 +50,10 @@ Como complemento a nuestros servicios de cartelería, soportes expositivos y rot
           "Rotulación de cargador HC 02.jpg",
           "Vinilo_impreso_para_rotulación_de_oficinas.jpg",
           "Vinilo_impreso_para_rotulación_de_vallas_publicitarias_02.jpg",
-          "Soportes_modulares_impresos.jpg",
           "Impresión_de_lonas_para_eventos.jpg"
         );
         $array_titulos = array(
-          "Rotulación integral para evento",
+          "Instalación integral de elementos de cartelería y rotulación para evento",
           "Rotulación en vinilo de corte e impreso",
           "Vinilo aplicado en flotas de vehículos",
           "Vinilo aplicado en flotas de vehículos",
@@ -63,13 +62,12 @@ Como complemento a nuestros servicios de cartelería, soportes expositivos y rot
           "Rotulación de autobuses",
           "Rotulación de autobuses",
           "Rotulación de flotas de vehículos",
-          "Vinilo vacío",
-          "Vinilo vacío",
+          "Vinilo ácido",
+          "Vinilo ácido",
           "Rotulación de mobiliario urbano",
           "Rotulación de mobiliario urbano",
           "Vinilo impreso instalado en oficinas",
           "Vinilo impreso aplicado en vallas publicitarias",
-          "Soportes modulares impresos ",
           "Lonas impresas instaladas en evento"
         );
         echo creaListaGaleria($array_imagenes,"imagenes/rotulacion/",$array_titulos);

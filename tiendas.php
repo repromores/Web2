@@ -87,7 +87,7 @@ También se ubican en él los <strong>departamentos</strong> <strong>técnico</s
 			<table>
 				<tbody><tr><td><span class="gris">Teléfono:</span></td><td>985 25 50 75</td></tr>
 				<tr><td><span class="gris">Fax:</span></td><td>985 96 50 53</td></tr>
-				<tr><td><span class="gris">Horario apertura:</span></td><td> Lunes a Viernes de 9:00 a 13:30 y de 16:00 a 18:30.</td></tr>
+				<tr><td style="font-size:0.8em"><span class="gris">Horario dpto. Facturación:</span></td><td style="font-size:0.8em"> Lunes a Viernes de 9:00 a 13:30 y de 16:00 a 18:30.</td></tr>
 			</tbody></table>
 		</td>
 	</tr>
@@ -108,7 +108,7 @@ También se ubican en él los <strong>departamentos</strong> <strong>técnico</s
 </tbody></table>
 <br>
 
-  		<h2>Centro Elena - Parque tecnológico</h2>
+  		<h2>Centro Elena - Parque Tecnológico</h2>
 <p>
  Punto de venta especializado en actividades de <strong>reprografía y encuadernación rápida.</strong> </p>
 

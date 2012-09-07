@@ -26,11 +26,16 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
           "_MG_1563A.jpg",
           "_MG_1630A.jpg",
           "_MG_2057A.jpg",
+          "displays para eventos.jpg",
+          "stand.jpg",
+          "stands.jpg",
           "2441.jpg",
           "DSCF2141.jpg",
+          "Soportes_modulares_impresos.jpg",
           "Round_Up_+_PopUP.jpg",
           "Round_Up_A.jpg",
           "Suelo_tecnico_para_eventos_y_ferias_01.jpg",
+
 
         );
         $array_titulos = array(
@@ -43,8 +48,12 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
           "Stand",
           "Stand",
           "Stand",
+          "displays para eventos",
           "Stand",
-          "",
+          "Stand",
+          "Stand",
+          "Soportes modulares impresos",
+          "Soportes modulares impresos",
           "PLV con Round Up + Pop Up",
           "Estructura expositiva para PLV",
           "Suelo técnico impreso para eventos y ferias",

@@ -20,8 +20,16 @@ Gracias a nuestro moderno servicio de digitalización, le ofrecemos la posibilid
 	<?php 
         $array_imagenes = array(
           "DSCF0476_1178.jpg",
+          "digitalizacion tecnica2.jpg",
+          "digitalizacion tecnica1.jpg",
         );
+        $array_titulos = array(
+          "",
+          "Digitalización técnica",
+          "Digitalización técnica",
 
+
+        );
         echo creaListaGaleria($array_imagenes,"imagenes/digitalizacion/");
 
         $array_imagenes = array(
@@ -30,7 +38,7 @@ Gracias a nuestro moderno servicio de digitalización, le ofrecemos la posibilid
 
         );
         $array_titulos = array(
-          "Digitalización de documentacion",
+          "Digitalización de documentación",
 
         );
 
@@ -58,7 +66,9 @@ Gracias a nuestro moderno servicio de digitalización, le ofrecemos la posibilid
 <li><strong>Capacidad ilimitada</strong> de archivo.</li>
 </ul>
 
-
+<a target="_blank" href="pdf/presentación digitalización mores.pdf">
+	<div class="pdfdoc"><img alt="ver dossier" src="img/pdf.png"><span>Digitalización en morés</span></div>
+</a>
   	</div>
   </div>
 

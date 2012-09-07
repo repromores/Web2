@@ -1407,7 +1407,7 @@ table {
 }
 .table tbody tr:hover td,
 .table tbody tr:hover th {
-  background-color: #f5f5f5;
+  background-color: #f1f1f1;
 }
 table .span1 {
   float: none;
@@ -4567,4 +4567,18 @@ ul.menu-top li a {
   margin-top: 20px;
   text-align: center;
   display: none;
+}
+div.muestra-imagen {
+  width: 750px;
+}
+div.muestra-imagen div.img {
+  float: left;
+  max-width: 480px;
+}
+div.muestra-imagen div.info {
+  width: 300px;
+  float: right;
+}
+div.muestra-imagen table td {
+  cursor: pointer;
 }

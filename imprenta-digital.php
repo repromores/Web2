@@ -46,7 +46,9 @@ Recientemente hemos incorporado la tecnología offset digital, que combina las v
 <li>Campañas de marketing sectorial.</li>
 </ul>
 			
-
+<a target="_blank" href="pdf/OFFSET DIGITAL PRODUCTO OK.pdf">
+	<div class="pdfdoc"><img alt="ver dossier" src="img/pdf.png"><span>Offset Digital</span></div>
+</a>
   	</div>
   </div>
 

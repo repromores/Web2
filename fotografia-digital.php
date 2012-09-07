@@ -23,15 +23,6 @@ En combinación con nuestro departamento de impresión digital, le ofrecemos la 
 Ponemos a su alcance la calidad que aportan las últimas tecnologías y la variedad de todo nuestro servicio, lo que le permitirá hacer realidad cualquier idea con el único límite de su imaginación.
 </p>
 
-        $array_imagenes = array(
-
-        );
-        $array_titulos = array(
-
-        );
-        echo creaListaGaleria($array_imagenes,"imagenes/fotografia/",$array_titulos);
-
-
   <div class="clearfix">
     <ul class="galeria">
       <?php 
@@ -40,7 +31,7 @@ Ponemos a su alcance la calidad que aportan las últimas tecnologías y la varie
           "Álbum-digital-00300001.jpg",
           "Minilab-fotográfico300000000000.jpg",
           "Minilab-fotográfico300000000002.jpg",
-          "Impresión fotográfica20100624_0185.jpg"
+          "Impresión fotográfica20100624_0185.jpg",
           "mores-fotografia-kiosko-digital-08.jpg",
         );
         $array_titulos = array(

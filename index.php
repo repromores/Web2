@@ -11,7 +11,7 @@
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
-          <img src="http://lorempixel.com/587/350/sports/1" alt="">
+          <a href="pdf/bajamos precios baja.pdf" target="_blank"><img src="imagenes/portadas/iva.jpg" alt="Precios sin IVA"></a>
           <!-- 
           <div class="carousel-caption">
             <h4>First Thumbnail label</h4>
@@ -19,6 +19,8 @@
           </div>
            -->
         </div>
+        
+<?php /*
         <div class="item">
           <img src="http://lorempixel.com/587/350/sports/2" alt="">
           <!-- 
@@ -35,9 +37,13 @@
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
           </div>
         </div>
+*/?>
+
       </div>
+<?php /*
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+*/?>
     </div>
 
     <div class="row">

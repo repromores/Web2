@@ -17,16 +17,16 @@ Siguiendo la tradición de los mejores maestros encuadernadores, realizamos todo
     <ul class="galeria">
       <?php 
         $array_imagenes = array(
-          "DSCF2272.jpg",
           "DSCF2274.jpg",
           "DSCF2275.jpg",
+          "DSCF2272.jpg",
           "mores_encuadernacion_002.jpg",
           "mores_encuadernacion_005.jpg",
         );
         $array_titulos = array(
-          "Encuadernación con cosido",
           "Encuadernación de libros",
           "Encuadernación en tesis",
+           "Encuadernación con cosido",
           "Taller de encuadernación artesanal",
           "Taller de encuadernación artesanal",
         );

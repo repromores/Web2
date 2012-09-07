@@ -27,11 +27,15 @@ Nuestro sistema de impresión digital está concebido para facilitarle la impres
 					"mores-impresion-pequeño-formato-xeikon0014.jpg",
 					"mores-impresion-pequeño-formato-xeikon0009.jpg",
 					"mores-impresion-pequeño-formato-xeikon0018.jpg",
+					"calendario pie.jpg",
+					"tarjeta calendario.jpg",
 				);
 				$array_titulos = array(
 					"Impresión pequeño formato en Xeikon",
 					"Impresión pequeño formato en Xeikon",
 					"Ejemplos de trabajos realizados en Xeikon",
+					"calendario de pie",
+					"tarjeta calendario",
 				);
 				echo creaListaGaleria($array_imagenes,"imagenes/impresion/impresion/",$array_titulos);
 			?>
@@ -47,7 +51,9 @@ Nuestro sistema de impresión digital está concebido para facilitarle la impres
 <li>Impresión de elementos contenedores de soportes informáticos: funda de cartón impreso, caja Jewel-Box, Slim, sobre de PVC, botón de color, etc.</li>
 <li>Tarjetas de PVC, a todo color o en colores planos, con dato variable y foto, y grabación de información en banda magnética.</li>
 </ul>	
-
+<a target="_blank" href="pdf/BOCETO XEIKON.pdf">
+	<div class="pdfdoc"><img alt="ver dossier" src="img/pdf.png"><span>Xeikon</span></div>
+</a>
   	</div>
   </div>
 

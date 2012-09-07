@@ -51,8 +51,7 @@
           Rotulación
         </li>
         <div class="menu-list menu3">
-          <li><a class="menu-item" href="rotulacion.php">Rotulación</a></li>
-          <li><a class="menu-item" href="montaje.php">Montaje</a></li>   
+          <li><a class="menu-item" href="rotulacion.php">Rotulación y Montaje</a></li>
         </div>
 
         <li class="nav-header"  data-menu="menu4">
@@ -77,8 +76,6 @@
         <div class="menu-list menu6">
           <li><a class="menu-item" href="digitalizacion-documentacion.php">Histórica, técnica y administrativa</a></li>
           <li><a class="menu-item" href="digitalizacion-fotografica.php">Fotográfica</a> </li>
-          <li><a class="menu-item" href="digitalizacion-planos.php">Planos</a></li>
-          <li><a class="menu-item" href="digitalizacion-otros-servicios.php">Otros servicios</a></li>  
         </div>
 
         <li class="nav-header"  data-menu="menu7">
@@ -86,7 +83,6 @@
         </li>
         <div class="menu-list menu7">
           <li><a class="menu-item" href="fotografia-digital.php">Fotografía digital</a></li>
-          <li><a class="menu-item" href="fotografia-kiosko-digital.php">Kiosko digital</a></li>
           <li><a class="menu-item" href="material-fotografico.php">Material fotográfico</a></li>
         </div>
 

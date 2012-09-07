@@ -27,12 +27,11 @@ Nuestro sistema de impresión digital está concebido para facilitarle la impres
 					"mores-impresion-pequeño-formato-xeikon0014.jpg",
 					"mores-impresion-pequeño-formato-xeikon0009.jpg",
 					"mores-impresion-pequeño-formato-xeikon0018.jpg",
-					"mores-impresion-offset-digital-Ryobi-0001.jpg"
 				);
 				$array_titulos = array(
-					"Impresión pequeño formato en Xeikon (2)",
+					"Impresión pequeño formato en Xeikon",
+					"Impresión pequeño formato en Xeikon",
 					"Ejemplos de trabajos realizados en Xeikon",
-					"Impresión offset digital en Ryobi (eliminar esta foto)"
 				);
 				echo creaListaGaleria($array_imagenes,"imagenes/impresion/impresion/",$array_titulos);
 			?>
@@ -42,8 +41,12 @@ Nuestro sistema de impresión digital está concebido para facilitarle la impres
 <ul>
 <li>Documentos con dato variable: dípticos, trípticos, diplomas, invitaciones, certificados, acreditaciones, plicas, tarjetas corporativas, etiquetas, cartas de restaurante, etc.</li>
 <li>Campañas de marketing sectorial o personalizado.</li>
-</ul>
-		
+
+<li>Duplicación de CD's y DVD's.</li>
+<li>Impresión directa a todo color de galletas de CD y DVD.</li>
+<li>Impresión de elementos contenedores de soportes informáticos: funda de cartón impreso, caja Jewel-Box, Slim, sobre de PVC, botón de color, etc.</li>
+<li>Tarjetas de PVC, a todo color o en colores planos, con dato variable y foto, y grabación de información en banda magnética.</li>
+</ul>	
 
   	</div>
   </div>

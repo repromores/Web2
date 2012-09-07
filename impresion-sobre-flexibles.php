@@ -21,26 +21,42 @@
 		<ul class="galeria">
 			<?php 
 				$array_imagenes = array(
+					"Impresión de lonas para eventos - FMCV .jpg",
 					"Impresión_de_lonas_para_eventos_01.jpg",
-					"Impresión_de_lonas_para_eventos_02.jpg",
+					"Impresión de lonas publicitarias 03.jpg",
+					"Impresión de lonas publicitarias 05.jpg",
+					"Impresión de lonas publicitarias 06.jpg",
+					"Impresión de lonas publicitarias 08.jpg",
 					"Impresión_de_mupis_02.jpg",
 					"Impresión_de_mupis_03.jpg",
 					"VInilo_impreso_para_decoración_de_habitaciones_02.jpg",
+					"VInilo impreso para decoración de habitaciones 01.jpg",
+					"Vinilo impreso para decoración de local comercial.jpg",
+					"Vinilo impreso para exposición - Laboral 01.jpg",
+					"Vinilo impreso para exposición - Laboral 02.jpg",			
 					"Impresión_fotográfica_en_Durst_Lambda_04.jpg",
 					"Impresión_e_instalación_de_lonas_en_farolas.jpg",
-					"Vinilo_impreso_para_punto_de_información.jpg",
-					"Vinilo_impreso_para_rotulación_de_vallas_publicitarias_01.jpg"
+					"Vinilo_impreso_para_rotulación_de_vallas_publicitarias_01.jpg",
+					"IMG_2910.jpg"
 				);
 				$array_titulos = array(
 					"Impresión de lonas para eventos",
-					"Impresión de lonas para fachada de edificios",
+					"Impresión de lonas para eventos",
+					"Impresión de lonas para fachadas",
+					"Impresión de lonas para fachadas",
+					"Impresión de lonas para fachadas",
+					"Impresión de lonas para fachadas",
 					"Impresión de mupis",
 					"Impresión en mobiliario urbano",
 					"Vinilo impreso para decoración de interiores",
+					"Vinilo impreso para decoración de interiores",	
+					"Vinilo impreso para decoración de local comercial",	
+					"Vinilo impreso para exposición",								
+					"Vinilo impreso para exposición",			
 					"Impresión fotográfica ",
 					"Impresión e instalación de banderolas",
-					"Vinilo impreso para punto de información",
-					"Vinilo impreso para vallas publicitarias"
+					"Vinilo impreso para vallas publicitarias",
+					""
 				);
 
 				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/flexibles/",$array_titulos);

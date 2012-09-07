@@ -4402,7 +4402,7 @@ ul.menu-top li a {
 }
 .newsletter input[type="text"],
 .newsletter input[type="email"] {
-  width: 137px;
+  width: 94%;
 }
 .envio-archivos {
   background-color: #bc1922;
@@ -4530,4 +4530,41 @@ ul.menu-top li a {
 }
 .banner {
   margin-top: 10px;
+}
+.vinilos input,
+.vinilos select {
+  margin-bottom: 0;
+}
+.vinilos li.item {
+  list-style: none;
+  float: left;
+  margin: 0;
+}
+.vinilos li.item .box {
+  width: 120px;
+  height: 120px;
+  padding: 10px;
+  border: 1px solid #ccbbAA;
+  position: relative;
+}
+.vinilos li.item .box img {
+  display: block;
+  margin: 0 auto;
+  max-height: 90px;
+}
+.vinilos li.item .box .imgbtn {
+  position: absolute;
+  bottom: 6px;
+  margin: 0 15px;
+}
+.vinilos li.item .box .imgbtn.selected {
+  margin: 0 10px;
+}
+.vinilos li.item .selected-box {
+  background-color: #88aacc;
+}
+.vinilos .paginacion {
+  margin-top: 20px;
+  text-align: center;
+  display: none;
 }

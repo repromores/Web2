@@ -14,6 +14,33 @@
 <p>
 Gracias a nuestro moderno servicio de digitalización, le ofrecemos la posibilidad de manejar grandes volúmenes de información, de forma cómoda y segura, aprovechando al máximo el potencial de las nuevas tecnologías. Disponemos de sistemas de escaneado, tanto en blanco y negro como en color, que permiten la digitalización de todo tipo de originales, empleando las resoluciones y tamaños adecuados para cada tipo de documento.
 </p>
+<div class="clearfix">
+	<ul class="galeria">
+
+	<?php 
+        $array_imagenes = array(
+          "DSCF0476_1178.jpg",
+        );
+
+        echo creaListaGaleria($array_imagenes,"imagenes/digitalizacion/");
+
+        $array_imagenes = array(
+
+          "Fotocopiado_digitalización0004.jpg",
+
+        );
+        $array_titulos = array(
+          "Digitalización de documentacion",
+
+        );
+
+        echo creaListaGaleria($array_imagenes,"imagenes/reprografia/bn/",$array_titulos);
+
+
+
+	      ?>
+	</ul>
+</div>
 <h3>Aplicaciones</h3>
 <ul>
 <li>Archivos de documentación histórica o delicada: pergaminos, libros antiguos, manuscritos, etc.</li>

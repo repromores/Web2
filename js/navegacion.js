@@ -1,6 +1,9 @@
-
+/* jQuery Tiny Pub/Sub - v0.7 - 10/27/2011
+* http://benalman.com/
+* Copyright (c) 2011 "Cowboy" Ben Alman; Licensed MIT, GPL */
+(function(a){var b=a({});a.subscribe=function(){b.on.apply(b,arguments)},a.unsubscribe=function(){b.off.apply(b,arguments)},a.publish=function(){b.trigger.apply(b,arguments)}})(jQuery);
 /*
-Nvegacion menu lateral
+Navegacion menu lateral
 */
 var navLat = {
 	init : function(){
@@ -38,12 +41,25 @@ navLat.init();
 $(".galeriaitem").fancybox({
     	openEffect	: 'elastic',
     	closeEffect	: 'elastic',
+    	preload		: 6,
     	helpers : {
     		title : {
     			type : 'inside'
     		}
+    	},
+    	afterShow : function(){
+    		$(".fancybox-wrap").touchwipe({
+			     wipeLeft: function() { $.fancybox.prev(); },
+			     wipeRight: function() { $.fancybox.next(); },
+			     wipeUp: function() { $.fancybox.prev(); },
+			     wipeDown: function() { $.fancybox.next(); },
+			     min_move_x: 20,
+			     min_move_y: 20,
+			     preventDefaultEvents: true
+			});
     	}
 });
+
 $(".mapa").fancybox({
     	openEffect	: 'elastic',
     	closeEffect	: 'elastic',	
@@ -226,7 +242,9 @@ $(function() {
 				  break;
 				case "impresion-digital":
 					newOptions = {
-						"--": "0"
+						"Oviedo": "oviedo",
+						"Gijón": "gijon",
+						//"--": "0"
 					};
 				  break;
 				default :

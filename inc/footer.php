@@ -48,13 +48,17 @@
     if(!$mantenimiento){
       include "js/analytics.php";
     } ?>
-
+    <script src="js/jquery.touchwipe.min.js"></script>
     <script src="js/navegacion.js"></script> 
+ 
+  <?php if(!empty($vinilos)){ ?>
+    <script src="js/fotolia.js"></script>
+  <?php } ?>
 
-
-<script type="text/javascript" src="http://localhost/clickheat/js/clickheat.js"></script><noscript><p><a href="http://www.dugwood.com/index.html">Heatmap plugin</a></p></noscript><script type="text/javascript"><!--
-clickHeatSite = 'localhost1';clickHeatGroup = 'localhost';clickHeatServer = 'http://localhost/clickheat/click.php';initClickHeat(); //-->
-</script>
-  
+<?php
+//<script type="text/javascript" src="http://localhost/clickheat/js/clickheat.js"></script><noscript><p><a href="http://www.dugwood.com/index.html">Heatmap plugin</a></p></noscript><script type="text/javascript"><!--
+//clickHeatSite = 'localhost1';clickHeatGroup = 'localhost';clickHeatServer = 'http://localhost/clickheat/click.php';initClickHeat(); //-->
+//</script>
+?>  
   </body>
 </html> 

@@ -25,7 +25,7 @@ Siguiendo la tradición de los mejores maestros encuadernadores, realizamos todo
         );
         $array_titulos = array(
           "Encuadernación de libros",
-          "Encuadernación en tesis",
+          "Encuadernación de tesis",
            "Encuadernación con cosido",
           "Taller de encuadernación artesanal",
           "Taller de encuadernación artesanal",

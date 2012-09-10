@@ -24,8 +24,8 @@ Gracias a nuestro moderno servicio de digitalización, le ofrecemos la posibilid
           "digitalizacion tecnica1.jpg",
         );
         $array_titulos = array(
-          "",
-          "Digitalización técnica",
+          "Digitalización de documentos históricos",
+          "Digitalización de documentos históricos",
           "Digitalización técnica",
 
 

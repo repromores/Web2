@@ -60,6 +60,18 @@
 				);
 
 				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/flexibles/",$array_titulos);
+
+
+				$array_imagenes = array(
+
+          "Impresión_de_lonas_para_eventos.jpg"
+        );
+        $array_titulos = array(
+
+          "Lonas impresas instaladas en evento"
+        );
+        echo creaListaGaleria($array_imagenes,"imagenes/rotulacion/",$array_titulos);
+      
 			?>
 		</ul>
 

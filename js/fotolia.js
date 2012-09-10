@@ -20,7 +20,7 @@ var resultados = {
 		
 		Resultados.pag 			= ".paginacion";
 		Resultados.pagValue		= "#min";
-
+		Resultados.selectTd		= "div.muestra-imagen tr";
 		Resultados.eventListener();
 
 		$(Resultados.pagValue).val(0);
@@ -30,6 +30,7 @@ var resultados = {
 		$(Resultados.target).on("click","img", Resultados.getBorrador);
 		$(Resultados.target).on("click",".imgbtn", Resultados.selectImg);
 		$(Resultados.pag).on("click",".pag", Resultados.paginacion);
+		$("body").on("click", Resultados.selectTd, Resultados.selectSize);
 	},
 
 	checkRes : function(data){
@@ -133,6 +134,16 @@ var resultados = {
 		boton.text(text);
 		boton.toggleClass("selected");
 		boton.parent(".box").toggleClass("selected-box");
+	},
+
+	selectSize : function(){
+		$this = $(this);
+		Resultados.applyTdStyling($this);
+
+	},
+	applyTdStyling : function($td){
+		$(Resultados.selectTd).removeClass("selected");
+		$td.addClass("selected");
 	}
 
 };

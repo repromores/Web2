@@ -17,6 +17,7 @@ Como complemento al resto de nuestros servicios, distribuimos productos de las m
 <div class="clearfix">
 		<ul class="galeria">
 			<?php 
+			/*
 				$array_imagenes = array(
 					"calendario caja.jpg",
 					"calendario A4.jpg",
@@ -26,6 +27,7 @@ Como complemento al resto de nuestros servicios, distribuimos productos de las m
 					"calendario A4",
 				);
 				echo creaListaGaleria($array_imagenes,"imagenes/fotografia/",$array_titulos);
+			*/
 			?>
 		</ul>
 </div>

@@ -44,6 +44,17 @@ Ponemos a su alcance la calidad que aportan las últimas tecnologías y la varie
         );
         echo creaListaGaleria($array_imagenes,"imagenes/fotografia/",$array_titulos);
       ?>
+            <?php 
+        $array_imagenes = array(
+          "calendario caja.jpg",
+          "calendario A4.jpg",
+        );
+        $array_titulos = array(
+          "calendario caja",
+          "calendario A4",
+        );
+        echo creaListaGaleria($array_imagenes,"imagenes/fotografia/",$array_titulos);
+      ?>
     </ul>
   </div>
 <h4>También realizamos:</h4>

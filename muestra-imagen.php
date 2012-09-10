@@ -19,6 +19,7 @@ $foto_dim_str	= ($foto_tipo == 3)? "Ilimitado" : $foto_anchoMax."x".$foto_altoMa
 ?>
 
 <div class="muestra-imagen">
+	<input type="hidden" id="imgsize" valyue="">
 	<div class="img">
 		<img src="<?php echo $foto_url; ?>" />
 	</div>
@@ -57,7 +58,7 @@ $foto_dim_str	= ($foto_tipo == 3)? "Ilimitado" : $foto_anchoMax."x".$foto_altoMa
 			</tbody>
 		</table>
 		<div class="form-actions">
-			<button class="btn btn-primary">Seleccionar</button> 
+			<button class="btn btn-primary imgbtn" data-id="<?php echo $foto_id; ?>">Seleccionar</button> 
 			<button class="btn btn-cancelar">Cancelar</button>
 		</div>
 	</div>

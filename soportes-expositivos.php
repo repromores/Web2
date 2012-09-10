@@ -21,12 +21,9 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
           "_MG_1700A.jpg",
           "_MG_2057A.jpg",
           "COGERSA_8.jpg",
-          "Impresión_y_venta_de_Roll_Up_01.jpg",
           "Expand_2000_B.jpg",
           "_MG_1563A.jpg",
           "_MG_1630A.jpg",
-          "_MG_2057A.jpg",
-          "displays para eventos.jpg",
           "stand.jpg",
           "stands.jpg",
           "2441.jpg",
@@ -35,20 +32,21 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
           "Round_Up_+_PopUP.jpg",
           "Round_Up_A.jpg",
           "Suelo_tecnico_para_eventos_y_ferias_01.jpg",
+          "Impresión_y_venta_de_Roll_Up_01.jpg",
+          "displays para eventos.jpg",
+
+
 
 
         );
         $array_titulos = array(
           "Bodegón de estructuras",
           "Elementos dispositivos instalados en evento",
-          "Combinación de estructura con trabajo de impresión",
+          "Trabajo para exposición",
           "Espacio de exposición creado en feria con material Reboard",
-          "Displays enrollables para eventos",
           "Panel y maleta mostrador para eventos",
-          "Stand",
-          "Stand",
-          "Stand",
-          "displays para eventos",
+          "Trabajo para exposición",
+          "Trabajo para exposición",
           "Stand",
           "Stand",
           "Stand",
@@ -57,6 +55,10 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
           "PLV con Round Up + Pop Up",
           "Estructura expositiva para PLV",
           "Suelo técnico impreso para eventos y ferias",
+          "Displays enrollables para eventos",
+          "displays para eventos",
+
+
 
         );
         echo creaListaGaleria($array_imagenes,"imagenes/stands/",$array_titulos);

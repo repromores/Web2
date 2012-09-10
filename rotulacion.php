@@ -50,7 +50,6 @@ Como complemento a nuestros servicios de cartelería, soportes expositivos y rot
           "Rotulación de cargador HC 02.jpg",
           "Vinilo_impreso_para_rotulación_de_oficinas.jpg",
           "Vinilo_impreso_para_rotulación_de_vallas_publicitarias_02.jpg",
-          "Impresión_de_lonas_para_eventos.jpg"
         );
         $array_titulos = array(
           "Instalación integral de elementos de cartelería y rotulación para evento",
@@ -68,7 +67,6 @@ Como complemento a nuestros servicios de cartelería, soportes expositivos y rot
           "Rotulación de mobiliario urbano",
           "Vinilo impreso instalado en oficinas",
           "Vinilo impreso aplicado en vallas publicitarias",
-          "Lonas impresas instaladas en evento"
         );
         echo creaListaGaleria($array_imagenes,"imagenes/rotulacion/",$array_titulos);
       ?>

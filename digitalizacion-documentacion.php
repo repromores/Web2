@@ -30,7 +30,7 @@ Gracias a nuestro moderno servicio de digitalización, le ofrecemos la posibilid
 
 
         );
-        echo creaListaGaleria($array_imagenes,"imagenes/digitalizacion/");
+        echo creaListaGaleria($array_imagenes,"imagenes/digitalizacion/",$array_titulos);
 
         $array_imagenes = array(
 

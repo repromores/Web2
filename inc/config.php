@@ -29,6 +29,11 @@ if (getIp() =="127.0.0.1"){
 }
  $analytics_code = "UA-21418483-1";
 
+//paypal
+$paypal_API_UserName	="ramonk_1347290607_biz_api1.gmail.com";
+$paypal_API_Password	="1347290628";
+$paypal_API_Signature	="AXgqzbFBBDp0WVQ6JS272VA0pChOAE57UFFHF1SuhZHxXTmXIQ.0At0M";
+
 $mail_host 			= "10.1.8.5"; 
 $mail_host_port 	= 25;
 $mail_usr			= "correo.web";
@@ -186,6 +191,7 @@ function creaListaGaleria($array_imagenes,$ruta,$titulos = null){
 		}else{
 			$imagen_titulo =  $titulos[$index];
 		}
+		$imagen_titulo = ucfirst($imagen_titulo);
 		$result .= '<li><a class="galeriaitem" title="'.$imagen_titulo.'" href="'.$ruta.$imagen.'" data-fancybox-group="fancybox"><img src="mini-imagenes/'.$ruta.$imagen.'" title="'.$imagen_titulo.'" alt="'.$imagen_titulo.'"/></a></li>';
 	}
 

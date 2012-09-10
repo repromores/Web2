@@ -16,7 +16,7 @@ var resultados = {
 		Resultados 				= this;
 		Resultados.target 		= ".resultados";
 		Resultados.Cabecera		= "<br><br><legend>{{nres}} Resultados:</legend>";
-		Resultados.plantilla 	= '<li class="item"><div class="box" data-id="{{id}}"><img src="{{imgsrc}}" data-id="{{id}}" title="{{title}}" alt="{{title}}"/><button type="button" class="btn imgbtn" data-id="{{id}}">Seleccionar</button></div></li>';
+		Resultados.plantilla 	= '<li class="item"><div class="box" data-id="{{id}}"><img src="{{imgsrc}}" data-id="{{id}}" title="{{title}}" alt="{{title}}"/></div></li>';
 		
 		Resultados.pag 			= ".paginacion";
 		Resultados.pagValue		= "#min";
@@ -28,7 +28,7 @@ var resultados = {
 	},
 
 	eventListener : function(){
-		$(Resultados.target).on("click","img", Resultados.getBorrador);
+		$(Resultados.target).on("click",".box", Resultados.getBorrador);
 		$(Resultados.target).on("click",".imgbtn", Resultados.selectImg);
 		$(Resultados.pag).on("click",".pag", Resultados.paginacion);
 		$("body").on("click", Resultados.selectTd, Resultados.selectSize);
@@ -98,8 +98,10 @@ var resultados = {
 	},
 
 	selectImg : function(){
-		$this = $(this);
-		idfoto = $this.data("id");
+		$this 	= $(this);
+		idfoto 	= $this.data("id");
+		size 	= $("#imgsize").val();
+		
 
 		if($this.hasClass("selected")){
 			selected = JSON.parse(sessionStorage.getItem("vinilosSelected"));

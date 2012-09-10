@@ -25,7 +25,7 @@ Este servicio incorpora los últimos avances en el tratamiento digital de la ima
 	        $array_titulos = array(
 	          
 	          "Digitalización y restauración de originales",
-	          ""
+	          "Digitalización fotográfica"
 	        );
 	        echo creaListaGaleria($array_imagenes,"imagenes/digitalizacion/",$array_titulos);
 	      ?>

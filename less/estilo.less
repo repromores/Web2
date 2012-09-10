@@ -258,10 +258,11 @@ ul.menu-top{
 
 		.box{
 			width: 120px;
-			height: 120px;
+			height: 100px;
 			padding: 10px;
 			border: 1px solid #ccbbAA;
 			position: relative;
+			cursor:pointer;
 			img{
 			   display: block;
  			   margin: 0 auto;
@@ -301,12 +302,14 @@ div.muestra-imagen{
 	table td{
 		cursor: pointer;
 	}
-	tr.selected{
-		background-color: #1337ef;
-		color: #fff;
-	}
-	tr.selected:hover{ 
-			background-color: #647cf9 !important;
-			color: #333 !important; 
+	.info{
+		tr.selected{
+			background-color: #1337ef;
+			color: #fff;
 		}
+		tr.selected:hover td{ 
+			background-color: #647cf9 !important;
+			color: #FFF !important; 
+		}
+	}
 }

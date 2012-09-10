@@ -56,7 +56,7 @@
 					"Impresión fotográfica ",
 					"Impresión e instalación de banderolas",
 					"Vinilo impreso para vallas publicitarias",
-					""
+					"Vinilo impreso para exposición"
 				);
 
 				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/flexibles/",$array_titulos);

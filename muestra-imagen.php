@@ -2,7 +2,7 @@
 <?php
 include_once "inc/apifotolia.php";
 
-$foto_id = 40749789;
+$foto_id = $_GET["id"];
 
 $datos = json_decode(getInfoFoto($foto_id),true);
 
@@ -56,6 +56,9 @@ $foto_dim_str	= ($foto_tipo == 3)? "Ilimitado" : $foto_anchoMax."x".$foto_altoMa
 				</tr>
 			</tbody>
 		</table>
-		<button class="btn btn-primary">Seleccionar</button>
+		<div class="form-actions">
+			<button class="btn btn-primary">Seleccionar</button> 
+			<button class="btn btn-cancelar">Cancelar</button>
+		</div>
 	</div>
 </div>

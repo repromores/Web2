@@ -21,6 +21,7 @@ var resultados = {
 		Resultados.pag 			= ".paginacion";
 		Resultados.pagValue		= "#min";
 		Resultados.selectTd		= "div.muestra-imagen tr";
+		Resultados.btncerrar	= ".btn-cancelar";
 		Resultados.eventListener();
 
 		$(Resultados.pagValue).val(0);
@@ -31,6 +32,7 @@ var resultados = {
 		$(Resultados.target).on("click",".imgbtn", Resultados.selectImg);
 		$(Resultados.pag).on("click",".pag", Resultados.paginacion);
 		$("body").on("click", Resultados.selectTd, Resultados.selectSize);
+		$("body").on("click", Resultados.btncerrar, Resultados.cerrarPopup);
 	},
 
 	checkRes : function(data){
@@ -69,20 +71,15 @@ var resultados = {
 	getBorrador : function(){
 		id = $(this).data("id");
 
-		url = "inc/apifotolia.php?function=getBorrador&id="+id;
+		url = "muestra-imagen.php?id="+id;
 
-		$.getJSON(url,function(data){
-			console.log(data);
-			url = data.url;
-
-			url = url.replace("http://", "http://svBKgX7unls2Y7abxY9pRe8hJacn5MAn@"); 
 			$.fancybox.open([{
 		            href : url
 		        }],{
-		        	type : "image"
+		        	type : "ajax"
 		        }
 		    );
-		})
+		
 	},
 	paginacion : function(e){
 		e.preventDefault();
@@ -144,6 +141,10 @@ var resultados = {
 	applyTdStyling : function($td){
 		$(Resultados.selectTd).removeClass("selected");
 		$td.addClass("selected");
+	},
+
+	cerrarPopup  : function(){
+		$.fancybox.close();
 	}
 
 };

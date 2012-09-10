@@ -4586,6 +4586,7 @@ div.muestra-imagen tr.selected {
   background-color: #1337ef;
   color: #fff;
 }
-div.muestra-imagen tr.selected :hover {
+div.muestra-imagen tr.selected:hover {
   background-color: #647cf9 !important;
+  color: #333 !important;
 }

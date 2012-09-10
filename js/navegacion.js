@@ -244,6 +244,7 @@ $(function() {
 					newOptions = {
 						"Oviedo": "oviedo",
 						"Gijón": "gijon",
+						"Llanera": "llanera"
 						//"--": "0"
 					};
 				  break;

@@ -30,9 +30,16 @@ else if($seccion == "carteleria"){
 	$email_tienda = "cartel@mores.es";	
 }
 
-else if($seccion == "impresion-digital"){
-	$email_tienda = "xeikon@mores.es, color@mores.es";	
+
+else if($ciudadRecogida == "oviedo" && $seccion == "impresion-digital"){
+	$email_tienda = "color@mores.es";	
+}else if($ciudadRecogida == "gijon" && $seccion == "impresion-digital"){
+	$email_tienda = "color.gijon@mores.es";	
+}else if($ciudadRecogida == "llanera" && $seccion == "impresion-digital"){
+	$email_tienda = "xeikon@mores.es";	
 }
+
+
 
 else if($ciudadRecogida == "oviedo" && $seccion == "planos"){
 	$email_tienda = "planos@mores.es";	

@@ -49,8 +49,13 @@
       include "js/analytics.php";
     } ?>
     <script src="js/jquery.touchwipe.min.js"></script>
+
+    <link href="js/jquery-ui/custom-theme/jquery-ui-1.8.23.custom.css"  rel="stylesheet"/>
+    <script src="js/jquery-ui/jquery-ui-1.8.23.custom.min.js"></script> 
+
     <script src="js/navegacion.js"></script> 
  
+
   <?php if(!empty($vinilos)){ ?>
     <script src="js/fotolia.js"></script>
   <?php } ?>

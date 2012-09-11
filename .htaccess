@@ -437,19 +437,23 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 # ----------------------------------------------------------------------
 # Reglas propias
 # ----------------------------------------------------------------------
+
+
+#redirecciones
+<IfModule mod_rewrite.c>
+Redirect 301 enviosMores/envios-trabajo.php http://mores.es/login.php
+Redirect 301 llanera-edificio-covadonga.php http://mores.es/tiendas.php
+Redirect 301 llanera-centro-elena.php http://mores.es/tiendas.php
+Redirect 301 oviedo-viaducto-marquina.php http://mores.es/tiendas.php
+Redirect 301 gijon-marques-san-esteban.php http://mores.es/tiendas.php
+</IfModule>
+
 #velocidad
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css|xml|gz)$">
     Header append Vary: Accept-Encoding
   </FilesMatch>
 </IfModule>
-
-#redirecciones
-Redirect 301 enviosMores/envios-trabajo.php   http://mores.es/login.php
-Redirect 301 llanera-edificio-covadonga.php   http://mores.es/tiendas.php
-Redirect 301 llanera-centro-elena.php         http://mores.es/tiendas.php
-Redirect 301 oviedo-viaducto-marquina.php     http://mores.es/tiendas.php
-Redirect 301 gijon-marques-san-esteban.php    http://mores.es/tiendas.php
 
 # ----------------------------------------------------------------------
 # A little more security

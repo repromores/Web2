@@ -105,7 +105,7 @@
         <a href="encuadernacion-rapida.php" class="linktarjeton">
         <div class="tarjeton encuadernacion">
           <h2>Encuadernación</h2>
-          <div class="tarjeton-text"><p>Espiral, tornillo, canutillo, alambre, encolado, encuadernación rústica, de piel, libros de firmas, fascículos, cajas y estuches a medida, tesis doctorales.</p></div>
+          <div class="tarjeton-text"><p>Espiral, tornillo, canutillo, alambre, encuadernación rústica, de piel, libros de firmas, fascículos, cajas y estuches a medida, tesis doctorales.</p></div>
         </div>
         </a>
       </div>

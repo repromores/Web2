@@ -1,6 +1,7 @@
 <?php include "inc/config.php"; ?>
 <?php
   if(!isLogged()){  header('Location: login.php');};
+  $masdatos = empty($_SESSION["usr_apellidos"])? true : false;
 ?>
 <?php include "inc/head.php"; ?>
 <title>morés - Envío de Archivos</title>
@@ -15,19 +16,22 @@
 
       <legend>Modificar datos de usuario</legend>
       <p> Si desea modificar sus datos almacenados en el Sistema de Envios de Morés, por favor pulse el botón siguiente:</p>
-      <a class="btn" href="editar-usuario.php">Modificar datos</a>
-
+      <a class="btn" href="editar-usuario.php">Modificar datos</a> <?php if($masdatos){ ?><strong style="color:red">Por favor, completa tu ficha para usar el servicio</strong><?php } ?>
+      <?php if(!$masdatos){ ?>
       <legend>Subida de archivos</legend>
       <p> Elija los archivos que quiera subir, la sección donde realizar el trabajo y una descripción de lo que desea hacer. </p>
 
-      <form class="form-horizontal" id="archivos" action="inc/procesar-envio.php" method="post">
+      <form class="form-horizontal" id="archivos" action="inc/procesar-envio.php" method="post" enctype="multipart/form-data">
         <fieldset>
           <input type="hidden" name="archivossubidos" id="archivossubidos">
+          <input type="hidden" name="infofiles" id="infofiles">
+          <input type="hidden" name="email" id="email" value="<?php echo $_SESSION["usr_email"] ?>">
+
           
           <div class="control-group">
             <label for="seccion" class="control-label">Sección:</label>
             <div class="controls">          
-              <select id="seccion" name="seccion">
+              <select id="seccion" name="seccion" required="required">
                 <option value="reprografia">Reprografía</option>
                 <option value="carteleria">Cartelería</option>
                 <option value="impresion-digital">Impresión Digital</option>
@@ -43,7 +47,6 @@
             <label for="ciudadRecogida" class="control-label">Centro de recogida:</label>
             <div class="controls">
               <select name="ciudadRecogida" style="display: block; width: 150px;" id="ciudadRecogida">
-                <option value="0">Elige centro</option>
                 <option value="oviedo">Oviedo</option>
                 <option value="gijon">Gijón</option>
                 <option value="llanera">Llanera</option>
@@ -84,7 +87,7 @@
           </div>
         </fieldset>
       </form>
-
+      <?php } ?>
 
   	</div>
   </div>

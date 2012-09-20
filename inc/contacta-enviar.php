@@ -28,7 +28,7 @@ $hora     = date ("h:i");
 include "plantilla-contacto.php";
 
 // Mail it
-enviarMail($para, $titulo, $mensaje);
+enviarMail($para, $titulo, $mensaje, $email);
   echo "Su mensaje se ha enviado correctamente!";
 
 ?>

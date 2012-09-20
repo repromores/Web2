@@ -1,12 +1,17 @@
 <?php
+
+
+
 include "config.php";
+
+
 
 // Varios destinatarios
 $de 	= 'webmaster@mores.es';
 
 $error	= 0;
 	
-	$email_cliente	 	= $_SESSION["usr_email"];
+	$email_cliente	 	= $_POST["email"]? $_POST["email"]:"";
 	$text 				= isset($_POST["descripcion"])? $_POST["descripcion"]:"";
 	$archivos			= isset($_POST["archivossubidos"])? $_POST["archivossubidos"]:"";
 	$nombre_cliente		= $_SESSION["usr_nombre"];
@@ -16,6 +21,15 @@ $error	= 0;
 	$presupuesto		= !empty($_POST["presupuesto"])? $_POST["presupuesto"]:"(Sin presupuesto)";
 	$ciudadRecogida 	= isset($_POST["ciudadRecogida"])? $_POST["ciudadRecogida"]:"";
 	$seccion		 	= isset($_POST["seccion"])? $_POST["seccion"]:"";
+	$infofiles			= isset($_POST["infofiles"])? $_POST["infofiles"]:"";
+
+$infofiles_each = explode("@@@", $infofiles);
+foreach ($infofiles_each as  $infofile) {
+	$data = explode("@", $infofile);
+	if(!empty($data[0])){
+		insertEnvios($email_cliente, $data[0], $data[1], $seccion);
+	}
+}
 
 
 if($ciudadRecogida == "oviedo" && $seccion == "reprografia"){

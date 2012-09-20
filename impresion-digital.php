@@ -51,9 +51,20 @@ Nuestro sistema de impresión digital está concebido para facilitarle la impres
 <li>Impresión de elementos contenedores de soportes informáticos: funda de cartón impreso, caja Jewel-Box, Slim, sobre de PVC, botón de color, etc.</li>
 <li>Tarjetas de PVC, a todo color o en colores planos, con dato variable y foto, y grabación de información en banda magnética.</li>
 </ul>	
-<a target="_blank" href="pdf/BOCETO XEIKON.pdf">
-	<div class="pdfdoc"><img alt="ver dossier" src="img/pdf.png"><span>Xeikon</span></div>
-</a>
+
+      <div class="pdf-container">
+      <a href="pdf/BOCETO XEIKON.pdf" target="_blank">
+        <div class="group corner pdf-catalogo">
+          
+          <div class="icono"></div>
+          <div class="texto">
+            <h4>Xeikon</h4>
+          </div>
+        </div>
+    </a>
+    </div>
+
+
   	</div>
   </div>
 

@@ -1,0 +1,14 @@
+
+.ie7{
+	display: block;
+}
+img.logo, .logo{
+	width: 220px;
+	height: 57px;
+}
+.span10{
+	width: 570px;
+}
+.span5 {
+    width: 270px;
+}

@@ -14,8 +14,8 @@ var navLat = {
 
 		NavLat.initialPosition();
 		NavLat.bindEvents();
-		},
-		bindEvents: function(){
+	},
+	bindEvents: function(){
 		NavLat.$headers.on("click", NavLat.headerClicked);
 	},
 	headerClicked : function(a){
@@ -29,9 +29,11 @@ var navLat = {
 	    localStorage.setItem("menuclicked", clase);
 	},
 	initialPosition : function(){
-		item = localStorage.getItem("menuclicked");
-		if(item != null){
-			NavLat.headerClicked(item);
+		if(navigator.appName != "Microsoft Internet Explorer"){
+			item = localStorage.getItem("menuclicked");
+			if(item != null){
+				NavLat.headerClicked(item);
+			}
 		}
 	}
 }
@@ -62,7 +64,7 @@ $(".galeriaitem").fancybox({
 
 $(".mapa").fancybox({
     	openEffect	: 'elastic',
-    	closeEffect	: 'elastic',	
+    	closeEffect	: 'elastic'	
 });
 
 
@@ -161,20 +163,23 @@ $(".recuperapasscnl").on("click",function(e){
 
 $(function() {
 	if ($("#uploader").length ) {
+if($.browser["webkitty"]){
+	list = 'flash,html5,gears,silverlight,';
+
+}else{
+	list = 'html5,flash,gears,silverlight,';
+}
 
 	    $("#uploader").pluploadQueue({
 	        // General settings
-	        runtimes : 'html5,gears,flash,silverlight,',
+	        runtimes : list,
 	        url : 'inc/subir.php',
 	        max_file_size : '1024mb',
 
 
 	        // Specify what files to browse for
 	        filters : [
-	            {title : "Image files", extensions : "jpg,gif,png,tiff,tif,bmp"},
-	            {title : "Zip files", extensions : "zip,rar"},
-	            {title : "Adobe files", extensions : "psd,ai,pdf,eps"},
-	            {title : "Other files", extensions : "dwg,plt,cdr,doc,docx,ppt,pptx,ctb,sitx,pub,mxd,log,fh11,fh10,fh9,fh8,mth,indd,EST,AG,psb"}
+	            {title : "archivos", extensions : "jpg,gif,png,tiff,tif,bmp,zip,rar,psd,ai,pdf,eps,dwg,plt,cdr,doc,docx,ppt,pptx,ctb,sitx,pub,mxd,log,fh11,fh10,fh9,fh8,mth,indd,EST,AG,psb"}
 	        ],
 	 
 	        // Flash settings
@@ -189,9 +194,10 @@ $(function() {
 	                up.settings.multipart_params = {
 	                	"seccion" : $("#seccion").val(),
 	                	"ciudadRecogida" : $("#ciudadRecogida").val(),
+	                	"email" : $("#email").val()
 	                };
 	            }
-	        },
+	        }
 
 	    });
 	 
@@ -216,9 +222,18 @@ $(function() {
 	        return false;
 	    });
 		
+$(".btnsubmit").on("click", function(){
+	$(this).text("Enviando...");
+	if($.browser["webkit"]){
+		$("#archivos").submit();
+	}
+	$(this).attr("disabled", "disabled");
+})
 
 	    $('#uploader').pluploadQueue().bind('FileUploaded', function(up, file, info) {
 	    	size = file.size;
+	    	$("#infofiles").val($("#infofiles").val() + file.name+"@"+size+"@@@");
+
 			size = size/(1024*1024);
 			size = size.toFixed(2);
 			input = $("#archivossubidos").val();
@@ -237,7 +252,7 @@ $(function() {
 				case "fotografia":
 					newOptions = {
 						"Oviedo": "oviedo",
-						"Gijón": "gijon",
+						"Gijón": "gijon"
 					};
 				  break;
 				case "impresion-digital":

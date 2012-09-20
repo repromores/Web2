@@ -71,10 +71,17 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
 <li><strong>Comodidad</strong>:Le ofrecemos la opción del montaje de todos los elementos gráficos por nuestro equipo de profesionales.</li>
 </ul>
 
-<a href="catalogo.pdf" target="_blank">
-  <div class="pdfdoc"><img src="img/pdf.png" alt="ver catálogo"><span>Ver catálogo PDF</span></div>
-</a>
-
+      <div class="pdf-container">
+      <a href="pdf/catalogo.pdf" target="_blank">
+        <div class="group corner pdf-catalogo">
+          
+          <div class="icono"></div>
+          <div class="texto">
+            <h4>Ver catálogo PDF</h4>
+          </div>
+        </div>
+    </a>
+    </div>
 
   	</div>
   </div>

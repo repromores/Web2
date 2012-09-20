@@ -27,14 +27,31 @@ PVC, metacrilato, cartón pluma, cartón, polipropileno, policarbonato, madera (
 					"Impresión_directa_en_madera_01.jpg",
 					"Impresión_sobre_madera_más_tinta_blanca.jpg",
 					"Photocall_impreso_sobre_Foam.jpg",
-					"Impresión_directa_de_varios_originales_a_la_vez_02.jpg"
+					"Impresión_directa_de_varios_originales_a_la_vez_02.jpg",
+					"Impresión directa y troquelado de PVC.jpg",
+					"Impresión directa y troquelado de Forex.jpg",
+					"Impresión directa y troquelado de Dibond.jpg",
+					"Impresión directa y troquelado de cartón 03.jpg",
+					"Impresión directa y troquelado de cartón 04.jpg",
+					"Impresión directa y troquelado de cartón 05.jpg",
+					"Impresión directa de cartón.jpg",
+					"Impresión directa y troquelado de Re-Board 02.jpg",
+
 					);
 				$array_titulos = array(
 					"Impresión directa en foam",
 					"Photocall impreso en foam",
 					"Impresión directa en madera",
 					"Impresión sobre madera más tinta blanca",
-					"Impresión directa multiplancha"
+					"Impresión directa multiplancha",
+					"Impresión directa y troquelado de PVC",
+					"Impresión directa y troquelado de Forex",
+					"Impresión directa y troquelado de Dibond",
+					"Impresión directa y troquelado de cartón",
+					"Impresión directa y troquelado de cartón",
+					"Impresión directa y troquelado de cartón",
+					"Impresión directa de cartón",
+					"Impresión directa y troquelado de Re-Board"
 				);
 				echo creaListaGaleria($array_imagenes,"imagenes/carteleria/rigidos/",$array_titulos);
 			?>
@@ -50,10 +67,20 @@ Señalización interior, suelos escenográficos, PLV´s, vallas de obra, suelos 
 <li><strong>Rapidez</strong>: Gracias a la gran capacidad productiva que aportan las últimas tecnologías (producción continua multiplancha, con espesor máximo de 4 cm).</li>
 </ul>
 
-<a target="_blank" href="pdf/re-board-triptico.pdf">
-	<div class="pdfdoc"><img alt="ver dossier" src="img/pdf.png"><span>Reboard</span></div>
-</a>
-		
+	
+      <div class="pdf-container">
+      <a href="pdf/re-board-triptico.pdf" target="_blank">
+        <div class="group corner pdf-catalogo">
+       		<div class="wrap-ribbon right-edge point stitch lblue"><span><img src="ribbon/novedad.png"></span></div>
+          <div class="icono"></div>
+          <div class="texto">
+            <h4>Reboard</h4>
+          </div>
+        </div>
+    </a>
+    </div>
+
+
   	</div>
   </div>
 

@@ -31,9 +31,18 @@ Como complemento al resto de nuestros servicios, distribuimos productos de las m
 			?>
 		</ul>
 </div>
-<a target="_blank" href="pdf/foto album.pdf">
-	<div class="pdfdoc"><img alt="ver dossier" src="img/pdf.png"><span>Álbumes de fotos</span></div>
-</a>
+
+      <div class="pdf-container">
+      <a href="pdf/FUJI_20120912065954.pdf" target="_blank">
+        <div class="group corner pdf-catalogo">
+          
+          <div class="icono"></div>
+          <div class="texto">
+            <h4>Catálogo de Productos</h4>
+          </div>
+        </div>
+    </a>
+    </div>
 
   	</div>
   </div>

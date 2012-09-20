@@ -6,7 +6,6 @@
                <li><a href="politica-privacidad.php">Política de Privacidad</a></li>
                <li><a href="cadena-custodia.php">Cadena de Custodia</a></li>
                <li><a href="mapa-web.php">Mapa Web</a></li>
-               <li><a href="http://validator.w3.org/check?uri=referer">HTML5</a></li>
            </ul>
        </div>
    </footer>
@@ -54,7 +53,8 @@
     <script src="js/jquery-ui/jquery-ui-1.8.23.custom.min.js"></script> 
 
     <script src="js/navegacion.js"></script> 
- 
+    <script src="js/compras.js"></script> 
+
 
   <?php if(!empty($vinilos)){ ?>
     <script src="js/fotolia.js"></script>

@@ -6,9 +6,7 @@ $mensaje = '
 <link rel="important stylesheet" href="chrome://messagebody/skin/messageBody.css">
 </head>
 <body>
-<br>De: <br />
 IP: '.$ip.'<br />
-Para: '.$email.'<br/>
 Mensaje: 
 	<fieldset>
 		<legend>

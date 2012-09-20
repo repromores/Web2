@@ -46,7 +46,7 @@ Reproducción de fotografías, cartelería de alta resolución para interiores, 
   	</div>
   </div>
 
-  <div class="span3">
+  <div class="span3 colderecha">
     
 <?php include "inc/banner-envios.php"; ?>
 

@@ -67,6 +67,20 @@ Ponemos a su alcance la calidad que aportan las últimas tecnologías y la varie
     <li>Todo tipo de diapositivas.</li>
   </ul>
 </ul>
+
+      <div class="pdf-container">
+      <a href="pdf/Foto album.pdf" target="_blank">
+        <div class="group corner pdf-catalogo">
+          
+          <div class="icono"></div>
+          <div class="texto">
+            <h4>Álbumes de fotos</h4>
+          </div>
+        </div>
+    </a>
+    </div>
+
+
   	</div>
   </div>
 

@@ -15,7 +15,7 @@ enviarMail($para, $titulo, $mensaje);
 // Varios destinatarios
 $para  = $emails_reset_pass;
 // subject
-$titulo = 'Mores - Recuperacion de password: '.$para;
+$titulo = 'Mores - Recuperacion de password: '.$email;
 include "plantilla-reset-webmaster.php";
 // Mail it
 enviarMail($para, $titulo, $mensaje);?>

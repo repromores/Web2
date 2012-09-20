@@ -18,8 +18,8 @@ plupload.addI18n({
 	'Security error.': 'Error de seguridad.',
 	'Generic error.': 'Error gen&eacute;rico.',
 	'IO error.': 'Error de entrada/salida.',
-	'Stop upload': 'Detener Subida.',
+	'Stop Upload': 'Detener Subida.',
 	'Add Files': 'Agregar Archivos',
-	'Start upload': 'Comenzar Subida.',
+	'Start Upload': 'Comenzar Subida.',
 	'%d files queued': '%d archivos en cola.'
 });

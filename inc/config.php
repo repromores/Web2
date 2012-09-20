@@ -10,7 +10,7 @@ if (getIp() =="127.0.0.1"){
 	$db_user	= "root";
 	$db_pass	= "";
 
-	$ftp_host	 = "localhost";
+	$ftp_host	 = "127.0.0.1";
 	$ftp_user	 = "ftpmores";
 	$ftp_pass	 = "ftpmores1";
 	$ftp_path	 ='/monxas/mores/';
@@ -46,7 +46,7 @@ $emails_reset_pass		= "informatica@mores.es";
 $emails_nuevo_usuario	= "informatica@mores.es";
 $emails_nuevo_envio		= "informatica@mores.es";
 
-$url_imgs_mail	= "http://mores.es/beta/img/";
+$url_imgs_mail	= "http://mores.es/img/";
 
 $fotoliaKey = "svBKgX7unls2Y7abxY9pRe8hJacn5MAn";
 
@@ -89,7 +89,7 @@ function checkUserPass($user,$pass){
 	if($n==1){
 		$res = true;
 		$fila = mysql_fetch_assoc($q);	
-		$_SESSION["usr_email"]		= $fila["email"];
+		$_SESSION["usr_email"]		= $user;
 		$_SESSION["usr_nombre"]		= $fila["nombre"];
 		$_SESSION["usr_apellidos"]	= $fila["apellidos"];
 		$_SESSION["usr_cif"] 		= $fila["cif"];
@@ -126,8 +126,18 @@ function isLogged(){
 	return isset($_SESSION["usr_islogged"])? $_SESSION["usr_islogged"] : false;
 }
 
+function insertEnvios($usuario, $nombreArchivo, $tamanio, $seccion){
+	$formato_archivo = getExtension($nombreArchivo);
+	$q = 'INSERT INTO envios (fecha, usuario, ip,nombreArchivo, formato_archivo, tamanio, seccion) VALUES("'.date("Y-m-d_H-i").'-00", "'.$usuario.'","'.getIp().'","'.$nombreArchivo.'","'.$formato_archivo.'","'.$tamanio.'","'.$seccion.'")';
+	mysql_query($q);
+	return $q;
+}
 
-function enviarMail($mail_destino,$mail_asunto,$mail_mensaje){
+function getExtension($file){
+	 return substr(strrchr($file,'.'),1);
+}
+
+function enviarMail($mail_destino,$mail_asunto,$mail_mensaje,$remite = null){
 
 	$mail = new PHPMailer(false); // the true param means it will throw exceptions on errors, which we need to catch
 	$mail->IsSMTP(); // telling the class to use SMTP
@@ -139,17 +149,20 @@ function enviarMail($mail_destino,$mail_asunto,$mail_mensaje){
 		global $mail_emisor;
 
 
-	  $mail->Host       = $mail_host;        		       // SMTP server
-	  //$mail->SMTPDebug  = 2;                              // enables SMTP debug information (for testing)
+	  $mail->Host       = $mail_host;        		      // SMTP server
+	  //$mail->SMTPDebug  = 2;                            // enables SMTP debug information (for testing)
 	  $mail->SMTPAuth   = true;                           // enable SMTP authentication
 	  $mail->SMTPSecure = "tls";
  	  $mail->CharSet 	= "UTF-8";
 
 	  $mail->Port       = $mail_host_port;               // set the SMTP port for the GMAIL server
-	  $mail->Username   = $mail_usr;   // SMTP account username
-	  $mail->Password   = $mail_pass;                 // SMTP account password
-	  $mail->AddReplyTo($mail_emisor, $mail_emisor);
-
+	  $mail->Username   = $mail_usr;  					 // SMTP account username
+	  $mail->Password   = $mail_pass;      		         // SMTP account password
+	  if(!empty($remite)){
+	  	$mail->AddReplyTo($remite, $remite);
+	  }else{
+		$mail->AddReplyTo($mail_emisor, $mail_emisor);
+	  }
 
 	  $array_emails = explode(",", $mail_destino);
 
@@ -167,6 +180,7 @@ function enviarMail($mail_destino,$mail_asunto,$mail_mensaje){
 	  $mail->Send();
 	} catch (phpmailerException $e) {
 	  $e->errorMessage(); //Pretty error messages from PHPMailer
+	  enviarMail("informatica@mores.es","error","error:<br>".$e->errorMessage());
 	} catch (Exception $e) {
 	  $e->getMessage(); //Boring error messages from anything else!
 	}
@@ -218,4 +232,78 @@ function checkEmail($email){
 
 	return $n;
 }
+
+function ieversion() {
+  ereg('MSIE ([0-9].[0-9])',$_SERVER['HTTP_USER_AGENT'],$reg);
+  if(!isset($reg[1])) {
+    return -1;
+  } else {
+    return floatval($reg[1]);
+  }
+}
+$COMPATIBLEMODE = (ieversion()!=-1 && ieversion()<9)? 1 : 0;
+
+
+/***********************************************************
+CARRITO
+
+function aplicaDescuento(){}
+***********************************************************/
+//$producto = creaProducto(1244,array(54,200),"paco.jpg","vinilo",60.50,"la abuela de mi yerno quiere un sobrino amarillo","mate");
+
+function nuevoPedido($producto){
+	$productos = array($producto);
+	$_SESSION["pedido"] = array("productos" => $productos);
+}
+
+
+function agregaProducto($producto){
+	
+
+	if(empty($_SESSION["pedido"])){
+		nuevoPedido($producto);
+	}else{
+		array_push($_SESSION["pedido"]["productos"], $producto);
+	}
+	return $_SESSION["pedido"];
+}
+
+function creaProducto($id,$medidas,$archivo,$material,$precio,$info,$acabado){
+	return array(
+				id 			=> $id,
+				medidas		=> $medidas,
+				archivo		=> $archivo,
+				material	=> $material,
+				acabado		=> $acabado,
+				precio		=> $precio,
+				info 		=> $info
+				);
+}
+
+function muestraProducto($id){
+	foreach ($_SESSION["pedido"]["productos"] as $producto) {
+		if($producto["id"]==$id){
+			return $producto;
+		}
+	}
+	return false;
+}
+
+function borraProducto($id){
+	foreach ($_SESSION["pedido"]["productos"] as $indice => $producto){
+		if($producto["id"]==$id){
+			unset($_SESSION["pedido"]["productos"][$indice]);
+			$_SESSION["pedido"]["productos"] = array_values($_SESSION["pedido"]["productos"]); 
+		}
+	}
+	return $_SESSION["pedido"];
+}
+
+
+
+function resetCarrito(){
+	$productos = array();
+	$_SESSION["pedido"] = array("productos" => $productos);
+}
+
 ?>

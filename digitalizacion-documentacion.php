@@ -10,7 +10,7 @@
   <div class="span10">
   	<div class="content">
 
-<h2>Documentación histórica, técnica y administrativa</h2>
+<h2>Digitalización histórica, técnica y administrativa</h2>
 <p>
 Gracias a nuestro moderno servicio de digitalización, le ofrecemos la posibilidad de manejar grandes volúmenes de información, de forma cómoda y segura, aprovechando al máximo el potencial de las nuevas tecnologías. Disponemos de sistemas de escaneado, tanto en blanco y negro como en color, que permiten la digitalización de todo tipo de originales, empleando las resoluciones y tamaños adecuados para cada tipo de documento.
 </p>
@@ -66,9 +66,17 @@ Gracias a nuestro moderno servicio de digitalización, le ofrecemos la posibilid
 <li><strong>Capacidad ilimitada</strong> de archivo.</li>
 </ul>
 
-<a target="_blank" href="pdf/presentación digitalización mores.pdf">
-	<div class="pdfdoc"><img alt="ver dossier" src="img/pdf.png"><span>Digitalización en morés</span></div>
-</a>
+      <div class="pdf-container">
+      <a href="pdf/presentación digitalización mores.pdf" target="_blank">
+        <div class="group corner pdf-catalogo">
+          
+          <div class="icono"></div>
+          <div class="texto">
+            <h4>Digitalización en morés</h4>
+          </div>
+        </div>
+    </a>
+    </div>
   	</div>
   </div>
 

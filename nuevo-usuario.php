@@ -27,6 +27,7 @@
 
 	<form action="nuevo-usuario-alta.php" class="form-horizontal contacto redirect" method="POST">
 		<input type="hidden" name="ip" value="<?php echo getIp(); ?>">
+		<input type="hidden" name="login" value="<?php echo !empty($_GET['login'])? $_GET['login']:1 ?>">
 	    <fieldset>
 	    <div class="control-group">
 		    <label class="control-label" for="nombre">Nombre:*</label>
@@ -60,6 +61,20 @@
 		    <label class="control-label" for="dir">Dirección:</label>
 		    <div class="controls">
 		   		<input type="text" class="span7" id="dir" name="dir">
+		    </div>
+	    </div>
+
+	    <div class="control-group">
+		    <label class="control-label" for="dir">Dirección 2:</label>
+		    <div class="controls">
+		   		<input type="text" class="span7" id="dir2" name="dir2">
+		    </div>
+	    </div>
+
+	    <div class="control-group">
+		    <label class="control-label" for="cp">Código postal:</label>
+		    <div class="controls">
+		   		<input type="text" class="span7" id="cp" name="cp">
 		    </div>
 	    </div>
 

@@ -16,8 +16,16 @@ if(!($user && $pass)){
 
 
 if(!$error){
-	header('Location: ../subir-archivos.php');
+	if(!empty($_GET["login"])){
+		header('Location: ../compras_pedido.php');
+	}else{
+		header('Location: ../subir-archivos.php');
+	}
 }else{
-	header('Location: ../login.php?error='.$error);
+	if(!empty($_GET["login"])){
+		header('Location: ../login2.php?error='.$error);
+	}else{
+		header('Location: ../login.php?error='.$error);
+	}
 }
 ?>

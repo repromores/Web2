@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta name="description" content="">
     <meta name="author" content="Ramón Kamibayashi">
     <META name="Description" content="Morés, empresa de artes gráficas.

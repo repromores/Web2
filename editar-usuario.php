@@ -5,6 +5,8 @@
 <?php
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
   $h1text = "Editar usuario - morés";
+
+  $back_url = (!empty($_GET["login"]))? "compras_pedido.php": "subir-archivos.php";
  ?>
 <?php include "inc/menu.php"; ?>
 
@@ -27,6 +29,7 @@
 
 	<form action="nuevo-usuario-edit.php" class="form-horizontal contacto redirect" method="POST">
 		<input type="hidden" name="ip" value="<?php echo getIp(); ?>">
+		<input type="hidden" name="login" value="<?php echo (!empty($_GET["login"]))? $_GET["login"]: ''; ?>">
 	    <fieldset>
 	    <div class="control-group">
 		    <label class="control-label" for="nombre">Nombre:*</label>
@@ -53,6 +56,20 @@
 		    <label class="control-label" for="dir">Dirección:</label>
 		    <div class="controls">
 		   		<input type="text" class="span7" id="dir" name="dir" value="<?php echo $_SESSION["usr_dir"] ?>">
+		    </div>
+	    </div>
+
+	    <div class="control-group">
+		    <label class="control-label" for="dir2">Dirección 2:</label>
+		    <div class="controls">
+		   		<input type="text" class="span7" id="dir2" name="dir2" value="<?php echo $_SESSION["usr_dir2"] ?>">
+		    </div>
+	    </div>
+
+	    <div class="control-group">
+		    <label class="control-label" for="cp">Código postal:</label>
+		    <div class="controls">
+		   		<input type="text" class="span7" id="cp" name="cp" value="<?php echo $_SESSION["usr_cp"] ?>">
 		    </div>
 	    </div>
 
@@ -86,7 +103,7 @@
 
 	    <div class="form-actions">
             <button class="btn btn-primary" type="submit">Enviar</button>
-            <a class="btn" href="subir-archivos.php">Cancelar</a>
+            <a class="btn" href="<?php echo $back_url ?>">Cancelar</a>
             <div class="mensaje-error">Corrige los campos en rojo</div>
             <div class="mensaje-exito"></div>
           </div>

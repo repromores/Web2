@@ -15,6 +15,7 @@
 La página a la que intenta acceder no existe. <a href="index.php"><strong>Puede volver a la portada pulsando aquí</strong></a>.
 </p>
 
+<div class="e404"></div>
   	</div>
   </div>
 

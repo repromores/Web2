@@ -79,6 +79,10 @@ require_once "../inc/config.php";
 		$nvpstr = $nvpstr . "&RETURNURL=" . $returnURL;
 		$nvpstr = $nvpstr . "&CANCELURL=" . $cancelURL;
 		$nvpstr = $nvpstr . "&PAYMENTREQUEST_0_CURRENCYCODE=" . $currencyCodeType;
+		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_n_NAMEm=Pedido Web Mores";
+		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_n_QTYm =1" ;
+		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_n_AMTm=". $paymentAmount;
+
 		
 		$_SESSION["currencyCodeType"] = $currencyCodeType;	  
 		$_SESSION["PaymentType"] = $paymentType;
@@ -126,6 +130,8 @@ require_once "../inc/config.php";
 		//------------------------------------------------------------------------------------------------------------------------------------
 		// Construct the parameter string that describes the SetExpressCheckout API call in the shortcut implementation
 		
+
+		$nvpstr="&METHOD=DoExpressCheckoutPayment";
 		$nvpstr="&PAYMENTREQUEST_0_AMT=". $paymentAmount;
 		$nvpstr = $nvpstr . "&PAYMENTREQUEST_0_PAYMENTACTION=" . $paymentType;
 		$nvpstr = $nvpstr . "&RETURNURL=" . $returnURL;
@@ -140,7 +146,15 @@ require_once "../inc/config.php";
 		$nvpstr = $nvpstr . "&PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE=" . $shipToCountryCode;
 		$nvpstr = $nvpstr . "&PAYMENTREQUEST_0_SHIPTOZIP=" . $shipToZip;
 		$nvpstr = $nvpstr . "&PAYMENTREQUEST_0_SHIPTOPHONENUM=" . $phoneNum;
+		$nvpstr = $nvpstr . "&PAYMENTREQUEST_0_CURRENCYCODE=" . $currencyCodeType;
+
+		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_0_NAME0=Pedido Web Mores";
+		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_0_QTY0=1" ;
+		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_0_AMT0=". $paymentAmount;
+		$nvpstr = $nvpstr . "&PAYMENTREQUEST_0_ITEMAMT=". $paymentAmount;
 		
+		  
+
 		$_SESSION["currencyCodeType"] = $currencyCodeType;	  
 		$_SESSION["PaymentType"] = $paymentType;
 
@@ -235,6 +249,7 @@ require_once "../inc/config.php";
 		    If an error occured, show the resulting errors
 		    */
 		$resArray=hash_call("DoExpressCheckoutPayment",$nvpstr);
+		
 
 		/* Display the API response back to the browser.
 		   If the response from PayPal was a success, display the response parameters'

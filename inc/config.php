@@ -55,6 +55,12 @@ $url_imgs_mail	= "http://mores.es/img/";
 
 $fotoliaKey = "svBKgX7unls2Y7abxY9pRe8hJacn5MAn";
 
+$vinilos_impresos_fotolia_dpi  = 100;
+$vinilos_impresos_fotolia_dpcm = $vinilos_impresos_fotolia_dpi/2.54;
+
+
+
+
 require_once('class.phpmailer.php');
 
 $db_conn = mysql_connect($db_host, $db_user, $db_pass);
@@ -123,6 +129,7 @@ function resetSession($user){
 		$_SESSION["usr_cif"] 		= $fila["cif"];
 		$_SESSION["usr_telefono"] 	= $fila["telefono"]; 
 		$_SESSION["usr_dir"] 		= $fila["direccion"]; 
+		$_SESSION["usr_dir2"] 		= $fila["direccion2"]; 
 		$_SESSION["usr_prov"] 		= $fila["provincia"]; 
 		$_SESSION["usr_pob"] 		= $fila["poblacion"];
 		$_SESSION["usr_pass"] 		= $fila["password"];
@@ -315,6 +322,7 @@ function borraProducto($id){
 			unset($_SESSION["pedido"]["productos"][$indice]);
 			$_SESSION["pedido"]["productos"] = array_values($_SESSION["pedido"]["productos"]); 
 			$borrado = 1;
+			return $borrado;
 		}
 	}
 	return $borrado;
@@ -385,7 +393,9 @@ function calculaTotal($iva,$envio){
 	return $total;
 }
 
-
+function nProductos(){
+	return count($_SESSION["pedido"]["productos"]);
+}
 
 function resetCarrito(){
 	$productos = array();
@@ -395,9 +405,7 @@ if(!isset($_SESSION["pedido"])){
 	resetCarrito();
 }
 
-function insertPedido(){
 
-}
 function getIdPedido(){
 	$id = empty($_SESSION["pedido"]["data"]["idpedido"])? time() : $_SESSION["pedido"]["data"]["idpedido"];
 	return $id;
@@ -441,6 +449,38 @@ function insertPedidoPaypal($resArray){
 	mysql_query($q);
 
 return $p_ack;
+}
+function insertPedido(){
+	$id 				= empty($resArray["TOKEN"])? null :$resArray["TOKEN"];
+}
+
+function getPrecioVinilo($tipo,$ancho,$alto){
+	$cm2 =$ancho*$alto;
+	switch ($tipo) {
+		case 'impreso':
+			$tarifa = ($cm2>50000)? "p5mp" : "p5mm";
+			break;
+		case 'laminado':
+			$tarifa = "p5mm";
+			break;
+		case 'corte':
+			$tarifa = ($cm2>50000)? "p5mp" : "p5mm";
+			$tarifa = ($cm2>500000)? "p50mp" : $tarifa;
+			break;
+		case 'acido':
+			$tarifa = ($cm2>50000)? "p5mp" : "p5mm";
+			$tarifa = ($cm2>500000)? "p50mp" : $tarifa;
+			break;
+	}
+
+	$q = mysql_query("SELECT * FROM t_producto_vinilo WHERE producto='".$tipo."'");
+	
+	$cm2 = ($cm2<10000)? 10000 : $cm2;
+
+	$fila = mysql_fetch_assoc($q);	
+	$precio = $fila[$tarifa];
+	return number_format($precio*$cm2/10000 ,2, '.', '');
+
 }
 
 ?>

@@ -44,6 +44,9 @@ var carrito = {
 		  data 		: {f : "borrarproducto",id: id},
 		  success	: function(data){
 						$(".id"+id).remove();
+						if(data.nprod == 0){
+							$(".banner-carrito").hide();
+						}
 						Carrito.actualizarTablaResumen();
 					}
 		});
@@ -230,4 +233,92 @@ pedido = {
 
 	}
 }
-pedido.init();
+if ($("#pag-pedido").length ){
+	pedido.init();
+}
+
+
+final = {
+	init: function(){
+		Final 					= this;
+		Final.$form			= $("#form-final");
+		Final.$paypal 			= $(".paypal");
+		Final.$tarjeta 			= $(".tarjeta");
+		Final.$selector 		= $(".metodo");
+		Final.$seleccionado		= $("#metodo-p");
+
+		Final.bindEvents();
+		Final.getSeleccionMetodo();
+	},
+	bindEvents: function(){
+		Final.$selector.on("click", Final.selectorClicked);
+		Final.$form.on("submit",Final.validarForm);
+	},
+	selectorClicked : function(e){
+		e.preventDefault();
+		$esto = $(this);
+		metodo = $esto.data("metodo");
+		Final.muestraMetodo(metodo);
+	},
+	getSeleccionMetodo: function(){
+		if(sessionStorage.getItem("metodoPSelected") != null){
+			Final.muestraMetodo(sessionStorage.getItem("metodoPSelected"));
+		}else{
+			Final.muestraMetodo("paypal");
+		}
+	},
+
+	muestraMetodo  :function(metodo){
+		$("#metodo-p").val(metodo);
+		contrario = (metodo == "paypal")? "tarjeta" : "paypal";
+		$(".b-"+metodo).addClass("active");
+
+		$("."+contrario).slideUp(function(){
+			$("."+metodo).slideDown();
+		})
+		sessionStorage.setItem("metodoPSelected",metodo);
+	},
+
+
+	validarForm : function(){
+		error = 0;
+		if(Final.$seleccionado.val() == "tarjeta"){
+			error += Final.funcionRequerido($(".nombre"));
+			error += Final.funcionRequerido($(".ape"));
+			error += Final.funcionRequerido($(".ntarjeta"));
+			error += Final.funcionRequerido($(".cvv"));
+			error += Final.funcionRequerido($(".calle"));
+			error += Final.funcionRequerido($(".ciudad"));
+			error += Final.funcionRequerido($(".prov"));
+			error += Final.funcionRequerido($(".cp"));
+		}	
+
+		return(error==0);
+	},
+	requerido : function($elem){
+		$elem = $.trim($elem);
+		return (($elem !="") && ($elem != null));
+	},
+	funcionRequerido : function($elem){
+			error = 0;
+			if(!(Final.requerido($elem.val()))){
+				error++;
+				Final.displayError($elem,true);
+			}else{
+				Final.displayError($elem,false);
+			}
+			return error;
+	},
+	displayError: function($elem,error){
+		if(error){
+			$elem.parents(".control-group").addClass("error");			
+		}else{
+			$elem.parents(".control-group").removeClass("error");			
+		}
+
+
+	}
+}
+if ($("#pag-final").length ){
+	final.init();
+}

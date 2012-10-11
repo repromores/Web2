@@ -2,7 +2,17 @@
 require_once ("config.php");
 require_once ("../paypal/paypalfunctions.php");
 
-$PaymentOption = "PayPal";
+
+
+$PaymentOption = ($_POST["metodopago"] == "paypal")? "PayPal" : $_POST["tipotarjeta"];
+
+
+    if($_SESSION["pedido"]["metodo"]== "mensajero"){
+        $total_AMT = calculaTotal(getIVA(),getEnvio("envi"));
+    }else{
+        $total_AMT = calculaTotal(getIVA(),0);
+    }
+
 
 if ( $PaymentOption == "PayPal")
 {
@@ -16,7 +26,7 @@ if ( $PaymentOption == "PayPal")
         //' earlier in a session variable 
         //' by the shopping cart page
         //'------------------------------------
-        $paymentAmount = $_SESSION["Payment_Amount"];
+        $paymentAmount = $total_AMT;
 
         //'------------------------------------
         //' When you integrate this code 
@@ -104,7 +114,7 @@ else
         //' earlier in a session variable 
         //' by the shopping cart page
         //'------------------------------------
-        $paymentAmount = $_SESSION["Payment_Amount"];
+        $paymentAmount = $total_AMT;
 
         //'------------------------------------
         //' The currencyCodeType and paymentType 
@@ -115,20 +125,19 @@ else
         
         //' Set these values based on what was selected by the user on the Billing page Html form
         
-        $creditCardType                 = "<<Visa/MasterCard/Amex/Discover>>"; //' Set this to one of the acceptable values (Visa/MasterCard/Amex/Discover) match it to what was selected on your Billing page
-        $creditCardNumber                 = "<<CC number>>"; //' Set this to the string entered as the credit card number on the Billing page
-        $expDate                                 = "<<Expiry Date>>"; //' Set this to the credit card expiry date entered on the Billing page
-        $cvv2                                         = "<<cvv2>>"; //' Set this to the CVV2 string entered on the Billing page 
-        $firstName                                 = "<<firstName>>"; //' Set this to the customer's first name that was entered on the Billing page 
-        $lastName                                 = "<<lastName>>"; //' Set this to the customer's last name that was entered on the Billing page 
-        $street                                 = "<<street>>"; //' Set this to the customer's street address that was entered on the Billing page 
-        $city                                         = "<<city>>"; //' Set this to the customer's city that was entered on the Billing page 
-        $state                                         = "<<state>>"; //' Set this to the customer's state that was entered on the Billing page 
-        $zip                                         = "<<zip>>"; //' Set this to the zip code of the customer's address that was entered on the Billing page 
-        $countryCode                         = "<<PayPal Country Code>>"; //' Set this to the PayPal code for the Country of the customer's address that was entered on the Billing page 
-        $currencyCode                         = "<<PayPal Currency Code>>"; //' Set this to the PayPal code for the Currency used by the customer 
-        
-        /*        
+        $creditCardType                 = $PaymentOption; //' Set this to one of the acceptable values (Visa/MasterCard/Amex/Discover) match it to what was selected on your Billing page
+        $creditCardNumber               = $_POST["ntarjeta"]; //' Set this to the string entered as the credit card number on the Billing page
+        $expDate                        = $_POST["mes"].$_POST["anio"]; //' Set this to the credit card expiry date entered on the Billing page
+        $cvv2                           = $_POST["cvv"]; //' Set this to the CVV2 string entered on the Billing page 
+        $firstName                      = $_POST["nombre"]; //' Set this to the customer's first name that was entered on the Billing page 
+        $lastName                       = $_POST["ape"]; //' Set this to the customer's last name that was entered on the Billing page 
+        $street                         = $_POST["calle"]; //' Set this to the customer's street address that was entered on the Billing page 
+        $city                           = $_POST["ciudad"]; //' Set this to the customer's city that was entered on the Billing page 
+        $state                          = $_POST["prov"]; //' Set this to the customer's state that was entered on the Billing page 
+        $zip                            = $_POST["cp"]; //' Set this to the zip code of the customer's address that was entered on the Billing page 
+        $countryCode                    = "ES"; //' Set this to the PayPal code for the Country of the customer's address that was entered on the Billing page 
+        $currencyCode                   = "EUR"; //' Set this to the PayPal code for the Currency used by the customer 
+            /*        
         '------------------------------------------------
         ' Calls the DoDirectPayment API call
         '
@@ -136,7 +145,7 @@ else
         '-------------------------------------------------
         */
         
-        $resArray = DirectPayment ( $paymentType, $paymentAmount, $creditCardType, $creditCardNumber,
+        $resArray = DirectPayment ( $paymentType, $total_AMT, $creditCardType, $creditCardNumber,
                                                         $expDate, $cvv2, $firstName, $lastName, $street, $city, $state, $zip, 
                                                         $countryCode, $currencyCode ); 
 

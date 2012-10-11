@@ -158,7 +158,7 @@
 	    </div>
 
 	    <div class="form-actions">
-            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-primary" type="submit" data-loading-text="Enviando...">Enviar</button>
             <div class="mensaje-error">Corrige los campos en rojo</div>
             <div class="mensaje-exito"></div>
           </div>

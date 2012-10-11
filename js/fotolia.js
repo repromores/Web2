@@ -19,9 +19,12 @@ var resultados = {
 		Resultados.plantilla 	= '<li class="item"><div class="box" data-id="{{id}}"><img src="{{imgsrc}}" data-id="{{id}}" title="{{title}}" alt="{{title}}"/></div></li>';
 		
 		Resultados.pag 			= ".paginacion";
+		Resultados.aceptBt		= ".imgbtn";
 		Resultados.pagValue		= "#min";
 		Resultados.selectTd		= "div.muestra-imagen tr";
 		Resultados.btncerrar	= ".btn-cancelar";
+		Resultados.customsize	= ".i-custom";
+
 		Resultados.eventListener();
 
 		$(Resultados.pagValue).val(0);
@@ -29,10 +32,66 @@ var resultados = {
 
 	eventListener : function(){
 		$(Resultados.target).on("click",".box", Resultados.getBorrador);
-		$(Resultados.target).on("click",".imgbtn", Resultados.selectImg);
+		$("body").on("click",Resultados.aceptBt, Resultados.selectImg);
 		$(Resultados.pag).on("click",".pag", Resultados.paginacion);
 		$("body").on("click", Resultados.selectTd, Resultados.selectSize);
 		$("body").on("click", Resultados.btncerrar, Resultados.cerrarPopup);
+		$("body").on("change", Resultados.customsize, Resultados.actualizarPrecioVinilo);
+	},
+
+	actualizarPrecioVinilo : function(){
+		error = 0;
+		$esto = $(this);
+		valor = $esto.val();
+		datos = $(".custom-data");
+
+		if($esto.hasClass("i-ancho")){
+			ancho = valor;
+			lado = "ancho";
+			if(valor > datos.data("wmax")){
+				error++;
+			}
+
+		}else{
+			alto = valor;
+			lado = "alto";
+			if(valor > datos.data("hmax")){
+				error++;
+			}
+		}
+		if(error == 0){
+			if(lado == "ancho"){
+				prop = datos.data("hmax")/datos.data("wmax");
+				alto = Math.round(valor*prop);
+			}else{
+				prop = datos.data("wmax")/datos.data("hmax");
+				ancho = Math.round(valor*prop);
+			}
+			$(".i-ancho").val(ancho);
+			$(".i-alto").val(alto);
+
+		}else{
+			$(".i-ancho").val(datos.data("wmax"));
+			$(".i-alto").val(datos.data("hmax"));
+			ancho = datos.data("wmax");
+			alto = datos.data("hmax");
+			msj.show("Tamaño demasiado grande","error");			
+
+		}
+		$(".custom-data").parent("tr").data("h",alto);
+		$(".custom-data").parent("tr").data("w",ancho);
+
+		$(".custom-data").data("h",alto);
+		$(".custom-data").data("w",ancho);
+
+
+		Resultados.calculaPrecioVinilo(ancho,alto,datos.data("tipo"));
+	},
+
+	calculaPrecioVinilo : function(an,al,tipo){
+		$.post("inc/compras_procesa_cambios.php?f=getpreciovinilo",{ancho:an,alto:al,tipo:tipo},function(data){
+			$(".precioperso").text(data);
+		})
 	},
 
 	checkRes : function(data){
@@ -97,7 +156,7 @@ var resultados = {
 		$("#vinilosform").submit();
 	},
 
-	selectImg : function(){
+/*	selectImg : function(){
 		$this 	= $(this);
 		idfoto 	= $this.data("id");
 		size 	= $("#imgsize").val();
@@ -114,6 +173,31 @@ var resultados = {
 		}
 		Resultados.applySelectedStyling($this);
 		sessionStorage.setItem("vinilosSelected", JSON.stringify(selected));
+	},
+*/
+	selectImg : function(){
+		datos = $(".custom-data");
+		info = {};
+
+		console.log("clicked");
+
+		info["id"] = 		datos.data("id");
+		info["tipo"] = 		datos.data("tipo");
+		info["titulo"] = 	datos.data("titulo");
+		info["material"] = 	datos.data("material");
+		info["h"] = 		datos.data("h");
+		info["w"] = 		datos.data("w");
+		info["info"] = 		"foto: "+datos.data("id");
+
+		//params = JSON.stringify(info);
+
+		$.getJSON("inc/compras_procesa_cambios.php?f=agregaproducto",info, function(data){
+			if(data.ok){
+				Resultados.cerrarPopup();
+				msj.show("Producto añadido al carrito");
+				$(".banner-carrito").show();
+			}
+		});
 	},
 
 	markSelected : function(){
@@ -137,6 +221,8 @@ var resultados = {
 
 	selectSize : function(){
 		$this = $(this);
+		$(".custom-data").data("h",$this.data("h"));
+		$(".custom-data").data("w",$this.data("w"));
 		Resultados.applyTdStyling($this);
 
 	},

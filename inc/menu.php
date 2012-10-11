@@ -6,6 +6,8 @@
   </head>
   <body>
     <div class="container">
+      <div id="mensajes">
+      </div>
       <div class="row">
         <div class="span16">
           <h1 class="logo">

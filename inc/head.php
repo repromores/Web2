@@ -8,12 +8,8 @@
     <META name="Description" content="Morés, empresa de artes gráficas.
      Ofrece fotocopias, cartelería, planos, impresión digital, rotulación, encuadernación tradicional, soportes expositivos, impresión digital, fotografía digital, gran formato, etc.">
     <!-- Le styles -->
-    <?php if ($mantenimiento){ ?>
-        <link rel="stylesheet/less" href="less/bootstrap.less" media="all" />
-        <script src="js/less.js"></script>
-    <?php } else { ?>
+        <link href="css/jquery-ui-min.css" rel="stylesheet">
         <link href="css/bootstrap.css" rel="stylesheet">
-    <?php } ?>
         <link href="css/wrap-ribbon-light.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->

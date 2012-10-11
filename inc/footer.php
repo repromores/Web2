@@ -37,6 +37,7 @@
     <script type="text/javascript" src="js/fancybox/jquery.fancybox.pack.js?v=2.0.6"></script>
 
     <script src="js/jquery.form.js"></script>
+    <script src="js/jquery-ui-min.js"></script>
 
     <link href="less/jquery.plupload.queue.css" rel="stylesheet">  
 

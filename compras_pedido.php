@@ -21,7 +21,7 @@ $cp 	= empty($_SESSION["pedido"]["data"]["cp"])		? $_SESSION["usr_cp"] 		: getEn
 <?php include "inc/menu.php"; ?>
 
   <div class="span10">
-  	<div class="content">
+  	<div class="content" id="pag-pedido">
 
       <legend>Modificar datos de usuario</legend>
       <p> Si desea modificar sus datos almacenados en el Sistema de Envios de Morés, por favor pulse el botón siguiente:</p>

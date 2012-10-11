@@ -308,6 +308,8 @@ require_once "../inc/config.php";
 		$nvpstr = $nvpstr . "&COUNTRYCODE=" . $countryCode;
 		$nvpstr = $nvpstr . "&IPADDRESS=" . $_SERVER['REMOTE_ADDR'];
 
+echo($nvpstr);
+
 		$resArray=hash_call("DoDirectPayment", $nvpstr);
 
 		return $resArray;

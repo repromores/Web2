@@ -122,10 +122,10 @@ $('.contacto:not(.redirect)').ajaxForm({
 	target: 	'.mensaje-exito',
 	clearForm: 	true,
 	beforeSubmit : function(){
-		$(".btnsubmit").text("Enviando...");
+		$(".btn-primary").button('loading');
 	},
 	success : function(){
-		$(".btnsubmit").text("Enviar");
+		$(".btn-primary").button('reset');
 	}
 }); 
 
@@ -286,3 +286,30 @@ $(".btnsubmit").on("click", function(){
 
 $('#tabs').tabs();
 
+var msj = {
+	init : function(){
+		Msj = this;
+		Msj.$container = $("#mensajes");
+		Msj.plantilla = '<div class="msg-alert alert alert-{{tipo}}"><button type="button" class="close" data-dismiss="alert">×</button>{{texto}}</div>';
+	},
+	show : function(mensaje,tipo){
+		tipo = (typeof tipo == "undefined")? "success" : tipo;
+		cola = (typeof cola == "undefined")? new Array() : cola;
+
+		mens = Msj.plantilla.replace("{{tipo}}", tipo);
+		mens = mens.replace("{{texto}}", mensaje);
+
+		$mens = $(mens);
+		cola.push($mens);
+
+		$mens.appendTo(Msj.$container);
+		$mens.show("bounce",{ distance: 50 },1000);
+		setTimeout(function(){
+			mensa = cola.shift();
+			$mens.hide("drop",500,function(){
+				mensa.remove();
+			});
+		},3500);
+	}
+}
+msj.init();

@@ -55,7 +55,6 @@
 </div>
 
 <div class="well" style="margin-top:180px;">
-	<a class="btn" href="">Paso atrás</a>
 	<a class="btn btn-primary pull-right" href="login2.php">Siguiente paso</a>
 
 

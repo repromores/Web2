@@ -4,6 +4,12 @@
     <a class="btn" href="login.php">Entrar</a>
   </div>
 
+  <div class="banner banner-carrito"<?php if(nProductos() > 0){ ?> style="display:block"<?php } ?> >
+    <h3>Carrito</h3>
+    <p>Tienes artículos en el carrito</p>
+    <a class="btn" href="compras_carrito.php">Ver carrito <i class="icon-shopping-cart"></i></a>
+</div>
+
     <div class="banner">
     <a class="" href="http://artis.mores.es/">
     	<img alt="art on demand" src="img/art-on-demand.jpg">

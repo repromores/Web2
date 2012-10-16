@@ -34,8 +34,8 @@ if (getIp() =="127.0.0.1"){
 $paypal_API_UserName	="ramonk_1347373173_biz_api1.gmail.com";
 $paypal_API_Password	="1347373198";
 $paypal_API_Signature	="AdA0jIwVZf-EmJTAQScl3X3Zwlr4AOGbDYH9Ik.vUhwyJyUQZ1-b-mjD";
-$paypal_URL_confirmado	="http://localhost/web2/inc/confirmado.php";
-$paypal_URL_cancelado	="http://localhost/web2/inc/cancelado.php";
+$paypal_URL_confirmado	="http://localhost/web2/confirmado.php";
+$paypal_URL_cancelado	="http://localhost/web2/cancelado.php";
 
 
 
@@ -55,7 +55,7 @@ $url_imgs_mail	= "http://mores.es/img/";
 
 $fotoliaKey = "svBKgX7unls2Y7abxY9pRe8hJacn5MAn";
 
-$vinilos_impresos_fotolia_dpi  = 100;
+$vinilos_impresos_fotolia_dpi  = 48;
 $vinilos_impresos_fotolia_dpcm = $vinilos_impresos_fotolia_dpi/2.54;
 
 
@@ -282,8 +282,6 @@ function setEntrega($entrega){
 }
 
 function agregaProducto($producto){
-	
-
 	if(empty($_SESSION["pedido"])){
 		nuevoPedido($producto);
 	}else{
@@ -292,9 +290,10 @@ function agregaProducto($producto){
 	return $_SESSION["pedido"];
 }
 
-function creaProducto($id,$nombre,$medidas,$archivo,$material,$precio,$info,$acabado){
+function creaProducto($id,$ref,$nombre,$medidas,$archivo,$material,$precio,$info,$acabado){
 	return array(
 				id 			=> $id,
+				ref 		=> $ref,
 				nombre		=> $nombre,
 				medidas		=> $medidas,
 				archivo		=> $archivo,
@@ -333,16 +332,18 @@ function muestraPedidoCarrito($editable = true){
 	if($editable){
 		$plantilla = '
 				<tr class="id{{id}}">
-				    <td>{{nombre}}</td>
-				    <td>{{ancho}}x{{alto}}cm {{info}}</td>
+				    <td>{{nombre}} {{ref}}</td>
+				    <td>{{material}}</td>
+				    <td>{{ancho}}x{{alto}}cm</td>
 				    <td class="precio" data-precio="{{precio}}">{{precio}}€</td>
 				    <td><i  data-id="id{{id}}" data-nid="{{id}}" class="icon-trash borrar-linea"></i></td>
 			    </tr>';
 	}else{
 		$plantilla = '
 				<tr class="id{{id}}">
-				    <td>{{nombre}}</td>
-				    <td>{{ancho}}x{{alto}}cm {{info}}</td>
+				    <td>{{nombre}} {{ref}}</td>
+				    <td>{{material}}</td>
+				    <td>{{ancho}}x{{alto}}cm</td>
 				    <td class="precio" data-precio="{{precio}}">{{precio}}€</td>
 			    </tr>';		
 	}
@@ -352,6 +353,8 @@ function muestraPedidoCarrito($editable = true){
 		$temp = str_replace("{{id}}", $producto["id"], $plantilla);
 		$temp = str_replace("{{nombre}}", $producto["nombre"], $temp);
 		$temp = str_replace("{{info}}", $producto["info"], $temp);
+		$temp = str_replace("{{material}}", $producto["material"], $temp);
+		$temp = str_replace("{{ref}}", $producto["ref"], $temp);
 		$temp = str_replace("{{ancho}}", $producto["medidas"][0], $temp);
 		$temp = str_replace("{{alto}}", $producto["medidas"][1], $temp);
 		$temp = str_replace("{{precio}}",  number_format($producto["precio"], 2, '.', ''), $temp);
@@ -372,7 +375,7 @@ function getMetodoEnvio(){
 	return $_SESSION["pedido"]["metodo"];
 }
 function getEnvio($elem){
-	return $_SESSION["pedido"]["data"][$elem];
+	return empty($_SESSION["pedido"]["data"][$elem])? "" : $_SESSION["pedido"]["data"][$elem];
 }
 function setEnvio($elem,$val){
 	return $_SESSION["pedido"]["data"][$elem] = $val;

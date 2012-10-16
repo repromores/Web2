@@ -230,7 +230,7 @@ ul.menu-top{
 		ul{
 			padding:10px 0;
 			list-style:none;
-			width: 635px;
+			width: 750px;
 			margin:20px auto;
 		}
 		li{
@@ -387,5 +387,33 @@ div.muestra-imagen{
 	border: 1px solid #BBBBBB;
     padding: 10px;
     text-align: center;
-    display: none;
+    display: none; 
+}
+.numberCircleContainer{
+	width: 100%;
+	height: 60px;
+}
+.numberCircle {
+    border: 4px solid #999;
+    border-radius: 999px 999px 999px 999px;
+    color: #999;
+    font: 32px Arial,sans-serif;
+    height: 36px;
+    padding: 4px;
+    text-align: center;
+    width: 36px;
+    float: left;
+    margin:10px 46px;
+
+    &.success{
+    	color:#5EB95E;
+    	border-color: #5EB95E;
+    }
+    &.warning{
+    	color:#FAA732;
+    	border-color: #FAA732;
+    }
+}
+.progress{
+	margin-top: 20px;
 }

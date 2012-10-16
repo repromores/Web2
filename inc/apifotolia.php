@@ -62,7 +62,8 @@ function getBusqueda(){
 				break;
 
 			default:
-				$query	.= '&search_parameters[filters][content_type:all]=1';
+				//$query	.= '&search_parameters[filters][content_type:all]=1';
+				$query	.= '&search_parameters[filters][content_type:photo]=1&search_parameters[filters][content_type:illustration]=1';
 				break;
 		}
 

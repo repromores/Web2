@@ -1,6 +1,7 @@
 ﻿   <footer class="footer">
        <div class="links">
            <ul>
+               <li><a href="utilidades.php">Utilidades</a></li>
                <li><a href="index.php">© Morés 2012</a></li>
                <li><a href="aviso-legal.php">Aviso Legal</a></li>
                <li><a href="politica-privacidad.php">Política de Privacidad</a></li>

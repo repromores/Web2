@@ -9,6 +9,16 @@
 
   <div class="span10">
   	<div class="content">
+  		<div class="numberCircleContainer">
+			<div class="numberCircle warning">1</div>
+			<div class="numberCircle">2</div>
+			<div class="numberCircle">3</div>
+			<div class="numberCircle">4</div>
+
+		</div>
+		<div class="progress">
+			<div class="bar bar-warning" style="width: 25%;"></div>
+	    </div>
 <h2>Carrito de productos</h2>
 <div>
 	<br>
@@ -24,7 +34,8 @@
 	    <thead>
 		    <tr>
 			    <th>Producto</th>
-			    <th>Información</th>
+			    <th>Material</th>
+			    <th>Tamaño</th>
 			    <th>Precio</th>
 			    <th></th>
 		    </tr>

@@ -31,7 +31,7 @@ Ponemos a tu disposición una amplia colección de vinilos para tu hogar o negoc
 
       <select name="tipo" class="span2">
         <option value="0">Todos</option>
-        <option value="vector">Vector</option>
+        <?php //<option value="vector">Vector</option> ?>
         <option value="foto">Fotografía</option>
         <option value="ilus">Ilustración</option>
       </select>

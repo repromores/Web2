@@ -59,6 +59,9 @@ var resultados = {
 				error++;
 			}
 		}
+		if(isNaN(valor)){
+			error++;
+		}
 		if(error == 0){
 			if(lado == "ancho"){
 				prop = datos.data("hmax")/datos.data("wmax");
@@ -187,17 +190,21 @@ var resultados = {
 		info["material"] = 	datos.data("material");
 		info["h"] = 		datos.data("h");
 		info["w"] = 		datos.data("w");
-		info["info"] = 		"foto: "+datos.data("id");
+		info["ref"] = 		"ref: "+datos.data("id");
+		info["info"] = 		"";
 
 		//params = JSON.stringify(info);
-
-		$.getJSON("inc/compras_procesa_cambios.php?f=agregaproducto",info, function(data){
-			if(data.ok){
-				Resultados.cerrarPopup();
-				msj.show("Producto añadido al carrito");
-				$(".banner-carrito").show();
-			}
-		});
+		if(info["w"] !="" || info["h"] !=""){
+			$.getJSON("inc/compras_procesa_cambios.php?f=agregaproducto",info, function(data){
+				if(data.ok){
+					Resultados.cerrarPopup();
+					msj.show("Producto añadido al carrito");
+					$(".banner-carrito").show();
+				}
+			});
+		}else{
+			msj.show("Selecciona un tamaño para tu vinilo","error");
+		}
 	},
 
 	markSelected : function(){

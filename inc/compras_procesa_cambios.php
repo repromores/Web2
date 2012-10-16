@@ -41,11 +41,12 @@ function agregaproductos(){
 	$material 	= $_GET["material"];
 	$acabado 	= empty($_GET["acabado"])? "" : $_GET["acabado"];
 	$info 		= empty($_GET["info"])? "" : $_GET["info"];
+	$ref 		= empty($_GET["ref"])? "" : $_GET["ref"];
 	$medidas 	= array($_GET["w"],$_GET["h"]);
 
 	$precio 	= getPrecioVinilo($_GET["tipo"],$_GET["w"],$_GET["h"]);
 
-	$producto 	= creaProducto($id,$nombre,$medidas,$archivo,$material,$precio,$info,$acabado);
+	$producto 	= creaProducto($id,$ref,$nombre,$medidas,$archivo,$material,$precio,$info,$acabado);
 	agregaProducto($producto);
 
 	$resultado 	= true;

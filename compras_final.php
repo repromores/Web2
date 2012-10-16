@@ -56,7 +56,19 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
 
   <div class="span10" id="pag-final">
   	<div class="content resumen">
+      <div class="numberCircleContainer">
+      <div class="numberCircle success">1</div>
+      <div class="numberCircle success">2</div>
+      <div class="numberCircle warning">3</div>
+      <div class="numberCircle">4</div>
 
+
+    </div>
+    <div class="progress">
+        <div class="bar bar-success" style="width: 25%;"></div>
+        <div class="bar bar-success" style="width: 25%;"></div>
+      <div class="bar bar-warning" style="width: 25%;"></div>
+      </div>
 <h2>Resumen</h2>
 
 
@@ -64,11 +76,12 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
       <input type="hidden" class="iva" value="21">
 
         <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Información</th>
-            <th>Precio</th>
-          </tr>
+        <tr>
+          <th>Producto</th>
+          <th>Material</th>
+          <th>Tamaño</th>
+          <th>Precio</th>
+        </tr>
         </thead>
         <tbody>
          <?php echo muestraPedidoCarrito(false); ?>

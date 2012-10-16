@@ -125,7 +125,7 @@ $('.contacto:not(.redirect)').ajaxForm({
 		$(".btn-primary").button('loading');
 	},
 	success : function(){
-		$(".btn-primary").button('reset');
+		$(".btn-primary").button('Enviado');
 	}
 }); 
 

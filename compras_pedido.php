@@ -22,7 +22,18 @@ $cp 	= empty($_SESSION["pedido"]["data"]["cp"])		? $_SESSION["usr_cp"] 		: getEn
 
   <div class="span10">
   	<div class="content" id="pag-pedido">
+  		<div class="numberCircleContainer">
+			<div class="numberCircle success">1</div>
+			<div class="numberCircle warning">2</div>
+			<div class="numberCircle">3</div>
+			<div class="numberCircle">4</div>
 
+
+		</div>
+		<div class="progress">
+		    <div class="bar bar-success" style="width: 25%;"></div>
+			<div class="bar bar-warning" style="width: 25%;"></div>
+	    </div>
       <legend>Modificar datos de usuario</legend>
       <p> Si desea modificar sus datos almacenados en el Sistema de Envios de Morés, por favor pulse el botón siguiente:</p>
       <a class="btn" href="editar-usuario.php?login=2">Modificar datos</a> <?php if($masdatos){ ?><strong style="color:red">Por favor, completa tu ficha para usar el servicio</strong><?php } ?>

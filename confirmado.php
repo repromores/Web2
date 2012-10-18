@@ -184,8 +184,121 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
 </div>
 <?php
 
+$iva_calculado = calculaTotal(getEnvio("iva"),0) - calculaTotal(0,0);
+
+$textaco_cliente = '
+<div class="span10 content" id="pag-final" style="width: 583px; font-family: sans-serif">
+<h1 class="" style="margin: 0;font-family: inherit;font-weight: bold;color: inherit;text-rendering: optimizelegibility;font-size: 30px;line-height: 32px;">
+<a href="http://mores.es" style="color: #0088cc;text-decoration: none;outline: none;">
+<img alt="Morés" src="http://mores.es/img/mores.png" class="" style="max-width: 100%;vertical-align: middle;border: 0;-ms-interpolation-mode: bicubic;">
+</a>
+</h1>
+<h2 style="margin: 0;font-family: inherit;font-weight: bold;color: #bc1922;text-rendering: optimizelegibility;font-size: 24px;line-height: 32px;border-bottom: 1px #bc1922 solid;margin-bottom: 25px;">Compra realizada</h2>
+
+<p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;"><strong style="font-weight: bold;">Plazo de entrega estimado: 3-4 días hábiles</strong></p>
+<table class="table table-striped" style="max-width: 100%;background-color: transparent;border-collapse: collapse;border-spacing: 0;width: 100%;margin-bottom: 16px;">
+<input type="hidden" class="iva" value="21" style="margin: 0;font-size: 13px;vertical-align: middle;*overflow: visible;line-height: 16px;font-weight: normal;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;width: 210px;margin-left: 0;">
+<thead>
+<tr>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Producto</th>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Material</th>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Tamaño</th>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Precio</th>
+</tr>
+</thead>
+<tbody>'. muestraPedidoCarrito(false) .'
+</tbody>
+</table>
+<div class="span4 pull-right clearfix" style="margin-bottom: 20px;*zoom: 1;width: 227.2px;float: right;">
+<table class="table table-striped" style="max-width: 100%;background-color: transparent;border-collapse: collapse;border-spacing: 0;width: 100%;margin-bottom: 16px;">
+<tbody>
+<tr>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">Subtotal</th>
+<td class="sumPrecios" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.calculaTotal(0,0) .' €</td>
+</tr>
+<tr>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">IVA</th>
+<td class="sumPreciosIva" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'. $iva_calculado .' €</td>
+</tr>
+<tr>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">Recogida</th>
+<td class="sumPrecioEnvio" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.$envio.' €</td>
+</tr>
+<tr>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">TOTAL</th>
+<td class="sumPrecioTotal" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.calculaTotal(getEnvio("iva"),$envio) .' €</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="well span5 dir-envio" style="width: 286.5px;min-height: 20px;padding: 19px;margin-bottom: 20px;background-color: #f5f5f5;border: 1px solid rgba(0, 0, 0, 0.05);-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);">
+<h3 style="margin: 0;font-family: inherit;font-weight: bold;color: #444;text-rendering: optimizelegibility;font-size: 18px;line-height: 24px;margin-top: 30px;margin-bottom: 5px;">Envio</h3>
+<p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;">
+'.$campoEnvio.'
+</p>
+</div>
+</div>
+';
+$textaco_mores = '
+<div class="span10 content" id="pag-final" style="width: 583px; font-family: sans-serif">
+<h1 class="" style="margin: 0;font-family: inherit;font-weight: bold;color: inherit;text-rendering: optimizelegibility;font-size: 30px;line-height: 32px;">
+<a href="http://mores.es" style="color: #0088cc;text-decoration: none;outline: none;">
+<img alt="Morés" src="http://mores.es/img/mores.png" class="" style="max-width: 100%;vertical-align: middle;border: 0;-ms-interpolation-mode: bicubic;">
+</a>
+</h1>
+<h2 style="margin: 0;font-family: inherit;font-weight: bold;color: #bc1922;text-rendering: optimizelegibility;font-size: 24px;line-height: 32px;border-bottom: 1px #bc1922 solid;margin-bottom: 25px;">Compra realizada</h2>
+<p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;">El usuario <strong>'.$_SESSION["usr_email"].' ha realizado el siguiente pedido en la tienda web</strong></p>
+<p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;"><strong style="font-weight: bold;">Plazo de entrega estimado: 3-4 días hábiles</strong></p>
+<table class="table table-striped" style="max-width: 100%;background-color: transparent;border-collapse: collapse;border-spacing: 0;width: 100%;margin-bottom: 16px;">
+<input type="hidden" class="iva" value="21" style="margin: 0;font-size: 13px;vertical-align: middle;*overflow: visible;line-height: 16px;font-weight: normal;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;width: 210px;margin-left: 0;">
+<thead>
+<tr>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Producto</th>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Material</th>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Tamaño</th>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Precio</th>
+</tr>
+</thead>
+<tbody>'. muestraPedidoCarrito(false) .'
+</tbody>
+</table>
+<div class="span4 pull-right clearfix" style="margin-bottom: 20px;*zoom: 1;width: 227.2px;float: right;">
+<table class="table table-striped" style="max-width: 100%;background-color: transparent;border-collapse: collapse;border-spacing: 0;width: 100%;margin-bottom: 16px;">
+<tbody>
+<tr>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">Subtotal</th>
+<td class="sumPrecios" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.calculaTotal(0,0) .' €</td>
+</tr>
+<tr>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">IVA</th>
+<td class="sumPreciosIva" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.$iva_calculado .' €</td>
+</tr>
+<tr>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">Recogida</th>
+<td class="sumPrecioEnvio" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.$envio.' €</td>
+</tr>
+<tr>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">TOTAL</th>
+<td class="sumPrecioTotal" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.calculaTotal(getEnvio("iva"),$envio) .' €</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="well span5 dir-envio" style="width: 286.5px;min-height: 20px;padding: 19px;margin-bottom: 20px;background-color: #f5f5f5;border: 1px solid rgba(0, 0, 0, 0.05);-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);">
+<h3 style="margin: 0;font-family: inherit;font-weight: bold;color: #444;text-rendering: optimizelegibility;font-size: 18px;line-height: 24px;margin-top: 30px;margin-bottom: 5px;">Envio</h3>
+<p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;">
+'.$campoEnvio.'
+</p>
+</div>
+</div>
+';
+
+enviarMail($_SESSION["usr_email"],"Morés - Pedido web",$textaco_cliente);
+enviarMail($emails_pedido_tiendaweb,"Pedido web",$textaco_mores);
+ 
+
  include "inc/footer.php";
 
-resetCarrito();
+//resetCarrito();
 
 ?>

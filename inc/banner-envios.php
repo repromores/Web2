@@ -8,10 +8,15 @@
     <h3>Carrito</h3>
     <p>Tienes artículos en el carrito</p>
     <a class="btn" href="compras_carrito.php">Ver carrito <i class="icon-shopping-cart"></i></a>
-</div>
+    </div>
 
-    <div class="banner">
+  <div class="banner">
     <a class="" href="http://artis.mores.es/">
     	<img alt="art on demand" src="img/art-on-demand.jpg">
     </a>
+  </div>
+
+  <div class="banner banner-gris">
+    <h4>Encuadernación artesanal</h4></br>
+    <a href="formularios_encuadernacion.php" class="btn btn-small">Descargar formularios</a>
   </div>

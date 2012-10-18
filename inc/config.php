@@ -15,6 +15,9 @@ if (getIp() =="127.0.0.1"){
 	$ftp_pass	 = "ftpmores1";
 	$ftp_path	 ='/monxas/mores/';
 
+	$paypal_URL_confirmado	="http://localhost/web2/confirmado.php";
+	$paypal_URL_cancelado	="http://localhost/web2/cancelado.php";	
+
 }else{
 
 	$db_host	= "localhost";
@@ -26,16 +29,18 @@ if (getIp() =="127.0.0.1"){
 	$ftp_pass	= "web2012";
 	$ftp_path	= "";
 
+	$paypal_URL_confirmado	="http://mores.es/confirmado.php";
+	$paypal_URL_cancelado	="http://mores.es/cancelado.php";
 }
  $analytics_code = "UA-21418483-1";
+
 
 //paypal
 
 $paypal_API_UserName	="ramonk_1347373173_biz_api1.gmail.com";
 $paypal_API_Password	="1347373198";
 $paypal_API_Signature	="AdA0jIwVZf-EmJTAQScl3X3Zwlr4AOGbDYH9Ik.vUhwyJyUQZ1-b-mjD";
-$paypal_URL_confirmado	="http://localhost/web2/confirmado.php";
-$paypal_URL_cancelado	="http://localhost/web2/cancelado.php";
+
 
 
 
@@ -46,10 +51,11 @@ $mail_pass			= "correoWeb.Mores";
 $mail_emisor		= "webmaster@mores.es"; 
 
 
-$emails_contacto 		= "informatica@mores.es, comercial@mores.es";
-$emails_reset_pass		= "informatica@mores.es";
-$emails_nuevo_usuario	= "informatica@mores.es";
-$emails_nuevo_envio		= "informatica@mores.es";
+$emails_contacto 			= "informatica@mores.es, comercial@mores.es";
+$emails_reset_pass			= "informatica@mores.es";
+$emails_nuevo_usuario		= "informatica@mores.es";
+$emails_nuevo_envio			= "informatica@mores.es";
+$emails_pedido_tiendaweb	= "informatica@mores.es";
 
 $url_imgs_mail	= "http://mores.es/img/";
 
@@ -271,6 +277,8 @@ function aplicaDescuento(){}
 function nuevoPedido($producto){
 	$productos = array($producto);
 	$_SESSION["pedido"] = array("productos" => $productos);
+	setEnvio("envi",11.50);
+	setEnvio("iva",21);
 }
 
 function getEntrega(){
@@ -333,7 +341,7 @@ function muestraPedidoCarrito($editable = true){
 		$plantilla = '
 				<tr class="id{{id}}">
 				    <td>{{nombre}} {{ref}}</td>
-				    <td>{{material}}</td>
+				    <td>{{material}} {{acabado}}</td>
 				    <td>{{ancho}}x{{alto}}cm</td>
 				    <td class="precio" data-precio="{{precio}}">{{precio}}€</td>
 				    <td><i  data-id="id{{id}}" data-nid="{{id}}" class="icon-trash borrar-linea"></i></td>
@@ -342,7 +350,7 @@ function muestraPedidoCarrito($editable = true){
 		$plantilla = '
 				<tr class="id{{id}}">
 				    <td>{{nombre}} {{ref}}</td>
-				    <td>{{material}}</td>
+				    <td>{{material}} {{acabado}}</td>
 				    <td>{{ancho}}x{{alto}}cm</td>
 				    <td class="precio" data-precio="{{precio}}">{{precio}}€</td>
 			    </tr>';		
@@ -354,6 +362,7 @@ function muestraPedidoCarrito($editable = true){
 		$temp = str_replace("{{nombre}}", $producto["nombre"], $temp);
 		$temp = str_replace("{{info}}", $producto["info"], $temp);
 		$temp = str_replace("{{material}}", $producto["material"], $temp);
+		$temp = str_replace("{{acabado}}", $producto["acabado"], $temp);
 		$temp = str_replace("{{ref}}", $producto["ref"], $temp);
 		$temp = str_replace("{{ancho}}", $producto["medidas"][0], $temp);
 		$temp = str_replace("{{alto}}", $producto["medidas"][1], $temp);
@@ -362,7 +371,7 @@ function muestraPedidoCarrito($editable = true){
 		$resp = $resp . $temp; 
 	}
 	if($i==0){
-		$span = ($editable)? 4 : 3;
+		$span = ($editable)? 5 : 4;
 		$resp = '
 			<tr class="id{{id}}">
 			    <td colspan='.$span.'><span style="padding:30px 210px;display:block">El carrito está vacío.</span></td>

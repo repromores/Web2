@@ -17,6 +17,10 @@ input:-ms-input-placeholder {
     color:    #999;
 }
 
+.container{
+	margin-top:10px;
+}
+
 .logo{
 	float:left;
 }
@@ -211,7 +215,11 @@ ul.menu-top{
 		color:@grayDark;
 		font-size:0.9em;
 	}
+	&.doc3{
+		width:100px;
+	}
 }
+
 .mensaje-error{
 	margin-top:6px;
 	.hide;
@@ -383,10 +391,13 @@ div.muestra-imagen{
 .msg-alert{
 	display: none;
 }
-.banner-carrito{
+.banner-gris{
 	border: 1px solid #BBBBBB;
     padding: 10px;
     text-align: center;
+}
+.banner-carrito{
+	.banner-gris;
     display: none; 
 }
 .numberCircleContainer{

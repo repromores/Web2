@@ -4356,6 +4356,9 @@ input:-moz-placeholder {
 input:-ms-input-placeholder {
   color: #999;
 }
+.container {
+  margin-top: 10px;
+}
 .logo {
   float: left;
 }
@@ -4556,6 +4559,9 @@ ul.menu-top li a {
   color: #333333;
   font-size: 0.9em;
 }
+.pdfdoc.doc3 {
+  width: 100px;
+}
 .mensaje-error {
   margin-top: 6px;
   display: none;
@@ -4708,6 +4714,11 @@ div.muestra-imagen .info tr.selected:hover td {
 }
 .msg-alert {
   display: none;
+}
+.banner-gris {
+  border: 1px solid #BBBBBB;
+  padding: 10px;
+  text-align: center;
 }
 .banner-carrito {
   border: 1px solid #BBBBBB;

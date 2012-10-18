@@ -24,6 +24,8 @@ var resultados = {
 		Resultados.selectTd		= "div.muestra-imagen tr";
 		Resultados.btncerrar	= ".btn-cancelar";
 		Resultados.customsize	= ".i-custom";
+		Resultados.acabado		= ".btnacabado";
+		
 
 		Resultados.eventListener();
 
@@ -36,7 +38,9 @@ var resultados = {
 		$(Resultados.pag).on("click",".pag", Resultados.paginacion);
 		$("body").on("click", Resultados.selectTd, Resultados.selectSize);
 		$("body").on("click", Resultados.btncerrar, Resultados.cerrarPopup);
-		$("body").on("change", Resultados.customsize, Resultados.actualizarPrecioVinilo);
+		$("body").on("click", Resultados.acabado, Resultados.selectAcabado);
+		//$("body").on("change", Resultados.customsize, Resultados.actualizarPrecioVinilo);
+		$("body").on("keyup", Resultados.customsize, Resultados.actualizarPrecioVinilo);
 	},
 
 	actualizarPrecioVinilo : function(){
@@ -96,7 +100,10 @@ var resultados = {
 			$(".precioperso").text(data);
 		})
 	},
-
+	selectAcabado : function(){
+		$esto = $(this);
+		$(".custom-data").data("acabado",$esto.data("acabado"));
+	},
 	checkRes : function(data){
 		resp = '';
 		loop = 32;
@@ -191,6 +198,7 @@ var resultados = {
 		info["h"] = 		datos.data("h");
 		info["w"] = 		datos.data("w");
 		info["ref"] = 		"ref: "+datos.data("id");
+		info["acabado"] = 	datos.data("acabado");
 		info["info"] = 		"";
 
 		//params = JSON.stringify(info);

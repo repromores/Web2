@@ -105,6 +105,7 @@ if ($foto_tipo !=3) {
 						data-material="<?php echo $material ?>"
 						data-h=""
 						data-w=""
+						data-acabado="brillo"
 						>
 
 						<input type="text" class="input-mini i-custom i-ancho"> x <input type="text" class="input-mini i-custom i-alto"> cm
@@ -113,6 +114,19 @@ if ($foto_tipo !=3) {
 				</tr>
 			</tbody>
 		</table>
+		<div class="form-horizontal">
+			 <div class="control-group">
+				<label class="control-label" for="inputEmail">Acabado:</label>
+				<div class="controls">
+			    	<div class="btn-group" data-toggle="buttons-radio">
+					    <button type="button" class="btn btnacabado active" data-acabado="brillo">Brillo</button>
+					    <button type="button" class="btn btnacabado" data-acabado="mate">Mate</button>
+				    </div>
+				</div>
+			</div>
+		</div>
+
+
 		<div class="form-actions">
 			<button class="btn btn-primary imgbtn" data-id="<?php echo $foto_id; ?>"><i class="icon-shopping-cart icon-white"></i> Añadir al carrito</button> 
 			<button class="btn btn-cancelar">Cancelar</button>

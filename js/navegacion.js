@@ -175,6 +175,7 @@ if($.browser["webkitty"]){
 	        runtimes : list,
 	        url : 'inc/subir.php',
 	        max_file_size : '1024mb',
+  			chunk_size : '50mb',
 
 
 	        // Specify what files to browse for

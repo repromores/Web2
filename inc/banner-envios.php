@@ -17,6 +17,6 @@
   </div>
 
   <div class="banner banner-gris">
-    <h4>Encuadernación artesanal</h4></br>
-    <a href="formularios_encuadernacion.php" class="btn btn-small">Descargar formularios</a>
+    <h4>Descargas y utilidades</h4></br>
+    <a href="utilidades.php" class="btn btn-small">Ver descargas</a>
   </div>

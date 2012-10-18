@@ -42,6 +42,11 @@ $paypal_API_Password	="1347373198";
 $paypal_API_Signature	="AdA0jIwVZf-EmJTAQScl3X3Zwlr4AOGbDYH9Ik.vUhwyJyUQZ1-b-mjD";
 
 
+$def_gastos_envio 	= 11.50;
+$def_iva 			= 21;
+
+if(getEnvio("iva")  == ""){setEnvio("iva" ,$def_iva);}
+if(getEnvio("envi") == ""){setEnvio("envi",$def_gastos_envio);}
 
 
 $mail_host 			= "10.1.8.5"; 
@@ -277,8 +282,6 @@ function aplicaDescuento(){}
 function nuevoPedido($producto){
 	$productos = array($producto);
 	$_SESSION["pedido"] = array("productos" => $productos);
-	setEnvio("envi",11.50);
-	setEnvio("iva",21);
 }
 
 function getEntrega(){
@@ -290,7 +293,7 @@ function setEntrega($entrega){
 }
 
 function agregaProducto($producto){
-	if(empty($_SESSION["pedido"])){
+	if(empty($_SESSION["pedido"]["productos"])){
 		nuevoPedido($producto);
 	}else{
 		array_push($_SESSION["pedido"]["productos"], $producto);
@@ -391,7 +394,7 @@ function setEnvio($elem,$val){
 }
 
 function getIVA(){
-	return 21;
+	return getEnvio("iva");
 }
 
 function calculaTotal($iva,$envio){

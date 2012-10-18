@@ -15,6 +15,28 @@
 La gran versatilidad que aporta esta tecnología al imprimir directamente sobre diferentes materiales rígidos de superficie plana o ligeramente rugosa hacen de ella la solución idónea para realizar todas sus impresiones rígidas o semi-flexibles. Además, la calidad de las tintas hace que la calidad de las impresiones permanezca inalterable, tanto en interior como en exterior.
 </p>
 
+<h3>Formularios para encuadernación</h3>
+<p>
+Descarga, rellena y envíanos de vuelta a <a href="mailto:encuadernacion@mores.es">encuadernacion@mores.es</a> los siguientes formularios:</p>
+
+<div class="span3">
+<a href="utilidades/PEDIDO-CAJAS.pdf" target="_blank">
+  <div class="pdfdoc doc3"><img src="img/pdf.png" alt="Pedido de cajas para proyectos"><span>Pedido de cajas para proyectos</span></div>
+</a>
+</div>
+<div class="span3">
+<a href="utilidades/PEDIDO-SELLOS.pdf" target="_blank">
+  <div class="pdfdoc doc3"><img src="img/pdf.png" alt="Pedido de sellos"><span>Pedido de sellos</span></div>
+</a>
+
+</div>
+<div class="span3">
+<a href="utilidades/CONFORMIDAD-SELLOS.pdf" target="_blank">
+  <div class="pdfdoc doc3"><img src="img/pdf.png" alt="Conformidad con el formato y diseño del sello"><span>Conformidad con el formato y diseño del sello</span></div>
+</a>
+</div>
+
+<h3>Utilidades</h3>
 <strong>Instrucciones</strong>
 <ul>
 <li>Impresi&oacute;n de fotograf&iacute;a digital: <a href="utilidades/instrucciones-fotografia-digital.pdf">instrucciones-fotografia-digital.pdf</a></li>
@@ -33,6 +55,8 @@ La gran versatilidad que aporta esta tecnología al imprimir directamente sobre 
 <li>Reprodesk: <a href="utilidades/reprodesk.zip">reprodesk.zip</a></li>
 <li>Drivers de la HP 4500: <a href="utilidades/hp4500.zip">hp4500.zip</a></li>
 </ul>
+
+
 
   	</div>
   </div>

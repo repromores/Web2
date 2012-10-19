@@ -34,8 +34,8 @@ function borrarProducto(){
 }
 
 function agregaproductos(){
-	$id = date(U);
-	$archivo 	= $_GET["id"];
+	$archivo1 	= "";
+	$archivo2 	= "";
 	$tipo 		= $_GET["tipo"];
 	$nombre 	= $_GET["titulo"];
 	$material 	= $_GET["material"];
@@ -46,7 +46,7 @@ function agregaproductos(){
 
 	$precio 	= getPrecioVinilo($_GET["tipo"],$_GET["w"],$_GET["h"]);
 
-	$producto 	= creaProducto($id,$ref,$nombre,$medidas,$archivo,$material,$precio,$info,$acabado);
+	$producto 	= creaProducto($id,$ref,$nombre,$medidas,$archivo1,$archivo2,$material,$precio,$info,$acabado);
 	agregaProducto($producto);
 
 	$resultado 	= true;

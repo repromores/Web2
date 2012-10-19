@@ -39,10 +39,16 @@ if ( $PaymentOption == "PayPal" )
 	$resArray = ConfirmPayment ( $finalPaymentAmount );
 	$ack = strtoupper($resArray["ACK"]);
 		
-	$estado = insertPedidoPaypal($resArray);
 
 	if( $ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING" ){
 		$a 		= $ack;
+    setEnvio("comision",empty($resArray["PAYMENTINFO_0_FEEAMT"])? null :$resArray["PAYMENTINFO_0_FEEAMT"]); 
+    setEnvio("pagado",1);
+    insertPedido();
+
+    $estado = insertPedidoPaypal($resArray);
+
+
 		$titulo = "Compra realizada";
 	} else  {
 		$a = $ack;
@@ -292,13 +298,14 @@ $textaco_mores = '
 </div>
 </div>
 ';
-
-enviarMail($_SESSION["usr_email"],"Morés - Pedido web",$textaco_cliente);
-enviarMail($emails_pedido_tiendaweb,"Pedido web",$textaco_mores);
+if($_SESSION["entorno"] == "produccion"){
+  enviarMail($_SESSION["usr_email"],"Morés - Pedido web",$textaco_cliente);
+  enviarMail($emails_pedido_tiendaweb,"Pedido web",$textaco_mores);  
+}
  
 
  include "inc/footer.php";
 
-//resetCarrito();
+resetCarrito();
 
 ?>

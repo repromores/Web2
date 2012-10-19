@@ -5,7 +5,7 @@
 $mantenimiento = false;
 
 if (getIp() =="127.0.0.1"){
-	
+	$_SESSION["entorno"] = "local";
 	$db_host	= "localhost";
 	$db_user	= "root";
 	$db_pass	= "";
@@ -19,7 +19,7 @@ if (getIp() =="127.0.0.1"){
 	$paypal_URL_cancelado	="http://localhost/web2/cancelado.php";	
 
 }else{
-
+	$_SESSION["entorno"] = "produccion";
 	$db_host	= "localhost";
 	$db_user	= "root";
 	$db_pass	= "Dartacan1898.";
@@ -138,7 +138,6 @@ function resetSession($user){
 		$_SESSION["usr_nombre"]		= $fila["nombre"];
 		$_SESSION["usr_apellidos"]	= $fila["apellidos"];
 		$_SESSION["usr_cif"] 		= $fila["cif"];
-		$_SESSION["usr_telefono"] 	= $fila["telefono"]; 
 		$_SESSION["usr_dir"] 		= $fila["direccion"]; 
 		$_SESSION["usr_dir2"] 		= $fila["direccion2"]; 
 		$_SESSION["usr_prov"] 		= $fila["provincia"]; 
@@ -301,13 +300,14 @@ function agregaProducto($producto){
 	return $_SESSION["pedido"];
 }
 
-function creaProducto($id,$ref,$nombre,$medidas,$archivo,$material,$precio,$info,$acabado){
+function creaProducto($id,$ref,$nombre,$medidas,$archivo1,$archivo2,$material,$precio,$info,$acabado){
 	return array(
 				id 			=> $id,
 				ref 		=> $ref,
 				nombre		=> $nombre,
 				medidas		=> $medidas,
-				archivo		=> $archivo,
+				archivo1	=> $archivo1,
+				archivo2	=> $archivo2,
 				material	=> $material,
 				acabado		=> $acabado,
 				precio		=> $precio,
@@ -398,13 +398,16 @@ function getIVA(){
 }
 
 function calculaTotal($iva,$envio){
-	$subtotal = 0;
-	foreach ($_SESSION["pedido"]["productos"] as $producto) {
-		$subtotal += (float)$producto["precio"];
+	$subtotal 	= 0;
+	$total 		= 0;	
+	if(!empty($_SESSION["pedido"]["productos"])){
+		foreach ($_SESSION["pedido"]["productos"] as $producto) {
+			$subtotal += (float)$producto["precio"];
+		}
+		$subtotal = $subtotal * (float)("1.".$iva);
+		$total = (float)$subtotal + (float)$envio;
+		$total = round($total, 2);
 	}
-	$subtotal = $subtotal * (float)("1.".$iva);
-	$total = (float)$subtotal + (float)$envio;
-	$total = round($total, 2);
 	return $total;
 }
 
@@ -419,12 +422,39 @@ function resetCarrito(){
 if(!isset($_SESSION["pedido"])){
 	resetCarrito();
 }
-
-
-function getIdPedido(){
-	$id = empty($_SESSION["pedido"]["data"]["idpedido"])? time() : $_SESSION["pedido"]["data"]["idpedido"];
-	return $id;
+function getIdProducto(){
+	return 0;
 }
+function getIdDescuento(){
+	return 0;
+}
+function insertPedido(){
+	$idPedido = getNewIdPedido();
+	$pagado = (getEnvio("pagado")==1)? 1 : 0;
+	
+	$q = 'INSERT INTO t_pedido (idpedido,id_cliente,nombre,telefono,cif,fecha_inicio,pagado,entrega,info,pobl,prov,cp,iva,subtotal,total,comision,envi,dir1,dir2,tienda) VALUES("'.$idPedido.'", "'.$_SESSION["usr_email"].'","'.getEnvio("nombre").'","'.getEnvio("tele").'",
+	"'.$_SESSION["usr_cif"].'",'.time().','.$pagado.',"'.getMetodoEnvio().'","'.getEnvio("info").'","'.getEnvio("pobl").'"
+	,"'.getEnvio("prov").'","'.getEnvio("cp").'",'.getEnvio("iva").','.calculaTotal(0,0).','.calculaTotal(getEnvio("iva"),getEnvio("envi")).'
+	,'.getEnvio("comision").','.getEnvio("envi").',"'.getEnvio("dir1").'","'.getEnvio("dir2").'","'.getEnvio("ciudad").'")';
+	mysql_query($q);
+
+	foreach ($_SESSION["pedido"]["productos"] as $producto) {
+		$txt_medidas = $producto["medidas"][0]."x".$producto["medidas"][1];
+
+		$q = 'INSERT INTO t_pedido_producto (id_pedido,id_producto,archivo1,archivo2,precio,id_descuento,medidas,info, ref_fotolia, material, acabado, nombre) VALUES ("'.$idPedido.'",'.getIdProducto().',"'.$producto["archivo1"].'","'.$producto["archivo2"].'",'.$producto["precio"].','.getIdDescuento().',"'.$txt_medidas.'","'.$producto["info"].'","'.$producto["ref"].'","'.$producto["material"].'","'.$producto["acabado"].'","'.$producto["nombre"].'")';
+		mysql_query($q);
+	}
+}
+function getNewIdPedido(){
+	$q = mysql_query('SELECT MAX(id), idpedido FROM t_pedido');
+	$data = mysql_fetch_assoc($q);	
+	$idpedido_old = $data["idpedido"];
+
+	$idpedido_new ="w".(1+(int)substr($idpedido_old, 1));
+	setEnvio("idpedido",$idpedido_new);
+	return $idpedido_new;
+}
+
 function insertPedidoPaypal($resArray){
 	$token 				= empty($resArray["TOKEN"])? null :$resArray["TOKEN"];
 	$timestamp 			= empty($resArray["TIMESTAMP"])? null :$resArray["TIMESTAMP"]; 
@@ -458,15 +488,12 @@ function insertPedidoPaypal($resArray){
 		l_shortmessage0,
 		l_longmessage0,
 		l_severity
-		) VALUES('.getIdPedido().',"'.$token.'","'.$timestamp.'","'.$correlationid.'","'.$p_transactionid.'","'.$p_amt.'"
+		) VALUES('.getEnvio("idpedido").',"'.$token.'","'.$timestamp.'","'.$correlationid.'","'.$p_transactionid.'","'.$p_amt.'"
 		,"'.$p_ack.'","'.$p_errorcode.'","'.$p_feeamt.'","'.$p_paymentstatus.'","'.$p_pendingreason.'","'.$l_errorcode0.'","'.$l_shortmessage0.'","'.$l_longmessage0.'","'.$l_severity.'")';
 	
 	mysql_query($q);
 
 return $p_ack;
-}
-function insertPedido(){
-	$id 				= empty($resArray["TOKEN"])? null :$resArray["TOKEN"];
 }
 
 function getPrecioVinilo($tipo,$ancho,$alto){

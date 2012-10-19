@@ -11,5 +11,6 @@ echo '<pre>';
 //	resetCarrito();
 //	agregaProducto($producto);
 //	print_r(muestraProducto(1234));
-	print_r($_SESSION["pedido"]);
+//	print_r($_SESSION["pedido"]);
 //	print_r(borraProducto(1214));
+echo getIdPedido();

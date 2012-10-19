@@ -66,9 +66,12 @@
 </div>
 
 <div class="well" style="margin-top:180px;">
-	<a class="btn btn-primary pull-right" href="login2.php">Siguiente paso</a>
-
-
+	<?php if(calculaTotal(0,0) == 0) {?>
+		<a class="btn btn-primary pull-right" href="#" disabled="disabled">Siguiente paso</a>
+	<?php }else{ ?>
+		<a class="btn btn-primary pull-right" href="login2.php"  >Siguiente paso</a>
+	<?php } ?>
+ 
 </div>
 
 </div>

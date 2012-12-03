@@ -20,6 +20,27 @@ input:-ms-input-placeholder {
 .container{
 	margin-top:10px;
 }
+.img-polaroid {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 4px;
+    max-width: 97%;
+}
+
+.jumbo{
+	margin-top:40px;
+	text-align:center;
+}
+
+.btn-jumbo{
+    border: 0 none;
+    border-radius: 6px;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 200;
+    padding: 19px 24px;
+}
 
 .logo{
 	float:left;
@@ -120,6 +141,27 @@ ul.menu-top{
 	}
 	input[type="text"],input[type="email"] {width: 94%;}
 }
+
+.videotpa{
+	padding: 10px;
+	margin-top:48px;
+	color: #FFF;
+	background: #0062b5;
+	text-align: center;
+	position: relative;
+	h2{
+		font-size: 1.3em;
+		line-height: normal;
+		margin-top: 6px;
+		margin-bottom: 10px;
+	}
+	img{
+	    left: 85px;
+	    position: absolute;
+	    top: -48px;
+	}
+}
+
 .envio-archivos{
 	background-color:@mores;
 	color: #FFF;
@@ -151,12 +193,22 @@ ul.menu-top{
 	}
 	p{
 		text-indent: 10px;
-		font-size:0.9em;
 	}
 	ul{
 		margin-top:10px;
 		margin-bottom:10px;
 		margin-left:32px;
+
+		&.breadcrumb{
+			margin-left:0;
+			li{
+				margin-bottom:0;
+				list-style:none;
+				&:before {
+				    content: none;
+				}
+			}
+		}
 	}
 	li{
 	font-size: 0.9em;
@@ -235,10 +287,9 @@ ul.menu-top{
 	margin-top:60px;
 	background-color: #000;
 	.links{
-		ul{
+		ul{ 
 			padding:10px 0;
 			list-style:none;
-			width: 750px;
 			margin:20px auto;
 		}
 		li{
@@ -303,6 +354,15 @@ ul.menu-top{
 
 div.muestra-imagen{
 	width: 750px;
+
+	&.canvas-on{
+		width: 950px;
+
+		.full-container{
+			float: left;
+    		width: 620px;
+		}
+	}
 
 	div.img{
 		float:left;
@@ -427,4 +487,136 @@ div.muestra-imagen{
 }
 .progress{
 	margin-top: 20px;
+}
+
+
+#canvas-container{
+	#canvas{
+		background-color: #993184;
+		width: 620px;
+		height: 431px;
+	}
+	.controls{
+		height:30px;
+		width:100%;
+		margin-top:10px;
+	}
+	.controlgroup{
+		margin: 0 10px;
+	}
+	#sizepicker{
+		width:200px;
+		border: 1px solid #aaa;
+		float: right;
+    	margin: 6px 10px 6px 20px;
+	}
+	#colorpicker{
+		width:50px;
+		border:1px solid #aaa;
+		float:right;
+		margin: 0 20px 0 10px;
+	}
+}
+.tiendainfo{
+	li{
+		list-style: none;
+		list-style-type: none;
+		margin-bottom: 8px;
+		
+		&:before{content: "- "} 
+	}
+
+	img.img-polaroid{
+		max-width: 95%;
+	}
+}
+.tienda{
+	.categoria{
+		padding: 5px;
+		margin-bottom: 6px;
+		//border: 1px solid #ccc;
+	h3{
+		margin-top: 5px;
+	}
+	.text{
+		float:right;
+		width: 52%;
+	}
+	p{
+		color: #333;
+		margin-top:4px;
+		text-indent: 0px;
+	}
+	}
+
+}
+.tabla-centrada{
+	td,th{
+		text-align: center;
+	}
+}
+
+.tabla-precios{
+	.tabla-centrada;
+    tbody{cursor: pointer;}
+	.selected td{
+		background-color: #1337EF !important;
+	    color: #FFFFFF;
+	}
+    
+}
+.outputtotal{
+	background: none repeat scroll 0 0 #87FF87;
+    display: none;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    width: 60px;
+}
+#logged{
+	background-color: #222; 
+	padding: 4px 20px;
+	color: #FFF;
+	margin: -10px 0 20px 0;
+	.controls{
+		float: right;
+		.text{
+			margin-left: 20px;
+			a:not(.btn){
+				color: #fff;
+				font-weight: bold;
+			}
+		}	
+	}
+}
+
+.montajefotos{
+	img{
+		border:1px solid #999;
+	}
+}
+.well{
+	h3{margin-top:0px;}
+	ol li{list-style: decimal;}
+}
+.margint20{
+	margin-top: 20px;
+}
+
+span{
+	&.buenacalidad {
+		padding: 5px 10px;
+		background-color: #D6E9C6;
+	}
+	&.calidadregular {
+		padding: 5px 10px; 
+		background-color: #FCF8E3;
+	}
+	&.malacalidad {
+		padding: 5px 10px;
+		background-color: #EED3D7;
+	}
+}
+.campo.span1{
+	margin-bottom: 10px;
 }

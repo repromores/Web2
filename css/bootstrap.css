@@ -4231,7 +4231,7 @@ a.badge:hover {
 }
 .carousel-control {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 15px;
   width: 40px;
   height: 40px;
@@ -4359,6 +4359,25 @@ input:-ms-input-placeholder {
 .container {
   margin-top: 10px;
 }
+.img-polaroid {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 4px;
+  max-width: 97%;
+}
+.jumbo {
+  margin-top: 40px;
+  text-align: center;
+}
+.btn-jumbo {
+  border: 0 none;
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: 200;
+  padding: 19px 24px;
+}
 .logo {
   float: left;
 }
@@ -4469,6 +4488,25 @@ ul.menu-top li a {
 .newsletter input[type="email"] {
   width: 94%;
 }
+.videotpa {
+  padding: 10px;
+  margin-top: 48px;
+  color: #FFF;
+  background: #0062b5;
+  text-align: center;
+  position: relative;
+}
+.videotpa h2 {
+  font-size: 1.3em;
+  line-height: normal;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+.videotpa img {
+  left: 85px;
+  position: absolute;
+  top: -48px;
+}
 .envio-archivos {
   background-color: #bc1922;
   color: #FFF;
@@ -4499,12 +4537,21 @@ ul.menu-top li a {
 }
 .content p {
   text-indent: 10px;
-  font-size: 0.9em;
 }
 .content ul {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 32px;
+}
+.content ul.breadcrumb {
+  margin-left: 0;
+}
+.content ul.breadcrumb li {
+  margin-bottom: 0;
+  list-style: none;
+}
+.content ul.breadcrumb li:before {
+  content: none;
 }
 .content li {
   font-size: 0.9em;
@@ -4580,7 +4627,6 @@ ul.menu-top li a {
 .footer .links ul {
   padding: 10px 0;
   list-style: none;
-  width: 750px;
   margin: 20px auto;
 }
 .footer .links li {
@@ -4639,6 +4685,13 @@ ul.menu-top li a {
 }
 div.muestra-imagen {
   width: 750px;
+}
+div.muestra-imagen.canvas-on {
+  width: 950px;
+}
+div.muestra-imagen.canvas-on .full-container {
+  float: left;
+  width: 620px;
 }
 div.muestra-imagen div.img {
   float: left;
@@ -4752,4 +4805,122 @@ div.muestra-imagen .info tr.selected:hover td {
 }
 .progress {
   margin-top: 20px;
+}
+#canvas-container #canvas {
+  background-color: #993184;
+  width: 620px;
+  height: 431px;
+}
+#canvas-container .controls {
+  height: 30px;
+  width: 100%;
+  margin-top: 10px;
+}
+#canvas-container .controlgroup {
+  margin: 0 10px;
+}
+#canvas-container #sizepicker {
+  width: 200px;
+  border: 1px solid #aaa;
+  float: right;
+  margin: 6px 10px 6px 20px;
+}
+#canvas-container #colorpicker {
+  width: 50px;
+  border: 1px solid #aaa;
+  float: right;
+  margin: 0 20px 0 10px;
+}
+.tiendainfo li {
+  list-style: none;
+  list-style-type: none;
+  margin-bottom: 8px;
+}
+.tiendainfo li:before {
+  content: "- ";
+}
+.tiendainfo img.img-polaroid {
+  max-width: 95%;
+}
+.tienda .categoria {
+  padding: 5px;
+  margin-bottom: 6px;
+}
+.tienda .categoria h3 {
+  margin-top: 5px;
+}
+.tienda .categoria .text {
+  float: right;
+  width: 52%;
+}
+.tienda .categoria p {
+  color: #333;
+  margin-top: 4px;
+  text-indent: 0px;
+}
+.tabla-centrada td,
+.tabla-centrada th {
+  text-align: center;
+}
+.tabla-precios td,
+.tabla-precios th {
+  text-align: center;
+}
+.tabla-precios tbody {
+  cursor: pointer;
+}
+.tabla-precios .selected td {
+  background-color: #1337EF !important;
+  color: #FFFFFF;
+}
+.outputtotal {
+  background: none repeat scroll 0 0 #87FF87;
+  display: none;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  width: 60px;
+}
+#logged {
+  background-color: #222;
+  padding: 4px 20px;
+  color: #FFF;
+  margin: -10px 0 20px 0;
+}
+#logged .controls {
+  float: right;
+}
+#logged .controls .text {
+  margin-left: 20px;
+}
+#logged .controls .text a:not(.btn) {
+  color: #fff;
+  font-weight: bold;
+}
+.montajefotos img {
+  border: 1px solid #999;
+}
+.well h3 {
+  margin-top: 0px;
+}
+.well ol li {
+  list-style: decimal;
+}
+.margint20 {
+  margin-top: 20px;
+}
+span.buenacalidad {
+  padding: 5px 10px;
+  background-color: #D6E9C6;
+}
+span.calidadregular {
+  padding: 5px 10px;
+  background-color: #FCF8E3;
+}
+span.malacalidad {
+  padding: 5px 10px;
+  background-color: #EED3D7;
+}
+.campo.span1 {
+  margin-bottom: 10px;
 }

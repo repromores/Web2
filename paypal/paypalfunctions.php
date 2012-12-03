@@ -7,7 +7,7 @@
 	$PROXY_HOST = '127.0.0.1';
 	$PROXY_PORT = '808';
 
-	$SandboxFlag = true;
+	$SandboxFlag = !$pagos_activados;
 
 	//'------------------------------------
 	//' PayPal API Credentials
@@ -81,6 +81,8 @@
 		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_n_NAMEm=Pedido Web Mores";
 		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_n_QTYm =1" ;
 		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_n_AMTm=". $paymentAmount;
+		$nvpstr = $nvpstr . "&LOGOIMG=https://static.e-junkie.com/sslpic/84960.bda3b6fb86e58811392162d294436ebc.jpg";
+		$nvpstr = $nvpstr . "&CARTBORDERCOLOR=bc1922";
 
 		
 		$_SESSION["currencyCodeType"] = $currencyCodeType;	  
@@ -151,6 +153,8 @@
 		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_0_QTY0=1" ;
 		$nvpstr = $nvpstr . "&L_PAYMENTREQUEST_0_AMT0=". $paymentAmount;
 		$nvpstr = $nvpstr . "&PAYMENTREQUEST_0_ITEMAMT=". $paymentAmount;
+		$nvpstr = $nvpstr . "&LOGOIMG=https://static.e-junkie.com/sslpic/84960.bda3b6fb86e58811392162d294436ebc.jpg";
+		$nvpstr = $nvpstr . "&CARTBORDERCOLOR=bc1922";
 		
 		  
 

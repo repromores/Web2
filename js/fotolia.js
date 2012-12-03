@@ -25,6 +25,7 @@ var resultados = {
 		Resultados.btncerrar	= ".btn-cancelar";
 		Resultados.customsize	= ".i-custom";
 		Resultados.acabado		= ".btnacabado";
+		Resultados.timerid;
 		
 
 		Resultados.eventListener();
@@ -96,9 +97,12 @@ var resultados = {
 	},
 
 	calculaPrecioVinilo : function(an,al,tipo){
-		$.post("inc/compras_procesa_cambios.php?f=getpreciovinilo",{ancho:an,alto:al,tipo:tipo},function(data){
-			$(".precioperso").text(data);
-		})
+		clearTimeout(Resultados.timerid);
+		Resultados.timerid = setTimeout(function() {
+			$.post("inc/compras_procesa_cambios.php?f=getpreciovinilo",{ancho:an,alto:al,tipo:tipo},function(data){
+				$(".precioperso").text(data);
+			})
+		},300);
 	},
 	selectAcabado : function(){
 		$esto = $(this);
@@ -189,8 +193,6 @@ var resultados = {
 		datos = $(".custom-data");
 		info = {};
 
-		console.log("clicked");
-
 		info["id"] = 		datos.data("id");
 		info["tipo"] = 		datos.data("tipo");
 		info["titulo"] = 	datos.data("titulo");
@@ -200,6 +202,9 @@ var resultados = {
 		info["ref"] = 		"ref: "+datos.data("id");
 		info["acabado"] = 	datos.data("acabado");
 		info["info"] = 		"";
+		info["producto"] =	datos.data("producto");
+		info["categoria"] =	datos.data("categoria");
+		info["seccion"] =	datos.data("seccion");
 
 		//params = JSON.stringify(info);
 		if(info["w"] !="" || info["h"] !=""){

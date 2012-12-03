@@ -6,6 +6,14 @@
   </head>
   <body>
     <div class="container">
+  <?php if(!empty($_SESSION["usr_islogged"]) && $_SESSION["usr_islogged"]){ ?>
+      <div id="logged" class="clearfix">
+        <div class="controls">
+          <span class="text">Hola, <a href="editar-usuario.php"><?php echo $_SESSION["usr_email"]; ?></a></span>
+          <span class="text"><a class="btn" href="logout.php?redirect=<?php echo $_SERVER["REQUEST_URI"]; ?>">Cerrar sesión</a></span>
+        </div>
+      </div>
+  <?php } ?>
       <div id="mensajes">
       </div>
       <div class="row">
@@ -182,9 +190,11 @@
         </nav>
     <?php } ?>
     
-
-
-<?php if($FULLMODE){ ?>
+  <div class="videotpa">
+    <img src="img/camara.png" alt="camara tpa mores">
+    <h2>Conexión Asturias visita Morés</h2>
+    <a href="http://player.vimeo.com/video/54020524" class="btn video fancybox.iframe">Ver video</a>
+  </div>
 
   <div class="newsletter">
     <h2>Newsletter</h2>
@@ -194,6 +204,8 @@
       <input type="submit" class="btn btn-newsletter" value="Enviar email">
     </form>
   </div>
-    <?php } ?>
+
+
+
 
   </div>

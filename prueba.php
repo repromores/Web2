@@ -1,13 +1,33 @@
-<?php include "inc/config.php"; ?>
-<?php 
+<?php
+include_once "inc/config.php";
+//include_once "../paypal/paypalfunctions.php";
+//echo $_SESSION["pedido"]["metodo"];
+echo '<pre>';
 
-$paco1 = creaProducto(123,"Vinilo decorativo",array(110,220),"","vinilo",34.90,"Monocromo","mate");
-$paco2 = creaProducto(128,"Vinilo de fiesta",array(115,215),"","vinilo",35.90,"color","brillo");
-$paco3 = creaProducto(328,"tarjeta de visita",array(5,10),"","180gr",8.40,"color","mate");
+//echo $_SESSION["Payment_Amount"];
+//echo getEnvio("info");
+//print_r($_SESSION);
 
-agregaProducto($paco1);
-agregaProducto($paco2);
-agregaProducto($paco3);
-$_SESSION["pedido"]["data"]["iva"]=21;
-setEnvio("envi",11.50);
+ 
+ foreach ($_SESSION["pedido"]["productos"] as $key) { 
+ 	echo $key["producto"];
+
+ }
+//print_r(GetShippingDetails("EC-6KU45483RU045090T"));
+//	resetCarrito();
+//	agregaProducto($producto);
+//	print_r(muestraProducto(1234));
+//	print_r($_POST);
+//	print_r(borraProducto(1214));
+// echo getIdPedido();
+
+/*$arr = $_POST;
+$fp=fopen("test.txt","w+");
+foreach($arr as $key => $value){
+	fwrite($fp,$key ." - ". $value."\r\n");
+}
+fwrite("Get:\r\n \r\n \r\n");
+foreach($_GET as $key => $value){
+	fwrite($fp,$key ." - ". $value."\r\n");
+*/
 ?>

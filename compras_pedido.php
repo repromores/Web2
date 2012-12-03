@@ -1,4 +1,4 @@
- <?php include "inc/config.php"; ?>
+<?php include "inc/config.php"; ?>
 <?php
   if(!isLogged()){  header('Location: login2.php');};
 
@@ -75,7 +75,7 @@ $cp 	= empty($_SESSION["pedido"]["data"]["cp"])		? $_SESSION["usr_cp"] 		: getEn
 		                <option value="gijon"<?php if(getEnvio("ciudad")=="gijon"){echo ' selected="selected"';} ?>>Gijón</option>
 		                <option value="llanera"<?php if(getEnvio("ciudad")=="llanera"){echo ' selected="selected"';} ?>>Llanera</option>
 		              </select>
-		              <span class="help-inline tienda-help"></span>
+		              <span class="help-inline tienda-help">Viaducto Ingeniero Marquina, 7 <a class="mapa fancybox.iframe" href="https://maps.google.com/maps/ms?msa=0&amp;msid=201196282089870687635.0004b75b2be933103a9c6&amp;ie=UTF8&amp;t=m&amp;ll=43.36557,-5.854683&amp;spn=0.003744,0.006866&amp;z=17&amp;output=embed"><img src="img/mini-map.png" alt="mapa"></a></span>
 		            </div>
 	          </div>
 	      </div>

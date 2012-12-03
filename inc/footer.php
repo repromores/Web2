@@ -4,6 +4,7 @@
                
                <li><a href="index.php">© Morés 2012</a></li>
                <li><a href="aviso-legal.php">Aviso Legal</a></li>
+               <li><a href="condiciones-uso.php">Condiciones de uso</a></li>
                <li><a href="politica-privacidad.php">Política de Privacidad</a></li>
                <li><a href="cadena-custodia.php">Cadena de Custodia</a></li>
                <li><a href="mapa-web.php">Mapa Web</a></li>
@@ -52,10 +53,12 @@
     <script src="js/jquery.touchwipe.min.js"></script>
 
     <link href="js/jquery-ui/custom-theme/jquery-ui-1.8.23.custom.css"  rel="stylesheet"/>
-    <script src="js/jquery-ui/jquery-ui-1.8.23.custom.min.js"></script> 
+    <script src="js/jcanvas.min.js"></script> 
+    <script src="js/colorpicker.js"></script> 
+    <script src="js/fileuploader.js"></script> 
 
     <script src="js/navegacion.js"></script> 
-    <script src="js/compras.js"></script> 
+    <?php include "js/compras.php"; ?>
 
 
   <?php if(!empty($vinilos)){ ?>

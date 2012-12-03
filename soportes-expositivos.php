@@ -72,7 +72,7 @@ Nuestra sección de stands, con amplia experiencia en el asesoramiento de soluci
 </ul>
 
       <div class="pdf-container">
-      <a href="pdf/catalogo.pdf" target="_blank">
+      <a href="pdf/estructuras.pdf" target="_blank">
         <div class="group corner pdf-catalogo">
           
           <div class="icono"></div>

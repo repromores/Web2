@@ -1,4 +1,4 @@
-﻿<?php include "inc/config.php"; ?>
+<?php include "inc/config.php"; ?>
 <?php include "inc/head.php"; ?>
 <title>morés - Impresión sobre flexibles</title>
 <?php

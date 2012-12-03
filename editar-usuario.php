@@ -103,7 +103,7 @@
 
 	    <div class="form-actions">
             <button class="btn btn-primary" type="submit">Enviar</button>
-            <a class="btn" href="<?php echo $back_url ?>">Cancelar</a>
+            <a class="btn" href="javascript:history.go(-1)">Cancelar</a>
             <div class="mensaje-error">Corrige los campos en rojo</div>
             <div class="mensaje-exito"></div>
           </div>

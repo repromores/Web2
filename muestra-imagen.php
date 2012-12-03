@@ -50,11 +50,54 @@ if ($foto_tipo !=3) {
 
 ?>
 
-<div class="muestra-imagen">
+<div class="muestra-imagen <?php if($_COOKIE['canvasSuported'] == "true") { ?> canvas-on <?php } ?> ">
 	<input type="hidden" id="imgsize" value="">
+
+<?php if($_COOKIE['canvasSuported'] == "true"){ ?>
+	<div class="full-container">
+		<ul class="nav nav-tabs" id="canvas-imagen">
+        	<li class="active"><a data-toggle="tab" href="#imagen-container">Imagen</a></li>
+        	<li class=""><a data-toggle="tab" href="#canvas-container">Habitación</a></li>
+        </ul>
+		<div class="tab-content" id="myTabContent">
+            <div id="imagen-container" class="tab-pane fade active in">
+            	<div class="img">
+					<img src="<?php echo $foto_url; ?>" />
+				</div>
+
+            </div>
+			<div id="canvas-container" class="tab-pane fade">
+				<canvas id="canvas" width="620" height="431"></canvas>
+				<div class="controls form-inline">
+					<div class="pull-right controlgroup">
+						<label for="sizepicker">Tamaño:</label>
+						<div id="sizepicker"></div>
+					</div>
+					<div class="pull-right controlgroup">		
+						<input type="text" id="colorpicker" class="input-small">
+						<label for="colorpicker" class="pull-right">Fondo:</label>
+					</div>
+					<div class="pull-right controlgroup">
+						    <div class="btn-group" data-toggle="buttons-radio">
+							    <button type="button" class="btn active cambiafondo" data-fondo="salon01.png">Salón</button>
+							    <button type="button" class="btn cambiafondo" data-fondo="dormitorio.png">Dormitorio</button>
+							</div>
+					</div>
+
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+<?php } else { ?> 
 	<div class="img">
 		<img src="<?php echo $foto_url; ?>" />
 	</div>
+<?php } ?> 
+
 	<div class="info">
 		<h3><?php echo $foto_titulo; ?></h3>
 		<p>Código: <?php echo $foto_id; ?></p>
@@ -106,6 +149,9 @@ if ($foto_tipo !=3) {
 						data-h=""
 						data-w=""
 						data-acabado="brillo"
+						data-producto="vinilo impreso"
+					    data-categoria="carteleria"
+					    data-seccion="carteleria"
 						>
 
 						<input type="text" class="input-mini i-custom i-ancho"> x <input type="text" class="input-mini i-custom i-alto"> cm
@@ -133,3 +179,55 @@ if ($foto_tipo !=3) {
 		</div>
 	</div>
 </div>
+<script>
+	$("#canvas").drawImage({
+  source: "<?php echo $foto_url; ?>",
+  scale: 0.4,
+  x: 315, y: 150,
+  layer: true,
+  draggable: true,
+  name: "vinilo",
+});
+$("#canvas").drawImage({
+  source: "img/canvas/salon01.png",
+  x: 0, y: 0,
+  fromCenter: false,
+    layer: true,
+    name: "fondo",
+
+});
+
+$('#colorpicker').ColorPicker({
+  onBeforeShow: function(){console.log("antes")},
+  onShow: function(){console.log("despues")},
+  onChange: function(hsb, hex, rgb, el){
+  		color = "#"+hex;
+      $("#canvas").css("background-color",color);
+      $(this).val(color);
+    }
+  }
+);
+<?php
+  $pxMax = $foto_anchoMax * 1.2;
+  $sliderMax = $pxMax/400;
+ ?>
+ $( "#sizepicker" ).slider({
+        value:0.4,
+        min: 0.1,
+        max: <?php echo $sliderMax?>,
+        step: 0.001,
+        slide: function( event, ui ) {
+          $("#canvas").setLayer("vinilo",{scale: ui.value}).drawLayers();
+          $(".i-ancho").val(Math.round((400*ui.value)/1.2));
+          $(".i-custom").trigger('keyup');
+        }
+    });
+ $(".cambiafondo").on("click",function(){
+ 	$esto = $(this);
+ 	fondo = $esto.data("fondo");
+
+ 	$("#canvas").setLayer("fondo", {
+		source: "img/canvas/"+fondo
+	}).drawLayers();
+ })
+</script>

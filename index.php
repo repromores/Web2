@@ -11,8 +11,16 @@
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
-          <a href="pdf/bajamos precios baja.pdf" target="_blank"><img src="imagenes/portadas/iva.jpg" alt="Precios sin IVA"></a>
+            <a target="_black" href="email_firma/firma.pdf"><img src="imagenes/portadas/navidad.jpg" alt="regalos personalizados"></a>
+        </div>
+        <div class="item">
+            <a target="_black" href="pdf/photocall.pdf"><img src="imagenes/portadas/photocall.jpg" alt="photocalls"></a>
+        </div>
           <!-- 
+          <div class="carousel-caption">
+            <a href="pdf/bajamos precios baja.pdf" target="_blank"><img src="imagenes/portadas/iva.jpg" alt="Precios sin IVA"></a>
+          </div>
+
           <div class="carousel-caption">
             <h4>First Thumbnail label</h4>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -39,11 +47,11 @@
         </div>
 */?>
 
-      </div>
-<?php /*
+
+
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-*/?>
+
     </div>
 
     <div class="row">

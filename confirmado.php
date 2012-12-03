@@ -1,59 +1,5 @@
 <?php
 require_once "inc/config.php";
-
-	/*==================================================================
-	 PayPal Express Checkout Call
-	 ===================================================================
-	*/
-require_once ("paypal/paypalfunctions.php");
-
-$_SESSION["payer_id"] 			= $_GET["PayerID"];
-$_SESSION['TOKEN']				= $_GET["token"];
-$_SESSION['PaymentType']		= "Sale";
-$_SESSION['currencyCodeType']	= "EUR";
-
-$PaymentOption = "PayPal";
-
-if ( $PaymentOption == "PayPal" )
-{
-	/*
-	'------------------------------------
-	' The paymentAmount is the total value of 
-	' the shopping cart, that was set 
-	' earlier in a session variable 
-	' by the shopping cart page
-	'------------------------------------
-	*/
-	
-	$finalPaymentAmount =  $_SESSION["Payment_Amount"];
-		
-	/*
-	'------------------------------------
-	' Calls the DoExpressCheckoutPayment API call
-	'
-	' The ConfirmPayment function is defined in the file PayPalFunctions.jsp,
-	' that is included at the top of this file.
-	'-------------------------------------------------
-	*/
-
-	$resArray = ConfirmPayment ( $finalPaymentAmount );
-	$ack = strtoupper($resArray["ACK"]);
-		
-
-	if( $ack == "SUCCESS" || $ack == "SUCCESSWITHWARNING" ){
-		$a 		= $ack;
-    setEnvio("comision",empty($resArray["PAYMENTINFO_0_FEEAMT"])? null :$resArray["PAYMENTINFO_0_FEEAMT"]); 
-    setEnvio("pagado",1);
-    insertPedido();
-
-    $estado = insertPedidoPaypal($resArray);
-
-
-		$titulo = "Compra realizada";
-	} else  {
-		$a = $ack;
-	}
-}		
 /**************************
 Inicio html
 **************************/				
@@ -108,6 +54,7 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
     </p>
     ';
   }
+  if(!isLogged()){  header('Location: login2.php');};
 
  ?>
 <?php include "inc/menu.php"; ?>
@@ -188,6 +135,50 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
 
   </div>
 </div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '<?php echo $analytics_code; ?>']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_addTrans',
+    '<?php echo getEnvio("idpedido"); ?>',           // order ID - required
+    'Mores',  // affiliation or store name
+    '<?php echo getEnvio("idpedido"); ?>',          // total - required
+    '',           // tax
+    '<?php echo getMetodoEnvio() == "tienda"? 0 : getEnvio("envi"); ?>',              // shipping
+    '<?php echo getEnvio("ciudad") ?>',       // city
+    '',     // state or province
+    'SPAIN'             // country
+  ]);
+
+   // add item might be called for every item in the shopping cart
+   // where your ecommerce engine loops through each item in the cart and
+   // prints out _addItem for each
+   <? foreach ($_SESSION["pedido"]["productos"] as $key) { ?>
+
+  _gaq.push(['_addItem',
+    '<?php echo getEnvio("idpedido"); ?>',           // order ID - required
+    '<?php echo $key["producto"]; ?>',   // SKU/code - required
+    '<?php echo $key["producto"]; ?>',   // product name
+    '<?php echo $key["categoria"]; ?>',   // category or variation
+    '<?php echo $key["precio"]; ?>',   // unit price - required
+    '1'               // quantity - required
+  ]);
+
+   <? } ?>
+
+  _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
 <?php
 
 $iva_calculado = calculaTotal(getEnvio("iva"),0) - calculaTotal(0,0);
@@ -302,7 +293,6 @@ if($_SESSION["entorno"] == "produccion"){
   enviarMail($_SESSION["usr_email"],"Morés - Pedido web",$textaco_cliente);
   enviarMail($emails_pedido_tiendaweb,"Pedido web",$textaco_mores);  
 }
- 
 
  include "inc/footer.php";
 

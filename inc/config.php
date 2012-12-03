@@ -3,8 +3,10 @@
 
 //modo de mantenimiento
 $mantenimiento = false;
+$pagos_activados = false;
 
 if (getIp() =="127.0.0.1"){
+	$pagos_activados = false;
 	$_SESSION["entorno"] = "local";
 	$db_host	= "localhost";
 	$db_user	= "root";
@@ -15,7 +17,7 @@ if (getIp() =="127.0.0.1"){
 	$ftp_pass	 = "ftpmores1";
 	$ftp_path	 ='/monxas/mores/';
 
-	$paypal_URL_confirmado	="http://localhost/web2/confirmado.php";
+	$paypal_URL_confirmado	="http://localhost/web2/confirmado_procesar.php";
 	$paypal_URL_cancelado	="http://localhost/web2/cancelado.php";	
 
 }else{
@@ -29,20 +31,61 @@ if (getIp() =="127.0.0.1"){
 	$ftp_pass	= "web2012";
 	$ftp_path	= "";
 
-	$paypal_URL_confirmado	="http://mores.es/confirmado.php";
+	$paypal_URL_confirmado	="http://mores.es/confirmado_procesar.php";
 	$paypal_URL_cancelado	="http://mores.es/cancelado.php";
 }
  $analytics_code = "UA-21418483-1";
 
 
 //paypal
+if($pagos_activados){
+	$paypal_API_UserName	= "informatica_api1.mores.es";
+	$paypal_API_Password	= "J5AYNVTJ23YKA9SM";
+	$paypal_API_Signature	= "AFcWxV21C7fd0v3bYYYRCpSSRl31Asc6Bi4qjx0Q.9IahYoJPOhFKf.c";
 
-$paypal_API_UserName	="ramonk_1347373173_biz_api1.gmail.com";
-$paypal_API_Password	="1347373198";
-$paypal_API_Signature	="AdA0jIwVZf-EmJTAQScl3X3Zwlr4AOGbDYH9Ik.vUhwyJyUQZ1-b-mjD";
+	//TPV La Caixa
+	//true info
+	$caixa_API_url			= "https://sis.sermepa.es/sis/realizarPago";
+	$caixa_API_MerchantCode = "3536067";
+	$caixa_API_Terminal 	= "1";
+	$caixa_API_Currency		= "978";
+	$caixa_API_CryptoKey	= "N22Q99538R124586";
+	$caixa_API_Order		= date('ymdHis');
+	$caixa_API_MerchantURL	= "http://mores.es/confirmado_procesar_caixa.php";
+	$caixa_API_confirmado	="http://mores.es/confirmado_procesar.php";
+	$caixa_API_cancelado	="http://mores.es/cancelado.php";
 
+}else{
+	$paypal_API_UserName	= "inform_1354188984_biz_api1.mores.es";
+	$paypal_API_Password	= "1354189007";
+	$paypal_API_Signature	= "AFcWxV21C7fd0v3bYYYRCpSSRl31Axbk0nhuv2s3DU0bei9ZS549671B ";
 
-$def_gastos_envio 	= 11.50;
+	//TPV La Caixa
+	//test info
+	$caixa_API_url			= "https://sis-t.sermepa.es:25443/sis/realizarPago";
+	$caixa_API_MerchantCode = "3536067";
+	$caixa_API_Terminal 	= "1";
+	$caixa_API_Currency		= "978";
+	$caixa_API_CryptoKey	= "qwertyasdf0123456789";
+	$caixa_API_Order		= date('ymdHis');
+	$caixa_API_MerchantURL	= "http://mores.es/confirmado_procesar_caixa.php";
+	$caixa_API_confirmado	="http://mores.es/confirmado_procesar.php";
+	$caixa_API_cancelado	="http://mores.es/cancelado.php";
+}
+
+function get_caixa_API_Key($amount){
+	global $caixa_API_Order;
+	global $caixa_API_MerchantCode;
+	global $caixa_API_Currency;
+	global $caixa_API_MerchantURL;
+	global $caixa_API_CryptoKey;
+
+	$message = $amount.$caixa_API_Order.$caixa_API_MerchantCode.$caixa_API_Currency."0".$caixa_API_MerchantURL.$caixa_API_CryptoKey;
+$signature = strtoupper(sha1($message));
+return $signature;
+}
+
+$def_gastos_envio 	= 7.50;
 $def_iva 			= 21;
 
 if(getEnvio("iva")  == ""){setEnvio("iva" ,$def_iva);}
@@ -72,7 +115,8 @@ $vinilos_impresos_fotolia_dpcm = $vinilos_impresos_fotolia_dpi/2.54;
 
 
 
-require_once('class.phpmailer.php');
+//require_once('class.phpmailer.php');
+require_once('swift/swift_required.php');
 
 $db_conn = mysql_connect($db_host, $db_user, $db_pass);
 mysql_select_db("enviosMores");
@@ -100,7 +144,14 @@ $clean = mysql_real_escape_string($dirty);
 }
 return $clean;
 }
-
+function getNavigator(){
+	$navigator = "";
+	$navigator = strpos($_SERVER["HTTP_USER_AGENT"], 'Firefox') ? "Firefox": $navigator;
+	$navigator = strpos($_SERVER["HTTP_USER_AGENT"], 'MSIE') ? "MSIE" : $navigator;
+	$navigator = strpos($_SERVER["HTTP_USER_AGENT"], 'Safari') ? "Safari" : $navigator;
+	$navigator = strpos($_SERVER["HTTP_USER_AGENT"], 'Chrome') ? "Chrome" : $navigator;
+	return $navigator;
+}
 function checkUserPass($user,$pass){
 	$res = false;
 	$_SESSION["usr_islogged"] = false;
@@ -163,7 +214,7 @@ function insertEnvios($usuario, $nombreArchivo, $tamanio, $seccion){
 function getExtension($file){
 	 return substr(strrchr($file,'.'),1);
 }
-
+/*
 function enviarMail($mail_destino,$mail_asunto,$mail_mensaje,$remite = null){
 
 	$mail = new PHPMailer(false); // the true param means it will throw exceptions on errors, which we need to catch
@@ -181,6 +232,7 @@ function enviarMail($mail_destino,$mail_asunto,$mail_mensaje,$remite = null){
 	  $mail->SMTPAuth   = true;                           // enable SMTP authentication
 	  $mail->SMTPSecure = "tls";
  	  $mail->CharSet 	= "UTF-8";
+
 
 	  $mail->Port       = $mail_host_port;               // set the SMTP port for the GMAIL server
 	  $mail->Username   = $mail_usr;  					 // SMTP account username
@@ -207,10 +259,49 @@ function enviarMail($mail_destino,$mail_asunto,$mail_mensaje,$remite = null){
 	  $mail->Send();
 	} catch (phpmailerException $e) {
 	  $e->errorMessage(); //Pretty error messages from PHPMailer
-	  enviarMail("informatica@mores.es","error","error:<br>".$e->errorMessage());
+	  echo $e->errorMessage();
+	  //enviarMail("informatica@mores.es","error","error:<br>".$e->errorMessage());
 	} catch (Exception $e) {
-	  $e->getMessage(); //Boring error messages from anything else!
+		$e->getMessage();
+	  //$e->getMessage(); //Boring error messages from anything else!
 	}
+}
+*/
+function enviarMail($mail_destino,$mail_asunto,$mail_mensaje,$remite = null){
+
+	global $mail_host;
+	global $mail_host_port;
+	global $mail_usr;
+	global $mail_pass;
+	global $mail_emisor;
+
+	$transport = Swift_SmtpTransport::newInstance($mail_host , 25,"tls")
+	  ->setUsername($mail_usr)
+	  ->setPassword($mail_pass)
+	;
+
+	$mailer = Swift_Mailer::newInstance($transport);
+
+	if(empty($remite)){ $remite = $mail_emisor;}
+
+	$message = Swift_Message::newInstance($mail_asunto)
+	  ->setFrom(array($remite => $remite))
+	  ->setBody($mail_mensaje,'text/html')
+	;
+
+	
+	$array_emails = explode(",", $mail_destino);
+
+	foreach ($array_emails as $address => $name){
+	  if (is_int($address)) {
+	    $message->setTo($name);
+	  } else {
+	    $message->setTo(array($address => $name));
+	  }
+
+	  $numSent += $mailer->send($message, $failedRecipients);
+	}
+	return $numSent;
 }
 
 
@@ -261,7 +352,7 @@ function checkEmail($email){
 }
 
 function ieversion() {
-  ereg('MSIE ([0-9].[0-9])',$_SERVER['HTTP_USER_AGENT'],$reg);
+  preg_match('/MSIE ([0-9].[0-9])/',$_SERVER['HTTP_USER_AGENT'],$reg);
   if(!isset($reg[1])) {
     return -1;
   } else {
@@ -300,7 +391,7 @@ function agregaProducto($producto){
 	return $_SESSION["pedido"];
 }
 
-function creaProducto($id,$ref,$nombre,$medidas,$archivo1,$archivo2,$material,$precio,$info,$acabado){
+function creaProducto($id,$ref,$nombre,$medidas,$archivo1,$archivo2,$material,$precio,$info,$acabado,$producto,$categoria,$seccion){
 	return array(
 				id 			=> $id,
 				ref 		=> $ref,
@@ -311,7 +402,10 @@ function creaProducto($id,$ref,$nombre,$medidas,$archivo1,$archivo2,$material,$p
 				material	=> $material,
 				acabado		=> $acabado,
 				precio		=> $precio,
-				info 		=> $info
+				info 		=> $info,
+				producto	=> $producto,
+				categoria	=> $categoria,
+				seccion		=> $seccion
 				);
 }
 
@@ -345,7 +439,7 @@ function muestraPedidoCarrito($editable = true){
 				<tr class="id{{id}}">
 				    <td>{{nombre}} {{ref}}</td>
 				    <td>{{material}} {{acabado}}</td>
-				    <td>{{ancho}}x{{alto}}cm</td>
+				    <td>{{medidas}}</td>
 				    <td class="precio" data-precio="{{precio}}">{{precio}}€</td>
 				    <td><i  data-id="id{{id}}" data-nid="{{id}}" class="icon-trash borrar-linea"></i></td>
 			    </tr>';
@@ -354,23 +448,25 @@ function muestraPedidoCarrito($editable = true){
 				<tr class="id{{id}}">
 				    <td>{{nombre}} {{ref}}</td>
 				    <td>{{material}} {{acabado}}</td>
-				    <td>{{ancho}}x{{alto}}cm</td>
+				    <td>{{medidas}}</td>
 				    <td class="precio" data-precio="{{precio}}">{{precio}}€</td>
 			    </tr>';		
 	}
 	$i = 0;
 	foreach ($_SESSION["pedido"]["productos"] as $producto) {
 		$i++;
+		$infomedidas = $producto["medidas"][0] == ""? "": $producto["medidas"][0]. " x ". $producto["medidas"][1]. " cm";
+
 		$temp = str_replace("{{id}}", $producto["id"], $plantilla);
 		$temp = str_replace("{{nombre}}", $producto["nombre"], $temp);
 		$temp = str_replace("{{info}}", $producto["info"], $temp);
 		$temp = str_replace("{{material}}", $producto["material"], $temp);
 		$temp = str_replace("{{acabado}}", $producto["acabado"], $temp);
 		$temp = str_replace("{{ref}}", $producto["ref"], $temp);
-		$temp = str_replace("{{ancho}}", $producto["medidas"][0], $temp);
+		$temp = str_replace("{{medidas}}", $infomedidas, $temp);
 		$temp = str_replace("{{alto}}", $producto["medidas"][1], $temp);
 		$temp = str_replace("{{precio}}",  number_format($producto["precio"], 2, '.', ''), $temp);
-
+		
 		$resp = $resp . $temp; 
 	}
 	if($i==0){
@@ -386,8 +482,13 @@ function muestraPedidoCarrito($editable = true){
 function getMetodoEnvio(){
 	return $_SESSION["pedido"]["metodo"];
 }
-function getEnvio($elem){
-	return empty($_SESSION["pedido"]["data"][$elem])? "" : $_SESSION["pedido"]["data"][$elem];
+function getEnvio($elem,$number=0){
+	if($number){
+		return !isset($_SESSION["pedido"]["data"][$elem])? 0 : $_SESSION["pedido"]["data"][$elem];
+
+	}else{
+		return !isset($_SESSION["pedido"]["data"][$elem])? "" : $_SESSION["pedido"]["data"][$elem];
+	}
 }
 function setEnvio($elem,$val){
 	return $_SESSION["pedido"]["data"][$elem] = $val;
@@ -428,31 +529,54 @@ function getIdProducto(){
 function getIdDescuento(){
 	return 0;
 }
-function insertPedido(){
-	$idPedido = getNewIdPedido();
-	$pagado = (getEnvio("pagado")==1)? 1 : 0;
-	
+function insertPedido($pagado = null){
+	if(is_null($pagado)){
+		$pagado = (getEnvio("pagado")==1)? 1 : 0;
+	}
+	if(getMetodoEnvio() != "mensajero"){
+		setEnvio("envi",0);
+	}
+	if(getEnvio("idpedidoreserva") != ""){
+		$idPedido = getEnvio("idpedidoreserva");
+		$q = 'DELETE FROM t_pedido WHERE idpedido="'.$idPedido.'"';
+		mysql_query($q);
+	}else{
+		$idPedido = getNewIdPedido();
+	}
 	$q = 'INSERT INTO t_pedido (idpedido,id_cliente,nombre,telefono,cif,fecha_inicio,pagado,entrega,info,pobl,prov,cp,iva,subtotal,total,comision,envi,dir1,dir2,tienda) VALUES("'.$idPedido.'", "'.$_SESSION["usr_email"].'","'.getEnvio("nombre").'","'.getEnvio("tele").'",
 	"'.$_SESSION["usr_cif"].'",'.time().','.$pagado.',"'.getMetodoEnvio().'","'.getEnvio("info").'","'.getEnvio("pobl").'"
 	,"'.getEnvio("prov").'","'.getEnvio("cp").'",'.getEnvio("iva").','.calculaTotal(0,0).','.calculaTotal(getEnvio("iva"),getEnvio("envi")).'
-	,'.getEnvio("comision").','.getEnvio("envi").',"'.getEnvio("dir1").'","'.getEnvio("dir2").'","'.getEnvio("ciudad").'")';
+	,'.getEnvio("comision",1).','.getEnvio("envi").',"'.getEnvio("dir1").'","'.getEnvio("dir2").'","'.getEnvio("ciudad").'")';
+
 	mysql_query($q);
 
 	foreach ($_SESSION["pedido"]["productos"] as $producto) {
 		$txt_medidas = $producto["medidas"][0]."x".$producto["medidas"][1];
 
-		$q = 'INSERT INTO t_pedido_producto (id_pedido,id_producto,archivo1,archivo2,precio,id_descuento,medidas,info, ref_fotolia, material, acabado, nombre) VALUES ("'.$idPedido.'",'.getIdProducto().',"'.$producto["archivo1"].'","'.$producto["archivo2"].'",'.$producto["precio"].','.getIdDescuento().',"'.$txt_medidas.'","'.$producto["info"].'","'.$producto["ref"].'","'.$producto["material"].'","'.$producto["acabado"].'","'.$producto["nombre"].'")';
+		$q = 'INSERT INTO t_pedido_producto (id_pedido,id_producto,archivo1,archivo2,precio,id_descuento,medidas,info, ref_fotolia, material, acabado, nombre,producto,seccion,categoria) VALUES ("'.$idPedido.'",'.getIdProducto().',"'.$producto["archivo1"].'","'.$producto["archivo2"].'",'.$producto["precio"].','.getIdDescuento().',"'.$txt_medidas.'","'.$producto["info"].'","'.$producto["ref"].'","'.$producto["material"].'","'.$producto["acabado"].'","'.$producto["nombre"].'","'.$producto["producto"].'","'.$producto["seccion"].'","'.$producto["categoria"].'")';
 		mysql_query($q);
 	}
 }
 function getNewIdPedido(){
-	$q = mysql_query('SELECT MAX(id), idpedido FROM t_pedido');
+	$q = mysql_query('SELECT idpedido FROM t_pedido order by id DESC');
 	$data = mysql_fetch_assoc($q);	
 	$idpedido_old = $data["idpedido"];
 
 	$idpedido_new ="w".(1+(int)substr($idpedido_old, 1));
 	setEnvio("idpedido",$idpedido_new);
 	return $idpedido_new;
+}
+
+function reservaIdPedido(){
+	if(getEnvio("idpedidoreserva")==""){
+		$id = getNewIdPedido();
+		setEnvio("idpedidoreserva",$id);
+		$q = 'INSERT INTO t_pedido (id_pedido) VALUES ("'.$id.'")';
+		mysql_query($q);
+	}else{
+		$id = getEnvio("idpedidoreserva");
+	}
+	return $id;
 }
 
 function insertPedidoPaypal($resArray){
@@ -488,12 +612,18 @@ function insertPedidoPaypal($resArray){
 		l_shortmessage0,
 		l_longmessage0,
 		l_severity
-		) VALUES('.getEnvio("idpedido").',"'.$token.'","'.$timestamp.'","'.$correlationid.'","'.$p_transactionid.'","'.$p_amt.'"
+		) VALUES("'.getEnvio("idpedido").'","'.$token.'","'.$timestamp.'","'.$correlationid.'","'.$p_transactionid.'","'.$p_amt.'"
 		,"'.$p_ack.'","'.$p_errorcode.'","'.$p_feeamt.'","'.$p_paymentstatus.'","'.$p_pendingreason.'","'.$l_errorcode0.'","'.$l_shortmessage0.'","'.$l_longmessage0.'","'.$l_severity.'")';
-	
 	mysql_query($q);
 
 return $p_ack;
+}
+
+function insertPedidoTarjeta(){
+	$q = 'INSERT INTO t_pedido_tarjeta (id_pedido,token, t_transactionid) VALUES ("'.$_POST["Ds_MerchantData"].'","'.$_POST["Ds_Signature"].'"
+		,"'.$_POST["Ds_Order"].'")';
+	mysql_query($q);
+
 }
 
 function getPrecioVinilo($tipo,$ancho,$alto){
@@ -524,5 +654,36 @@ function getPrecioVinilo($tipo,$ancho,$alto){
 	return number_format($precio*$cm2/10000 ,2, '.', '');
 
 }
+function getPrecioProducto($tipo,$ancho,$alto,$montaje){
+	$m = "m".$ancho."x".$alto;
+	
+	$q = mysql_query("SELECT ".$m." FROM t_producto_cuadro WHERE producto='".$tipo."'");
+  	$fila = mysql_fetch_assoc($q);
+  	$precio =(float)$fila[$m];
 
+  	$q2 = mysql_query("SELECT * FROM t_producto_montaje WHERE producto='".$m."'");
+    $fila2 = mysql_fetch_assoc($q2);  
+
+    $precio = $precio + (float)$fila2[$montaje];
+
+    return $precio;
+}
+
+function getPrecioIDigital($tipo,$unidades,$acabado){
+  $q = mysql_query("SELECT * FROM t_producto_idigital WHERE producto='".$tipo."'");
+  $fila = mysql_fetch_assoc($q); 
+  $precio =(float)$fila["m".$unidades];
+  return $precio;
+}
+function getPrecioCalendario($producto,$unidades){
+  $q = mysql_query("SELECT * FROM t_producto_calendario WHERE producto='".$producto."'");
+  $fila = mysql_fetch_assoc($q); 
+  $tarifa = $unidades>25? $fila["u26"]: $fila["u25"];
+  $precio =(float)$tarifa*$unidades+$fila["composicion"];
+  return $precio;
+}
+
+function formatoMoneda($precio){
+	return number_format($precio,2, '.', '');
+}
 ?>

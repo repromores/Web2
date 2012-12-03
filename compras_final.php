@@ -14,7 +14,11 @@ $pobl   = empty($_SESSION["pedido"]["data"]["pobl"])  ? $_SESSION["usr_pob"]    
 $prov   = empty($_SESSION["pedido"]["data"]["prov"])  ? $_SESSION["usr_prov"]   : getEnvio("prov");
 $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     : getEnvio("cp");
 
-
+    if($_SESSION["pedido"]["metodo"]== "mensajero"){
+        $total_AMT = calculaTotal(getIVA(),getEnvio("envi"));
+    }else{
+        $total_AMT = calculaTotal(getIVA(),0);
+    }
 
 
   $metodo = getMetodoEnvio();
@@ -119,7 +123,7 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
 
 <div class="">
   <h2>Método de Pago</h2>
-<form class="form-horizontal" id="form-final" action="inc/compras_procesa_final.php" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" id="form-final" action="inc/compras_procesa_final.php" method="post">
   <fieldset>
               <input type="hidden" name="metodopago" id="metodo-p">
 
@@ -134,99 +138,33 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
     <p>Se le redirigirá a Paypal al pulsar siguiente para realizar el pago.</p>
   </div>
   <div class="tarjeta">
-          <div class="control-group">
-            <label for="nombre" class="control-label">Nombre:</label>
-            <div class="controls">
-              <input  type="text"  name="nombre" class="nombre" value="">
-            </div>
-          </div>
+    <p>Se le redirigirá a la pasarela de pago al pulsar siguiente para realizar el pago.</p> 
+      <input type="hidden" name="Ds_Merchant_Amount" value="<?php echo ((float)$total_AMT)*100; ?>">
+      <input type="hidden" name="Ds_Merchant_Currency" value="<?php echo $caixa_API_Currency; ?>">
+      <input type="hidden" name="Ds_Merchant_Order"  value="<?php echo $caixa_API_Order; ?>">
+      <input type="hidden" name="Ds_Merchant_MerchantCode" value="<?php echo $caixa_API_MerchantCode; ?>">
+      <input type="hidden" name="Ds_Merchant_Terminal" value="<?php echo $caixa_API_Terminal; ?>">
+      <input type="hidden" name="Ds_Merchant_TransactionType" value="0">
+      <input type="hidden" name="Ds_Merchant_MerchantURL" value="<?php echo $caixa_API_MerchantURL; ?>">
+      <input type="hidden" name="Ds_Merchant_MerchantSignature" value="<?php echo get_caixa_API_Key(((float)$total_AMT)*100); ?>">
+      <input type="hidden" name="Ds_Merchant_ProductDescription" value="Pedido web en mores.es">
+      <input type="hidden" name="Ds_Merchant_Titular" value="Titula de prueba">
+      <input type="hidden" name="Ds_Merchant_UrlOK" value="<?php echo $caixa_API_confirmado; ?>">
+      <input type="hidden" name="Ds_Merchant_UrlKO" value="<?php echo $caixa_API_cancelado; ?>">
+      <input type="hidden" name="Ds_Merchant_Titular" value="Titula de prueba">
+      <input type="hidden" name="Ds_Merchant_MerchantData" value="<?php echo reservaIdPedido(); ?>">
+  </div>     
 
-          <div class="control-group">
-            <label for="ape" class="control-label">Apellidos:</label>
-            <div class="controls">
-              <input  type="text"  name="ape" class="ape" value="">
-            </div>
-          </div>
-          
-          <div class="control-group">
-            <label for="tipotarjeta" class="control-label">Tarjeta:</label>
-            <div class="controls">
-              <select name="tipotarjeta">
-                <option value="Visa">Visa</option>
-                <option value="MasterCard">MasterCard</option>
-              </select>
-            </div>
-          </div>
-         
-          <div class="control-group">
-            <label for="ntarjeta" class="control-label">Número de tarjeta:</label>
-            <div class="controls">
-              <input  type="text"  name="ntarjeta" class="ntarjeta" value="">
-            </div>
-          </div>
-          
-          <div class="control-group">
-            <label for="mes" class="control-label">Fecha de caducidad:</label>
-            <div class="controls controls-row">
-              <select name="mes" class="input-mini">
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
-              <select name="anio" class="input-mini">
-                <?php 
-                  $hasta = date(Y) + 12;
-                  for($a = date(Y); $a <= $hasta; $a++){
-                    echo('<option value="'.$a.'">'.$a.'</option>');
-                  }
-                ?>
-              </select>
-              <span style="margin:0 4px 0 9px;">CVV:</span><input type="text" name="cvv" class="span1 cvv" value="">
-            </div>
-          </div>
-         
-          <div class="control-group">
-            <label for="calle" class="control-label">Calle:</label>
-            <div class="controls">
-              <input  type="text"  name="calle" class="calle" value="<?php echo $_SESSION["usr_dir"] ?>">
-            </div>
-          </div>
-       
-          <div class="control-group">
-            <label for="ciudad" class="control-label">Ciudad:</label>
-            <div class="controls">
-              <input  type="text"  name="ciudad" class="ciudad" value="<?php echo $_SESSION["usr_pob"] ?>">
-            </div>
-          </div>
-          
-          <div class="control-group">
-            <label for="prov" class="control-label">Provincia:</label>
-            <div class="controls">
-              <input  type="text"  name="prov" class="prov" value="<?php echo $_SESSION["usr_prov"] ?>">
-            </div>
-          </div>
-          
-          <div class="control-group">
-            <label for="cp" class="control-label">Código postal:</label>
-            <div class="controls">
-              <input  type="text"  name="cp" class="cp" value="<?php echo $_SESSION["usr_cp"] ?>">
-            </div>
-          </div>            
+  <div class="">
+      </br>
+      <input type="checkbox" class="condiciones"><strong>Acepto las <a target="_blank" href="condiciones-uso.php">condiciones de uso</a></strong>.
 
-    </div>     
+
+  </div>
 
     <div class="well navegacion">
       <a class="btn" href="compras_pedido.php">Paso atrás</a>
-      <button class="btn btn-primary btnsubmit pull-right" type="submit">Realizar pago</button>
+      <button class="btn btn-primary btnsubmit pull-right comprasfinal" disabled="disabled" type="submit">Realizar pago</button>
     </div>
 
   </fieldset>

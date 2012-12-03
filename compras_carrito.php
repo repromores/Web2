@@ -66,6 +66,8 @@
 </div>
 
 <div class="well" style="margin-top:180px;">
+	<a href="tienda.php" class="btn">Seguir comprando</a>
+
 	<?php if(calculaTotal(0,0) == 0) {?>
 		<a class="btn btn-primary pull-right" href="#" disabled="disabled">Siguiente paso</a>
 	<?php }else{ ?>

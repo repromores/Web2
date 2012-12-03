@@ -12,7 +12,7 @@
 <?php include "inc/menu.php"; ?>
 
   <div class="span10">
-  	<div class="content">
+  	<div class="content subir-archivos-page">
 
       <legend>Modificar datos de usuario</legend>
       <p> Si desea modificar sus datos almacenados en el Sistema de Envios de Morés, por favor pulse el botón siguiente:</p>
@@ -26,8 +26,14 @@
           <input type="hidden" name="archivossubidos" id="archivossubidos">
           <input type="hidden" name="infofiles" id="infofiles">
           <input type="hidden" name="email" id="email" value="<?php echo $_SESSION["usr_email"] ?>">
-
-          
+          <?php if(getNavigator() == "MSIE" || getNavigator() == "Safari"){ ?>
+              <div class="alert alert-error alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <h4>¡OJO!</h4>
+              Hemos detectado algunos fallos en el envío de archivo desde el navegador que estás usando.</br>
+              Te recomendamos que uses <a href="http://www.mozilla.org/es-ES/firefox/features/">Firefox</a> o <a href="https://www.google.com/intl/es/chrome/browser/?hl=es">Chrome</a>.
+              </div>
+          <?php } ?>
           <div class="control-group">
             <label for="seccion" class="control-label">Sección:</label>
             <div class="controls">          

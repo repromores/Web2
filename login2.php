@@ -1,5 +1,5 @@
 <?php include "inc/config.php"; 
-  if(isLogged()){  header('Location: compras_pedido.php');};
+if(isLogged()){  header('Location: compras_pedido.php');};
 
 ?>
 <?php include "inc/head.php"; ?>
@@ -63,6 +63,7 @@
         <div class="span5">
           <legend>Entrar</legend>
           <form class="well" action="inc/login-entrar.php?login=2" method="post">
+            <input type="hidden" name="goto" value="<?php echo(empty($_GET["goto"])? '' : $_GET["goto"]); ?>">
             <label>Email:</label>
             <input type="email" class="span3" name="user" id="user" placeholder="email">
             <label>Contraseña:</label>

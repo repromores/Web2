@@ -13,8 +13,9 @@ require_once "inc/config.php";
 	*/
 require_once ("paypal/paypalfunctions.php");
 
-
-	$PaymentOption = "PayPal";
+	if (!empty($_GET["token"])) {
+		$PaymentOption = "PayPal";
+	}
 
 
 if ( $PaymentOption == "PayPal" )

@@ -35,6 +35,7 @@ $cp 	= empty($_SESSION["pedido"]["data"]["cp"])		? $_SESSION["usr_cp"] 		: getEn
 			<div class="bar bar-warning" style="width: 25%;"></div>
 	    </div>
       <legend>Modificar datos de usuario</legend>
+      <p><strong>La factura se emitirá con los datos que tenemos guardados en su perfil,</strong> independientemente de la dirección de envío que introduzca abajo.</p>
       <p> Si desea modificar sus datos almacenados en el Sistema de Envios de Morés, por favor pulse el botón siguiente:</p>
       <a class="btn" href="editar-usuario.php?login=2">Modificar datos</a> <?php if($masdatos){ ?><strong style="color:red">Por favor, completa tu ficha para usar el servicio</strong><?php } ?>
       <?php if(!$masdatos){ ?>

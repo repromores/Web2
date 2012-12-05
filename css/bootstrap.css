@@ -4924,3 +4924,9 @@ span.malacalidad {
 .campo.span1 {
   margin-bottom: 10px;
 }
+.detallepedido {
+  background-color: #ededed;
+}
+table .span5.pull-left {
+  float: left;
+}

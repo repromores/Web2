@@ -18,7 +18,7 @@ $news       = isset($_POST["newsletter"])	? 1 : 0;
 
 $pass = empty($pass)? $_SESSION["usr_pass"] : $pass;
 
-if($nombre =="" || $ape =="" ||  $pobl =="" ||  $tel =="" || $cif ==""){
+if($nombre =="" || $ape =="" ||  $pobl =="" ||  $tel ==""  || $cif ==""|| $cp ==""){
 	$error = 1;
 }
 

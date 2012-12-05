@@ -61,6 +61,7 @@
       <input type="hidden" name="tipo" id="tipo" value="lienzobastidor">
       <input type="hidden" name="nombre" id="nombre" value="Lienzo">
       <input type="hidden" name="material" id="material" value="lienzo">
+      <input type="hidden" name="seccion" id="seccion" value="carteleria">
       
       <div class="control-group">
         <label class="control-label" for="archivos">Archivos:</label>

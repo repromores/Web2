@@ -8,11 +8,12 @@ echo '<pre>';
 //echo getEnvio("info");
 //print_r($_SESSION);
 
- 
- foreach ($_SESSION["pedido"]["productos"] as $key) { 
- 	echo $key["producto"];
+ print_r(infoFacturacion());
 
- }
+// foreach ($_SESSION["pedido"]["productos"] as $key) { 
+// 	echo $key["producto"];
+//
+// }
 //print_r(GetShippingDetails("EC-6KU45483RU045090T"));
 //	resetCarrito();
 //	agregaProducto($producto);

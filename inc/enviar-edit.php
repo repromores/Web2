@@ -3,7 +3,7 @@
 
 //copia cliente
 // Varios destinatarios
-$para  = $email;
+$para  = $_SESSION["usr_email"];
 
 // subject
 $titulo = 'Mores - usuario modificado';

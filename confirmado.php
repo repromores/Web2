@@ -18,7 +18,7 @@ $pobl   = empty($_SESSION["pedido"]["data"]["pobl"])  ? $_SESSION["usr_pob"]    
 $prov   = empty($_SESSION["pedido"]["data"]["prov"])  ? $_SESSION["usr_prov"]   : getEnvio("prov");
 $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     : getEnvio("cp");
 
-
+$facturacion = infoFacturacion();
 
 
   $metodo = getMetodoEnvio();
@@ -182,6 +182,8 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
 <?php
 
 $iva_calculado = calculaTotal(getEnvio("iva"),0) - calculaTotal(0,0);
+$idpedido = getLastPedidoOfUser($_SESSION["usr_email"]);
+
 
 $textaco_cliente = '
 <div class="span10 content" id="pag-final" style="width: 583px; font-family: sans-serif">
@@ -193,6 +195,7 @@ $textaco_cliente = '
 <h2 style="margin: 0;font-family: inherit;font-weight: bold;color: #bc1922;text-rendering: optimizelegibility;font-size: 24px;line-height: 32px;border-bottom: 1px #bc1922 solid;margin-bottom: 25px;">Compra realizada</h2>
 
 <p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;"><strong style="font-weight: bold;">Plazo de entrega estimado: 3-4 días hábiles</strong></p>
+<p>Id de pedido: '.$idpedido.'</p>
 <table class="table table-striped" style="max-width: 100%;background-color: transparent;border-collapse: collapse;border-spacing: 0;width: 100%;margin-bottom: 16px;">
 <input type="hidden" class="iva" value="21" style="margin: 0;font-size: 13px;vertical-align: middle;*overflow: visible;line-height: 16px;font-weight: normal;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;width: 210px;margin-left: 0;">
 <thead>
@@ -234,6 +237,17 @@ $textaco_cliente = '
 '.$campoEnvio.'
 </p>
 </div>
+<div class="well span10 dir-envio" style="width: 573px;min-height: 20px;padding: 19px;margin-bottom: 20px;background-color: #f5f5f5;border: 1px solid rgba(0, 0, 0, 0.05);-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);">
+<h3 style="margin: 0;font-family: inherit;font-weight: bold;color: #444;text-rendering: optimizelegibility;font-size: 18px;line-height: 24px;margin-top: 30px;margin-bottom: 5px;">Facturación</h3>
+<p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;">
+'.$facturacion["nombre"].' '.$facturacion["apellidos"].'</br>
+'.$facturacion["cif"].'</br>
+'.$facturacion["direccion"].'</br>
+'.$facturacion["direccion2"].'</br>
+'.$facturacion["poblacion"].'</br>
+'.$facturacion["cp"].'</br>
+</p>
+</div>
 </div>
 ';
 $textaco_mores = '
@@ -244,8 +258,9 @@ $textaco_mores = '
 </a>
 </h1>
 <h2 style="margin: 0;font-family: inherit;font-weight: bold;color: #bc1922;text-rendering: optimizelegibility;font-size: 24px;line-height: 32px;border-bottom: 1px #bc1922 solid;margin-bottom: 25px;">Compra realizada</h2>
-<p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;">El usuario <strong>'.$_SESSION["usr_email"].' ha realizado el siguiente pedido en la tienda web</strong></p>
+<p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;">El usuario <strong>'.$_SESSION["usr_email"].'</strong> ha realizado el siguiente pedido en la tienda web</p>
 <p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;"><strong style="font-weight: bold;">Plazo de entrega estimado: 3-4 días hábiles</strong></p>
+<p>Id de pedido: '.$idpedido.'</p>
 <table class="table table-striped" style="max-width: 100%;background-color: transparent;border-collapse: collapse;border-spacing: 0;width: 100%;margin-bottom: 16px;">
 <input type="hidden" class="iva" value="21" style="margin: 0;font-size: 13px;vertical-align: middle;*overflow: visible;line-height: 16px;font-weight: normal;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;width: 210px;margin-left: 0;">
 <thead>
@@ -287,13 +302,26 @@ $textaco_mores = '
 '.$campoEnvio.'
 </p>
 </div>
+<div class="well span10 dir-envio" style="width: 573px;min-height: 20px;padding: 19px;margin-bottom: 20px;background-color: #f5f5f5;border: 1px solid rgba(0, 0, 0, 0.05);-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);">
+<h3 style="margin: 0;font-family: inherit;font-weight: bold;color: #444;text-rendering: optimizelegibility;font-size: 18px;line-height: 24px;margin-top: 30px;margin-bottom: 5px;">Facturación</h3>
+<p style="margin: 0 0 8px;text-indent: 10px;font-size: 0.9em;">
+'.$facturacion["nombre"].' '.$facturacion["apellidos"].'</br>
+'.$facturacion["cif"].'</br>
+'.$facturacion["direccion"].'</br>
+'.$facturacion["direccion2"].'</br>
+'.$facturacion["poblacion"].'</br>
+'.$facturacion["cp"].'</br>
+</p>
+</div>
 </div>
 ';
 if($_SESSION["entorno"] == "produccion"){
-  enviarMail($_SESSION["usr_email"],"Morés - Pedido web",$textaco_cliente);
-  enviarMail($emails_pedido_tiendaweb,"Pedido web",$textaco_mores);  
+  if(getMailConfirSent($idpedido)==0){
+    setMailConfirSent($idpedido);
+    enviarMail($_SESSION["usr_email"],"Morés - Pedido web",$textaco_cliente);
+    enviarMail($emails_pedido_tiendaweb,"Pedido web",$textaco_mores);  
+  }
 }
-
  include "inc/footer.php";
 
 resetCarrito();

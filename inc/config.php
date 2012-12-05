@@ -625,6 +625,112 @@ function insertPedidoTarjeta(){
 	mysql_query($q);
 
 }
+function getPedidosOfUser($email){
+	$q = mysql_query('SELECT * FROM t_pedido WHERE id_cliente="'.$email.'" ORDER BY id DESC');
+	$num_rows = mysql_num_rows($q);
+	if($num_rows){
+		$linea = "";
+		while($data = mysql_fetch_assoc($q)){
+			
+		$linea .= '<tr>
+			<td>'.$data["idpedido"].'</td>
+			<td>'.date("d-m-y",$data["fecha_inicio"]).'</td>
+			<td>'.$data["entrega"].'</td>
+			<td>'.$data["estado"].'</td>
+			<td>'.$data["total"].' €</td>
+			<td><button class="btn btn-small despliegadetalle" data-id="'.$data["idpedido"].'">Detalle</button></td>
+		</tr>';
+
+		$plantilla = '
+				<tr class="id{{id}}">
+				    <td>{{nombre}} {{ref}}</td>
+				    <td>{{material}} {{acabado}}</td>
+				    <td>{{medidas}}</td>
+				    <td class="precio" data-precio="{{precio}}">{{precio}}€</td>
+			    </tr>';		
+	
+		$query = mysql_query('SELECT * FROM t_pedido_producto WHERE id_pedido="'.$data["idpedido"].'"');
+		while($producto = mysql_fetch_assoc($query)){
+			$infomedidas = $producto["medidas"]== "x"? "" : $producto["medidas"] ." cm";
+
+			$temp = str_replace("{{id}}", $producto["id"], $plantilla);
+			$temp = str_replace("{{nombre}}", $producto["nombre"], $temp);
+			$temp = str_replace("{{info}}", $producto["info"], $temp);
+			$temp = str_replace("{{material}}", $producto["material"], $temp);
+			$temp = str_replace("{{acabado}}", $producto["acabado"], $temp);
+			$temp = str_replace("{{ref}}", $producto["ref"], $temp);
+			$temp = str_replace("{{medidas}}", $infomedidas, $temp);
+			$temp = str_replace("{{alto}}", $producto["medidas"][1], $temp);
+			$temp = str_replace("{{precio}}",  number_format($producto["precio"], 2, '.', ''), $temp);
+			
+			$resp = $resp . $temp; 
+		}
+
+		if($data["entrega"]=="tienda"){
+			$textodir = '<h3>Recogida en:</h3><p>Tienda '.$data["tienda"].'</p><p>'.$data["nombre"].'</p><p>'.$data["telefono"].'</p>';
+		}else{
+			$textodir = '<h3>Entrega en:</h3><p>'.$data["dir1"].'</p><p>'.$data["dir2"].'</p><p>'.$data["pobl"]." ".$data["cp"].'</p><p>'.$data["prov"].'</p>';
+		}
+
+		$linea .= '<tr class="detallepedido hide" id="'.$data["idpedido"].'">
+			<td colspan="6">
+				<table class="table">
+				<thead>
+		        <tr>
+		          <th>Producto</th>
+		          <th>Material</th>
+		          <th>Tamaño</th>
+		          <th>Precio</th>
+		        </tr>
+		        </thead>
+		        <tbody>
+				'.$resp.'
+				</tbody>
+				</table>
+
+				<div class="pull-left span5">
+					'.$textodir.' 
+
+				</div>
+
+			    <table class="table span4" style="float:right">
+
+			        <tbody>
+			          <tr>
+			            <th>Subtotal</th>
+			            <td>'.formatoMoneda($data["subtotal"]).' €</td>
+			          </tr>
+			          <tr>
+			            <th>IVA</th>
+			            <td>'.formatoMoneda($data["subtotal"]* (float)"1.".$data["iva"]).' €</td>
+			          </tr>
+			          <tr>
+			            <th>Recogida</th>
+			            <td>'.formatoMoneda($data["envi"]).' €</td>
+			          </tr>
+			          <tr>
+			            <th>TOTAL</th>
+			            <td class="">'.formatoMoneda($data["total"]).' €</td>
+			          </tr>
+			        </tbody>
+			      </table>
+
+			</td>
+		</tr>';
+		}
+	}else{
+		$linea = '<tr><td colspan="5" class="well">No has realizado ningún pedido en nuestra tienda, <strong><a href="tienda.php">a qué esperas?</strong></a></td></tr>';
+	}
+
+	return $linea;
+}
+
+function getLastPedidoOfUser($email){
+	$q = mysql_query('SELECT * FROM t_pedido WHERE id_cliente="'.$email.'" ORDER BY id DESC LIMIT 1');
+	$data = mysql_fetch_assoc($q);
+
+	return $data["idpedido"];
+}
 
 function getPrecioVinilo($tipo,$ancho,$alto){
 	$cm2 =$ancho*$alto;
@@ -685,5 +791,25 @@ function getPrecioCalendario($producto,$unidades){
 
 function formatoMoneda($precio){
 	return number_format($precio,2, '.', '');
+}
+
+function infoFacturacion(){
+  $qu = "SELECT * FROM usuarios WHERE email='".$_SESSION["usr_email"]."'";
+  $q = mysql_query($qu);
+ 
+  $fila = mysql_fetch_assoc($q); 
+  return $fila;
+}
+function getMailConfirSent($idpedido){
+	$qu = "SELECT mail_confir FROM t_pedido WHERE idpedido='".$dpedido."'";
+  	$q = mysql_query($qu);
+  	$fila = mysql_fetch_assoc($q); 
+	return $fila["mail_confir"];
+}
+function setMailConfirSent($idpedido){
+	$qu = "UPDATE t_pedido SET mail_confir = 1 WHERE idpedido='".$dpedido."'";
+  	$q = mysql_query($qu);
+  	$fila = mysql_fetch_assoc($q); 
+	return $fila["mail_confir"];
 }
 ?>

@@ -185,7 +185,7 @@ if($.browser["webkitty"]){
 
 	        // Specify what files to browse for
 	        filters : [
-	            {title : "archivos", extensions : "jpg,gif,png,tiff,tif,bmp,zip,rar,psd,ai,pdf,eps,dwg,plt,cdr,doc,docx,ppt,pptx,ctb,sitx,pub,mxd,log,fh11,fh10,fh9,fh8,mth,indd,EST,AG,psb"}
+	            {title : "archivos", extensions : "jpg,jpeg,gif,png,tiff,tif,bmp,zip,rar,psd,ai,pdf,eps,dwg,plt,cdr,doc,docx,ppt,pptx,ctb,sitx,pub,mxd,log,fh11,fh10,fh9,fh8,mth,indd,EST,AG,psb"}
 	        ],
 	 
 	        // Flash settings
@@ -389,8 +389,10 @@ var uploadtienda = {
 		 var uploader = new qq.FineUploader({
 			element: document.getElementById('bootstrapped-fine-uploader'),
 			request: {
-				endpoint: 'inc/subir-tienda.php'
+				endpoint: 'inc/subir-tienda.php',
+				params: {seccion: $("#seccion").val()}
 			},
+
 			callbacks: {
 				onComplete: function (id, fileName, responseJSON) {
 					oldval = $("#archivo1").val();
@@ -561,19 +563,29 @@ $(".condiciones").on("change",function(){
 
 var calculadora = {
 	init: function(){
-		Calculadora 		= this;
-		Calculadora.campos	= $(".campo");
-		Calculadora.cm1		= $(".cm1");
-		Calculadora.cm2		= $(".cm2");
-		Calculadora.px1		= $(".px1");
-		Calculadora.px2		= $(".px2");
-		Calculadora.resp	= $(".resultado");
+		Calculadora 			= this;
+		Calculadora.campos		= $(".campo");
+		Calculadora.cm1			= $(".cm1");
+		Calculadora.cm2			= $(".cm2");
+		Calculadora.px1			= $(".px1");
+		Calculadora.px2			= $(".px2");
+		Calculadora.resp		= $(".resultado");
+		Calculadora.tipo		= $(".tipoarchivo");
+		Calculadora.grupotipo	= $(".grupotipo");
 
 		Calculadora.eventlistener();
 
 	},
 	eventlistener : function(){
 		Calculadora.campos.on("change", Calculadora.calculappi);
+		Calculadora.campos.on("keyup", Calculadora.calculappi);
+		Calculadora.tipo.on("click", Calculadora.changeTipo);
+	},
+	changeTipo : function(){
+		$this = $(this);
+		
+		Calculadora.grupotipo.data("tipo",$this.data("tipo"));
+		Calculadora.calculappi();
 	},
 	calculappi : function(){
 		vacio = 0;
@@ -596,17 +608,49 @@ var calculadora = {
 		return px/cm*2.54;
 	},
 	publicarRespuesta : function(respuesta){
-		if(respuesta > 199){
-			clase = "buenacalidad";
-			texto = Math.round(respuesta)+"ppi - La calidad de la imagen es buena";
-		}else if(respuesta >150){
-			clase = "calidadregular";
-			texto = Math.round(respuesta)+"ppi - La calidad de la imagen es ajustada";
+		tipo = Calculadora.grupotipo.data("tipo");
+
+		if(tipo == "cartel"){
+			if(respuesta > 100){
+				clase = "buenacalidad";
+				texto = Math.round(respuesta)+"ppi - La calidad de la imagen es óptima";
+			}else if(respuesta >80){
+				clase = "calidadregular";
+				texto = Math.round(respuesta)+"ppi - La calidad de la imagen es ajustada";
+			}else{
+				clase = "malacalidad";
+				texto = Math.round(respuesta)+"ppi - La calidad de la imagen no llega a la resolución mínima";
+			}
 		}else{
-			clase = "malacalidad";
-			texto = Math.round(respuesta)+"ppi - La calidad de la imagen no llega a la resolución mínima";
+			if(respuesta > 199){
+				clase = "buenacalidad";
+				texto = Math.round(respuesta)+"ppi - La calidad de la imagen es buena";
+			}else if(respuesta >150){
+				clase = "calidadregular";
+				texto = Math.round(respuesta)+"ppi - La calidad de la imagen es ajustada";
+			}else{
+				clase = "malacalidad";
+				texto = Math.round(respuesta)+"ppi - La calidad de la imagen no llega a la resolución mínima";
+			}			
 		}
 		Calculadora.resp.text(texto).removeClass("buenacalidad").removeClass("calidadregular").removeClass("malacalidad").addClass(clase);
 	}
 }
 calculadora.init();
+
+
+verPedidos = {
+	init: function(){
+		VerPedidos 		= this;
+		VerPedidos.btn 	= $(".despliegadetalle");
+		VerPedidos.eventlistener();
+	},
+	eventlistener:function(){
+	VerPedidos.btn.on("click",VerPedidos.pedidosToggle);
+	},
+	pedidosToggle : function(){
+		id = $(this).data("id");
+		$("#"+id).toggleClass("hide");
+	}
+}
+verPedidos.init();

@@ -1,9 +1,9 @@
 <?php include "inc/config.php"; ?>
 <?php include "inc/head.php"; ?>
-<title>morés - Impresión fotográfica (Lambda)</title>
+<title>morés - Calculadora</title>
 <?php
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
-  $h1text = "Impresión fotográfica (Lambda) - morés";
+  $h1text = "Calculadora - morés";
  ?>
 <?php include "inc/menu.php"; ?>
 
@@ -15,6 +15,17 @@
 <p>Para asegurar el mejor resultado, recomendamos usar imágenes de no menos de 200ppi(pixeles por pulgada) o 78 pixeles por cm</p>
 <p>Para saber si una imagen es apta introduzca sus medidas (en píxeles) y luego el tamaño en cm en el que desea imprimir</p>
      <form  class="form-horizontal"> 
+
+      <div class="control-group">
+        <label class="control-label" >Tipo de uso:</label>
+        <div class="controls">
+            <div class="btn-group grupotipo" data-toggle="buttons-radio" data-tipo="cartel">
+              <button type="button" class="btn tipoarchivo active" data-tipo="cartel">Cartelería</button>
+              <button type="button" class="btn tipoarchivo" data-tipo="impresion">Impresión digital</button>
+            </div>
+        </div>
+      </div>
+
       <div class="control-group">
         <label class="control-label" >Tamaños:</label>
         <div class="controls">

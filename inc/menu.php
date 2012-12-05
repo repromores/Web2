@@ -10,7 +10,8 @@
       <div id="logged" class="clearfix">
         <div class="controls">
           <span class="text">Hola, <a href="editar-usuario.php"><?php echo $_SESSION["usr_email"]; ?></a></span>
-          <span class="text"><a class="btn" href="logout.php?redirect=<?php echo $_SERVER["REQUEST_URI"]; ?>">Cerrar sesión</a></span>
+          <?php if($pagos_activados){ ?><span class="text"><a class="btn" href="compras_cliente_verpedidos.php">Ver pedidos</a></span> <?php } ?>
+          <span class="text"><a class="btn btn-danger" href="logout.php?redirect=<?php echo $_SERVER["REQUEST_URI"]; ?>">Cerrar sesión</a></span>
         </div>
       </div>
   <?php } ?>

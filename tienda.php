@@ -19,7 +19,7 @@ Bienvenido a la tienda online de Morés. Iremos añadiendo productos. ¡Así que
 		<div class="span5">
 			<a href="tienda_calendarios_info.php">
 				<div class="categoria"><h3>Calendarios personalizados</h3>
-					<img src="imagenes/online/CALENDARIOS.jpg">
+					<img src="imagenes/online/CALENDARIOS.jpg"  alt="Calendarios personalizados">
 					<p>Calendarios de pared, de mesa, de diferentes tamaños y diseños.</p>
 				</div>
 			</a>
@@ -27,7 +27,7 @@ Bienvenido a la tienda online de Morés. Iremos añadiendo productos. ¡Así que
 		<div class="span5">
 			<a href="tienda_vinilos_info.php">
 				<div class="categoria"><h3>Vinilo</h3>
-					<img src="imagenes/online/v-impreso.png">
+					<img src="imagenes/online/v-impreso.png" width="100%"  alt="Vinilo">
 					<p>Ideal para hogares, oficinas, locales y negocios.</p>
 				</div>
 			</a>
@@ -35,17 +35,17 @@ Bienvenido a la tienda online de Morés. Iremos añadiendo productos. ¡Así que
 	</div>
 	<div class="row">
 		<div class="span5">
-			<a href="tienda_fotocartonpluma_info.php">
-				<div class="categoria"><h3>Foto + cartonpluma</h3>
-					<img src="imagenes/online/_MG_6249.jpg">
-					<p>Papel fotográfico adhesivado sobre cartonpluma con marco de aluminio.</p>
+			<a href="tienda_dibond_info.php">
+				<div class="categoria"><h3>Foto + Dibond</h3>
+					<img src="imagenes/online/_MG_6244.jpg" alt="Foto + Dibond">
+					<p>Papel fotográfico adhesivado a sandwich de aluminio dibond.</p>
 				</div>
 			</a>
 		</div>
 		<div class="span5">
 			<a href="tienda_lienzobastidor_info.php">
 				<div class="categoria"><h3>Canvas</h3>
-					<img src="imagenes/online/CANVAS_PERSPECTIVA.jpg">
+					<img src="imagenes/online/CANVAS_PERSPECTIVA.jpg" alt="Canvas">
 					<p>Textil canvas montado en bastidor.</p>
 				</div>
 			</a>
@@ -55,7 +55,7 @@ Bienvenido a la tienda online de Morés. Iremos añadiendo productos. ¡Así que
 		<div class="span5">
 			<a href="tienda_fotopvc_info.php">
 				<div class="categoria"><h3>Foto + PVC</h3>
-					<img src="imagenes/online/_MG_6245.jpg">
+					<img src="imagenes/online/_MG_6245.jpg" alt="Foto + PVC">
 					<p>Papel fotográfico adhesivado sobre PVC espumado.</p>
 				</div>
 			</a>
@@ -63,7 +63,7 @@ Bienvenido a la tienda online de Morés. Iremos añadiendo productos. ¡Así que
 		<div class="span5">
 			<a href="tienda_vinilometacrilato_info.php">
 				<div class="categoria"><h3>Vinilo metacrilato</h3>
-					<img src="imagenes/online/_MG_6247.jpg">
+					<img src="imagenes/online/_MG_6247.jpg" alt="Vinilo metacrilato">
 					<p>Vinilo de calidad fotográfica adhesivado a metacrilato.</p>
 				</div>
 			</a>
@@ -71,13 +71,14 @@ Bienvenido a la tienda online de Morés. Iremos añadiendo productos. ¡Así que
 	</div>
 	<div class="row">
 		<div class="span5">
-			<a href="tienda_dibond_info.php">
-				<div class="categoria"><h3>Foto + Dibond</h3>
-					<img src="imagenes/online/_MG_6244.jpg">
-					<p>Papel fotográfico adhesivado a sandwich de aluminio dibond.</p>
+			<a href="tienda_fotocartonpluma_info.php">
+				<div class="categoria"><h3>Foto + cartón pluma</h3>
+					<img src="imagenes/online/_MG_6249.jpg" alt="Foto + cartonpluma">
+					<p>Papel fotográfico adhesivado sobre cartón pluma con marco de aluminio.</p>
 				</div>
 			</a>
 		</div>
+
 	</div>
 
   	</div>

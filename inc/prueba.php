@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 echo '<pre>';
-
-print_r($_SESSION);
+echo getPrecioProducto("fotocartonpluma",100,100,"perfil_aluminio");
+//print_r($_SESSION);
 
 //print_r(GetShippingDetails("EC-6KU45483RU045090T"));
 //	resetCarrito();

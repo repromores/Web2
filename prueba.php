@@ -6,9 +6,23 @@ echo '<pre>';
 
 //echo $_SESSION["Payment_Amount"];
 //echo getEnvio("info");
+
 //print_r($_SESSION);
 
- print_r(infoFacturacion());
+  foreach ($_SESSION["pedido"]["productos"] as $key) { ?>
+
+  _gaq.push(['_addItem',
+    '<?php echo getEnvio("idpedido"); ?>',           // order ID - required
+    '<?php echo $key["producto"]; ?>',   // SKU/code - required
+    '<?php echo $key["producto"]; ?>',   // product name
+    '<?php echo $key["categoria"]; ?>',   // category or variation
+    '<?php echo $key["precio"]/$key["unidades"]; ?>',   // unit price - required
+    '<?php echo $key["unidades"]; ?>'               // quantity - required
+  ]);
+
+   <?php }
+
+// print_r(infoFacturacion());
 
 // foreach ($_SESSION["pedido"]["productos"] as $key) { 
 // 	echo $key["producto"];

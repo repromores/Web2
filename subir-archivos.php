@@ -87,7 +87,7 @@
             
 
             <div class="form-actions">
-              <button class="btn btn-primary btnsubmit" type="submit">Enviar</button>
+              <button class="btn btn-primary btnsubmit tr_pedidoftp" type="submit">Enviar</button>
               <div class="mensaje-error">Corrige los campos en rojo</div>
               <div class="mensaje-exito"></div>
           </div>

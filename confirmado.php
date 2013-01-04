@@ -1,11 +1,6 @@
 <?php
 require_once "inc/config.php";
-/**************************
-Inicio html
-**************************/				
-include "inc/head.php"; ?>
-<title>morés - <?php echo $titulo ?></title>
-<?php
+
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
   $h1text = $titulo." - morés";
 
@@ -18,12 +13,27 @@ $pobl   = empty($_SESSION["pedido"]["data"]["pobl"])  ? $_SESSION["usr_pob"]    
 $prov   = empty($_SESSION["pedido"]["data"]["prov"])  ? $_SESSION["usr_prov"]   : getEnvio("prov");
 $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     : getEnvio("cp");
 
+$idpedido = getLastPedidoOfUser($_SESSION["usr_email"]);
+
+/**************************
+Inicio html
+**************************/       
+include "inc/head.php"; ?>
+<title>morés - <?php echo $idpedido ?></title>
+<style media="print">
+  body {visibility:hidden;}
+  .print {visibility:visible;} 
+  .progress,.numberCircleContainer {visibility: hidden};
+</style>
+<?php
+
 $facturacion = infoFacturacion();
 
 
   $metodo = getMetodoEnvio();
   if($metodo == "mensajero"){
-    $envio = getEnvio("envi");
+    $envio = getEnvio("envi") . "€";
+    $texto_metodo = "Envío";
     $campoEnvio = '
     <p>'.getEnvio("nombre").'</br>
        '.getEnvio("dir1").'</br>
@@ -34,6 +44,7 @@ $facturacion = infoFacturacion();
     ';
   } else {
     $envio = "en tienda";
+    $texto_metodo = "Recogida";
     switch(getEnvio("ciudad")) {
         case "oviedo": 
             $text = 'Viaducto Ingeniero Marquina, 7 <a  href="https://maps.google.com/maps/ms?msa=0&amp;msid=201196282089870687635.0004b75b2be933103a9c6&amp;ie=UTF8&amp;t=m&amp;ll=43.36557,-5.854683&amp;spn=0.003744,0.006866&amp;z=17&amp;output=embed" class="mapa fancybox.iframe"><img alt="mapa" src="img/mini-map.png"></a>';
@@ -59,7 +70,8 @@ $facturacion = infoFacturacion();
  ?>
 <?php include "inc/menu.php"; ?>
 
-  <div class="span10" id="pag-final">
+  <div class="span10 print" id="pag-final">
+    
   	<div class="content resumen">
       <div class="numberCircleContainer">
       <div class="numberCircle success">1</div>
@@ -79,12 +91,16 @@ $facturacion = infoFacturacion();
 
 <p>Recibirá un email de confirmación con los datos del pedido, que también se detallan a continuación</p>
 <p><strong>Plazo de entrega estimado: 3-4 días hábiles</strong></p>
+<p>Esté atento a su buzón, y compruebe que no recibe nuestros emails en la carpeta de spam, le avisaremos con detalles de su pedido.</p>
+<?php echo'<p>Id de pedido: '.$idpedido.'</p>'; ?>
+
   <table class="table table-striped">
       <input type="hidden" class="iva" value="21">
 
         <thead>
         <tr>
           <th>Producto</th>
+          <th>Unidades</th>
           <th>Material</th>
           <th>Tamaño</th>
           <th>Precio</th>
@@ -100,19 +116,19 @@ $facturacion = infoFacturacion();
         <tbody>
           <tr>
             <th>Subtotal</th>
-            <td class="sumPrecios"></td>
+            <td class="sumPrecios" style="text-align: right; padding-right: 20px;"></td>
           </tr>
           <tr>
             <th>IVA</th>
-            <td class="sumPreciosIva"></td>
+            <td class="sumPreciosIva" style="text-align: right; padding-right: 20px;"></td>
           </tr>
           <tr>
-            <th>Recogida</th>
-            <td class="sumPrecioEnvio" data-pasta="<?php echo $envio; ?>"></td>
+            <th>Entrega</th>
+            <td class="sumPrecioEnvio" data-pasta="<?php echo $envio; ?>" style="text-align: right; padding-right: 20px;"></td>
           </tr>
           <tr>
             <th>TOTAL</th>
-            <td class="sumPrecioTotal"></td>
+            <td class="sumPrecioTotal" style="text-align: right; padding-right: 20px;"></td>
           </tr>
         </tbody>
       </table>
@@ -126,6 +142,9 @@ $facturacion = infoFacturacion();
 
 
   	</div>
+    <div class=""  style="margin:200px 210px;  ">
+       <a class="btn btn-primary btn-large" href="#" onclick="window.print();return false;">Imprimir resguardo</a> 
+    </div>
   </div>
 
 
@@ -143,7 +162,7 @@ $facturacion = infoFacturacion();
   _gaq.push(['_addTrans',
     '<?php echo getEnvio("idpedido"); ?>',           // order ID - required
     'Mores',  // affiliation or store name
-    '<?php echo getEnvio("idpedido"); ?>',          // total - required
+    '<?php echo calculaTotal(0,0); ?>',          // total - required
     '',           // tax
     '<?php echo getMetodoEnvio() == "tienda"? 0 : getEnvio("envi"); ?>',              // shipping
     '<?php echo getEnvio("ciudad") ?>',       // city
@@ -154,18 +173,18 @@ $facturacion = infoFacturacion();
    // add item might be called for every item in the shopping cart
    // where your ecommerce engine loops through each item in the cart and
    // prints out _addItem for each
-   <? foreach ($_SESSION["pedido"]["productos"] as $key) { ?>
+   <?php foreach ($_SESSION["pedido"]["productos"] as $key) { ?>
 
   _gaq.push(['_addItem',
     '<?php echo getEnvio("idpedido"); ?>',           // order ID - required
     '<?php echo $key["producto"]; ?>',   // SKU/code - required
     '<?php echo $key["producto"]; ?>',   // product name
     '<?php echo $key["categoria"]; ?>',   // category or variation
-    '<?php echo $key["precio"]; ?>',   // unit price - required
-    '1'               // quantity - required
+    '<?php echo $key["precio"]/$key["unidades"]; ?>',   // unit price - required
+    '<?php echo $key["unidades"]; ?>'  // quantity - required
   ]);
 
-   <? } ?>
+   <?php } ?>
 
   _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
 
@@ -182,11 +201,10 @@ $facturacion = infoFacturacion();
 <?php
 
 $iva_calculado = calculaTotal(getEnvio("iva"),0) - calculaTotal(0,0);
-$idpedido = getLastPedidoOfUser($_SESSION["usr_email"]);
 
 
 $textaco_cliente = '
-<div class="span10 content" id="pag-final" style="width: 583px; font-family: sans-serif">
+<div class="span10 content" id="pag-final" style="width: 683px; font-family: sans-serif">
 <h1 class="" style="margin: 0;font-family: inherit;font-weight: bold;color: inherit;text-rendering: optimizelegibility;font-size: 30px;line-height: 32px;">
 <a href="http://mores.es" style="color: #0088cc;text-decoration: none;outline: none;">
 <img alt="Morés" src="http://mores.es/img/mores.png" class="" style="max-width: 100%;vertical-align: middle;border: 0;-ms-interpolation-mode: bicubic;">
@@ -201,6 +219,7 @@ $textaco_cliente = '
 <thead>
 <tr>
 <th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Producto</th>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Unidades</th>
 <th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Material</th>
 <th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Tamaño</th>
 <th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Precio</th>
@@ -221,8 +240,8 @@ $textaco_cliente = '
 <td class="sumPreciosIva" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'. $iva_calculado .' €</td>
 </tr>
 <tr>
-<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">Recogida</th>
-<td class="sumPrecioEnvio" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.$envio.' €</td>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">'.$texto_metodo.'</th>
+<td class="sumPrecioEnvio" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.$envio.'</td>
 </tr>
 <tr>
 <th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">TOTAL</th>
@@ -251,7 +270,7 @@ $textaco_cliente = '
 </div>
 ';
 $textaco_mores = '
-<div class="span10 content" id="pag-final" style="width: 583px; font-family: sans-serif">
+<div class="span10 content" id="pag-final" style="width: 683px; font-family: sans-serif">
 <h1 class="" style="margin: 0;font-family: inherit;font-weight: bold;color: inherit;text-rendering: optimizelegibility;font-size: 30px;line-height: 32px;">
 <a href="http://mores.es" style="color: #0088cc;text-decoration: none;outline: none;">
 <img alt="Morés" src="http://mores.es/img/mores.png" class="" style="max-width: 100%;vertical-align: middle;border: 0;-ms-interpolation-mode: bicubic;">
@@ -266,6 +285,7 @@ $textaco_mores = '
 <thead>
 <tr>
 <th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Producto</th>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Unidades</th>
 <th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Material</th>
 <th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Tamaño</th>
 <th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: bottom;border-top: 1px solid #dddddd;font-weight: bold;">Precio</th>
@@ -286,8 +306,8 @@ $textaco_mores = '
 <td class="sumPreciosIva" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.$iva_calculado .' €</td>
 </tr>
 <tr>
-<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">Recogida</th>
-<td class="sumPrecioEnvio" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.$envio.' €</td>
+<th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">'.$texto_metodo.'</th>
+<td class="sumPrecioEnvio" style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;">'.$envio.'</td>
 </tr>
 <tr>
 <th style="padding: 8px;line-height: 16px;text-align: left;vertical-align: top;border-top: 1px solid #dddddd;font-weight: bold;">TOTAL</th>
@@ -315,11 +335,17 @@ $textaco_mores = '
 </div>
 </div>
 ';
+flush(); 
+
+rename("/var/www/internet/envios/mores/tienda-web/".$_SESSION["usr_folder"], "/var/www/internet/envios/mores/tienda-web/".$idpedido);
+
 if($_SESSION["entorno"] == "produccion"){
   if(getMailConfirSent($idpedido)==0){
     setMailConfirSent($idpedido);
-    enviarMail($_SESSION["usr_email"],"Morés - Pedido web",$textaco_cliente);
-    enviarMail($emails_pedido_tiendaweb,"Pedido web",$textaco_mores);  
+    enviarMail($_SESSION["usr_email"],"Morés - Pedido web ".$idpedido, $textaco_cliente);
+    enviarMail($emails_pedido_tiendaweb,"Pedido web ".$idpedido, $textaco_mores);
+    enviarMail(getEmailSeccionesPedido(),"Pedido web ".$idpedido, $textaco_mores);
+
   }
 }
  include "inc/footer.php";

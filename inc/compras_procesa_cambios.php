@@ -39,23 +39,29 @@ function agregaproductos(){
 	$archivo2 	= empty($_GET["archivo2"])? "" : $_GET["archivo2"];
 	$montaje 	= empty($_GET["montaje"])? "" : $_GET["montaje"];
 	$montajestr	= empty($_GET["montaje"])? "" : " + " .$_GET["montaje"];
-	$unidadestr	= empty($_GET["unidades"])? "" : " x " .$_GET["unidades"];
 
 	$tipo 		= $_GET["tipo"];
-	$nombre 	= $_GET["titulo"] . $montajestr . $unidadestr;
 	$material 	= $_GET["material"];
-	$unidades 	= $_GET["unidades"];
+	$nombre 	= $material == "cartonpluma"? $_GET["titulo"] : $_GET["titulo"] . $montajestr;
+	$unidades 	= empty($_GET["unidades"])? "1" : $_GET["unidades"];
 	$acabado 	= empty($_GET["acabado"])? "" : $_GET["acabado"];
 	$info 		= empty($_GET["info"])? "" : $_GET["info"];
 	$ref 		= empty($_GET["ref"])? "" : $_GET["ref"];
 	$medidas 	= array($_GET["w"],$_GET["h"]);
 	$producto	= empty($_GET["producto"])? "": $_GET["producto"];
-	$seccion	= empty($_GET["categoria"])? "": $_GET["categoria"];
-	$categoria	= empty($_GET["seccion"])? "": $_GET["seccion"];
+	$categoria	= empty($_GET["categoria"])? "": $_GET["categoria"];
+	$seccion	= empty($_GET["seccion"])? "": $_GET["seccion"];
 
 
-	if($tipo == "fotodibond" || $tipo == "fotopvc" || $tipo == "fotocartonpluma" || $tipo == "vinilometacrilato" || $tipo == "lienzobastidor"){
+	if($tipo == "fotodibond" || $tipo == "fotopvc" ||  $tipo == "vinilometacrilato"){
+		$nombre = $nombre . " ". $archivo1;
 		$precio = getPrecioProducto($tipo,$_GET["w"],$_GET["h"],$montaje);
+	}elseif ($tipo == "fotocartonpluma") {
+		$nombre = $nombre ." " . $info . " ". $archivo1;
+		$precio = getPrecioProducto($tipo,$_GET["w"],$_GET["h"],"perfil_aluminio");
+	}elseif ($tipo == "lienzobastidor") {
+		$nombre = $nombre . " ". $archivo1;
+		$precio = getPrecioProducto($tipo,$_GET["w"],$_GET["h"]);		
 	}elseif ($tipo == "tarjetasvisita") {
 		$precio = getPrecioIDigital($tipo,$unidades,$acabado);
 	}elseif ($tipo == "calendario") {
@@ -65,7 +71,7 @@ function agregaproductos(){
 		$precio = getPrecioVinilo($_GET["tipo"],$_GET["w"],$_GET["h"]);
 	}
 
-	$producto 	= creaProducto($id,$ref,$nombre,$medidas,$archivo1,$archivo2,$material,$precio,$info,$acabado,$producto,$categoria,$seccion);
+	$producto 	= creaProducto($id,$ref,$nombre,$unidades,$medidas,$archivo1,$archivo2,$material,$precio,$info,$acabado,$producto,$categoria,$seccion);
 	agregaProducto($producto);
 
 	$resultado 	= true;

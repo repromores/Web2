@@ -34,6 +34,7 @@
 	    <thead>
 		    <tr>
 			    <th>Producto</th>
+			    <th>Unidades</th>
 			    <th>Material</th>
 			    <th>Tamaño</th>
 			    <th>Precio</th>

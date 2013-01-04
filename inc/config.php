@@ -6,7 +6,7 @@ $mantenimiento = false;
 $pagos_activados = false;
 
 if (getIp() =="127.0.0.1"){
-	$pagos_activados = false;
+	$pagos_activados = true;
 	$_SESSION["entorno"] = "local";
 	$db_host	= "localhost";
 	$db_user	= "root";
@@ -73,18 +73,6 @@ if($pagos_activados){
 	$caixa_API_cancelado	="http://mores.es/cancelado.php";
 }
 
-function get_caixa_API_Key($amount){
-	global $caixa_API_Order;
-	global $caixa_API_MerchantCode;
-	global $caixa_API_Currency;
-	global $caixa_API_MerchantURL;
-	global $caixa_API_CryptoKey;
-
-	$message = $amount.$caixa_API_Order.$caixa_API_MerchantCode.$caixa_API_Currency."0".$caixa_API_MerchantURL.$caixa_API_CryptoKey;
-$signature = strtoupper(sha1($message));
-return $signature;
-}
-
 $def_gastos_envio 	= 7.50;
 $def_iva 			= 21;
 
@@ -103,7 +91,12 @@ $emails_contacto 			= "informatica@mores.es, comercial@mores.es";
 $emails_reset_pass			= "informatica@mores.es";
 $emails_nuevo_usuario		= "informatica@mores.es";
 $emails_nuevo_envio			= "informatica@mores.es";
-$emails_pedido_tiendaweb	= "informatica@mores.es";
+
+$emails_pedido_tiendaweb	= "informatica@mores.es, admin@mores.es, entradas.web@mores.es";
+$emails_secciones			= array(
+									"carteleria" => "cartel@mores.es",
+									"ImpDigital" => "color@mores.es"
+								);
 
 $url_imgs_mail	= "http://mores.es/img/";
 
@@ -113,7 +106,21 @@ $vinilos_impresos_fotolia_dpi  = 48;
 $vinilos_impresos_fotolia_dpcm = $vinilos_impresos_fotolia_dpi/2.54;
 
 
+ini_set('upload_max_filesize',1028);
+ini_set('post_max_size',1028);
+ini_set('memory_limit',1028);
 
+function get_caixa_API_Key($amount){
+	global $caixa_API_Order;
+	global $caixa_API_MerchantCode;
+	global $caixa_API_Currency;
+	global $caixa_API_MerchantURL;
+	global $caixa_API_CryptoKey;
+
+	$message = $amount.$caixa_API_Order.$caixa_API_MerchantCode.$caixa_API_Currency."0".$caixa_API_MerchantURL.$caixa_API_CryptoKey;
+$signature = strtoupper(sha1($message));
+return $signature;
+}
 
 //require_once('class.phpmailer.php');
 require_once('swift/swift_required.php');
@@ -175,6 +182,7 @@ function checkUserPass($user,$pass){
 		$_SESSION["usr_cp"] 		= $fila["cp"]; 
 		$_SESSION["usr_islogged"]	= true;
 		$_SESSION["usr_folder"]		= date("Y-m-d_H-i") ."-00 - ".$_SESSION["usr_email"];
+		$_SESSION["usr_loggedinat"]	= time();
 	}
 	return $res;
 }
@@ -391,11 +399,12 @@ function agregaProducto($producto){
 	return $_SESSION["pedido"];
 }
 
-function creaProducto($id,$ref,$nombre,$medidas,$archivo1,$archivo2,$material,$precio,$info,$acabado,$producto,$categoria,$seccion){
+function creaProducto($id,$ref,$nombre,$unidades,$medidas,$archivo1,$archivo2,$material,$precio,$info,$acabado,$producto,$categoria,$seccion){
 	return array(
 				id 			=> $id,
 				ref 		=> $ref,
 				nombre		=> $nombre,
+				unidades 	=> $unidades,
 				medidas		=> $medidas,
 				archivo1	=> $archivo1,
 				archivo2	=> $archivo2,
@@ -438,6 +447,7 @@ function muestraPedidoCarrito($editable = true){
 		$plantilla = '
 				<tr class="id{{id}}">
 				    <td>{{nombre}} {{ref}}</td>
+				    <td>{{unidades}}</td>
 				    <td>{{material}} {{acabado}}</td>
 				    <td>{{medidas}}</td>
 				    <td class="precio" data-precio="{{precio}}">{{precio}}€</td>
@@ -447,6 +457,7 @@ function muestraPedidoCarrito($editable = true){
 		$plantilla = '
 				<tr class="id{{id}}">
 				    <td>{{nombre}} {{ref}}</td>
+				    <td>{{unidades}}</td>
 				    <td>{{material}} {{acabado}}</td>
 				    <td>{{medidas}}</td>
 				    <td class="precio" data-precio="{{precio}}">{{precio}}€</td>
@@ -466,6 +477,7 @@ function muestraPedidoCarrito($editable = true){
 		$temp = str_replace("{{medidas}}", $infomedidas, $temp);
 		$temp = str_replace("{{alto}}", $producto["medidas"][1], $temp);
 		$temp = str_replace("{{precio}}",  number_format($producto["precio"], 2, '.', ''), $temp);
+		$temp = str_replace("{{unidades}}",  $producto["unidades"], $temp);
 		
 		$resp = $resp . $temp; 
 	}
@@ -516,6 +528,17 @@ function nProductos(){
 	return count($_SESSION["pedido"]["productos"]);
 }
 
+function getEmailSeccionesPedido(){
+	global $emails_secciones;
+	$secciones = array();
+	foreach ($_SESSION["pedido"]["productos"] as $producto) {
+		array_push($secciones, $emails_secciones[$producto["seccion"]]);
+	}
+	$secciones = array_unique($secciones);
+	$secciones = implode(",", $secciones);
+	return $secciones;
+}
+
 function resetCarrito(){
 	$productos = array();
 	$_SESSION["pedido"] = array("productos" => $productos);
@@ -553,7 +576,7 @@ function insertPedido($pagado = null){
 	foreach ($_SESSION["pedido"]["productos"] as $producto) {
 		$txt_medidas = $producto["medidas"][0]."x".$producto["medidas"][1];
 
-		$q = 'INSERT INTO t_pedido_producto (id_pedido,id_producto,archivo1,archivo2,precio,id_descuento,medidas,info, ref_fotolia, material, acabado, nombre,producto,seccion,categoria) VALUES ("'.$idPedido.'",'.getIdProducto().',"'.$producto["archivo1"].'","'.$producto["archivo2"].'",'.$producto["precio"].','.getIdDescuento().',"'.$txt_medidas.'","'.$producto["info"].'","'.$producto["ref"].'","'.$producto["material"].'","'.$producto["acabado"].'","'.$producto["nombre"].'","'.$producto["producto"].'","'.$producto["seccion"].'","'.$producto["categoria"].'")';
+		$q = 'INSERT INTO t_pedido_producto (id_pedido,id_producto,archivo1,archivo2,precio,id_descuento,medidas,info, ref_fotolia, material, acabado, nombre,producto,seccion,categoria,unidades) VALUES ("'.$idPedido.'",'.getIdProducto().',"'.$producto["archivo1"].'","'.$producto["archivo2"].'",'.$producto["precio"].','.getIdDescuento().',"'.$txt_medidas.'","'.$producto["info"].'","'.$producto["ref"].'","'.$producto["material"].'","'.$producto["acabado"].'","'.$producto["nombre"].'","'.$producto["producto"].'","'.$producto["seccion"].'","'.$producto["categoria"].'",'.$producto["unidades"].')';
 		mysql_query($q);
 	}
 }
@@ -631,7 +654,7 @@ function getPedidosOfUser($email){
 	if($num_rows){
 		$linea = "";
 		while($data = mysql_fetch_assoc($q)){
-			
+		$resp = "";
 		$linea .= '<tr>
 			<td>'.$data["idpedido"].'</td>
 			<td>'.date("d-m-y",$data["fecha_inicio"]).'</td>
@@ -644,11 +667,12 @@ function getPedidosOfUser($email){
 		$plantilla = '
 				<tr class="id{{id}}">
 				    <td>{{nombre}} {{ref}}</td>
+				    <td>{{unidades}}</td>
 				    <td>{{material}} {{acabado}}</td>
 				    <td>{{medidas}}</td>
 				    <td class="precio" data-precio="{{precio}}">{{precio}}€</td>
 			    </tr>';		
-	
+
 		$query = mysql_query('SELECT * FROM t_pedido_producto WHERE id_pedido="'.$data["idpedido"].'"');
 		while($producto = mysql_fetch_assoc($query)){
 			$infomedidas = $producto["medidas"]== "x"? "" : $producto["medidas"] ." cm";
@@ -662,6 +686,7 @@ function getPedidosOfUser($email){
 			$temp = str_replace("{{medidas}}", $infomedidas, $temp);
 			$temp = str_replace("{{alto}}", $producto["medidas"][1], $temp);
 			$temp = str_replace("{{precio}}",  number_format($producto["precio"], 2, '.', ''), $temp);
+			$temp = str_replace("{{unidades}}", $producto["unidades"], $temp);
 			
 			$resp = $resp . $temp; 
 		}
@@ -678,6 +703,7 @@ function getPedidosOfUser($email){
 				<thead>
 		        <tr>
 		          <th>Producto</th>
+		          <th>Unidades</th>
 		          <th>Material</th>
 		          <th>Tamaño</th>
 		          <th>Precio</th>
@@ -702,7 +728,7 @@ function getPedidosOfUser($email){
 			          </tr>
 			          <tr>
 			            <th>IVA</th>
-			            <td>'.formatoMoneda($data["subtotal"]* (float)"1.".$data["iva"]).' €</td>
+			            <td>'.formatoMoneda($data["subtotal"]* (float)($data["iva"]/100)).' €</td>
 			          </tr>
 			          <tr>
 			            <th>Recogida</th>
@@ -760,18 +786,18 @@ function getPrecioVinilo($tipo,$ancho,$alto){
 	return number_format($precio*$cm2/10000 ,2, '.', '');
 
 }
-function getPrecioProducto($tipo,$ancho,$alto,$montaje){
+function getPrecioProducto($tipo,$ancho,$alto,$montaje=0){
 	$m = "m".$ancho."x".$alto;
-	
+	 
 	$q = mysql_query("SELECT ".$m." FROM t_producto_cuadro WHERE producto='".$tipo."'");
   	$fila = mysql_fetch_assoc($q);
   	$precio =(float)$fila[$m];
+	if($montaje!==0){
+	  	$q2 = mysql_query("SELECT * FROM t_producto_montaje WHERE producto='".$m."'");
+	    $fila2 = mysql_fetch_assoc($q2);  
 
-  	$q2 = mysql_query("SELECT * FROM t_producto_montaje WHERE producto='".$m."'");
-    $fila2 = mysql_fetch_assoc($q2);  
-
-    $precio = $precio + (float)$fila2[$montaje];
-
+	    $precio = $precio + (float)$fila2[$montaje];
+	}
     return $precio;
 }
 
@@ -801,15 +827,33 @@ function infoFacturacion(){
   return $fila;
 }
 function getMailConfirSent($idpedido){
-	$qu = "SELECT mail_confir FROM t_pedido WHERE idpedido='".$dpedido."'";
+	$qu = "SELECT mail_confir FROM t_pedido WHERE idpedido='".$idpedido."'";
   	$q = mysql_query($qu);
   	$fila = mysql_fetch_assoc($q); 
 	return $fila["mail_confir"];
 }
 function setMailConfirSent($idpedido){
-	$qu = "UPDATE t_pedido SET mail_confir = 1 WHERE idpedido='".$dpedido."'";
+	$qu = "UPDATE t_pedido SET mail_confir = 1 WHERE idpedido='".$idpedido."'";
+  	$q = mysql_query($qu);
+	return $q;
+}
+
+function guardarCodigoSeguimiento($nentrada,$codigo){
+	$qu = 'UPDATE t_pedido SET referencia_envio = "'.$codigo.'" WHERE idpedido="'.$nentrada.'"';
+  	$q = mysql_query($qu);
+	return $q;
+}
+
+function getEmailFrompedido($npedido){
+	$qu = "SELECT id_cliente FROM t_pedido WHERE idpedido='".$npedido."'";
   	$q = mysql_query($qu);
   	$fila = mysql_fetch_assoc($q); 
-	return $fila["mail_confir"];
+	return $fila["id_cliente"];
+}
+function getTiendaFrompedido($npedido){
+	$qu = "SELECT tienda FROM t_pedido WHERE idpedido='".$npedido."'";
+  	$q = mysql_query($qu);
+  	$fila = mysql_fetch_assoc($q); 
+	return $fila["tienda"];
 }
 ?>

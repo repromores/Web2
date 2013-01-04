@@ -73,7 +73,7 @@
       <div class="well">
         <h3>Instrucciones:</h3>
         <ol>
-          <li>Sube la imagen que deseas imprimir. Asegúrate de que tiene suficiente resolución para imprimirlo en el tamaño que deseas.<a href="calculadora.php" target="_blank">calculadora de imagenes</a></li>
+          <li>Sube la imagen que deseas imprimir. Asegúrate de que tiene suficiente resolución para imprimirlo en el tamaño que deseas.<a class="fancybox_ajax" href="calculadora_ajax.php">calculadora de imágenes</a></li>
           <li>Elije el tamaño de la foto, comprueba que la foto sea proporcional con el tamaño que elijas.</li>
           <li>Selecciona el acabado, brillo o mate.</li>
           <li>Elije el método de montaje.</li>
@@ -116,7 +116,7 @@
       </div>
       <div class="control-group">
         <label class="control-label" for="archivos">Color de perfil:</label>
-        <div class="controls">
+        <div class="controls" style="width:300px">
               <select name="info" id="info" class="span2">
                 <option value="Perfil Bronce">Bronce</option>
                 <option value="Perfil Granate">Granate</option>
@@ -130,6 +130,8 @@
                 <option value="Perfil Amarillo">Amarillo</option>
               </select>
               <span class="help-inline montaje"></span>
+              <div class="pull-right"><a class="fancybox" href="imagenes/online/PERFILES.jpg"><img src="imagenes/online/PERFILES.jpg" height="40px"></a></div>
+
         </div>
       </div> 
       <div class="control-group">

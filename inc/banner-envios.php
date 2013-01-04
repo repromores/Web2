@@ -1,7 +1,7 @@
   <div class="envio-archivos">
     <h2>Envío de Archivos</h2>
     <p>Envía tus archivos y recógelos en cualquiera de nuestras tiendas</p>
-    <a class="btn" href="login.php">Entrar</a>
+    <a class="btn tr_entrar" href="login.php">Entrar</a>
   </div>
 
   <div class="banner banner-carrito"<?php if(nProductos() > 0){ ?> style="display:block"<?php } ?> >

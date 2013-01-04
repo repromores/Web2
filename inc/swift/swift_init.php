@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of SwiftMailer.
  * (c) 2004-2009 Chris Corbyn
@@ -11,7 +10,6 @@
 /*
  * Dependency injection initialization for Swift Mailer.
  */
-
 if (defined('SWIFT_INIT_LOADED')) {
     return;
 }

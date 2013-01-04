@@ -1,15 +1,16 @@
-<?php include "inc/config.php"; ?>
-<?php include "inc/apifotolia.php"; ?>
+<?php
+ include "inc/config.php";
+ include "inc/apifotolia.php"; 
+ include "inc/head.php"; 
 
-<?php include "inc/head.php"; 
 $vinilos = 1;
 ?>
 <title>morés - Vinilos</title>
 <?php
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
   $h1text = "Vinilos - morés";
- ?>
-<?php include "inc/menu.php"; ?>
+
+include "inc/menu.php"; ?>
 
   <div class="span10">
   	<div class="content vinilos canvas-allow">
@@ -35,7 +36,7 @@ $vinilos = 1;
   <input type="hidden" name="min" id="min" value="0">
 
   <div class="busqueda">
-      Buscar:
+      Busca:
       <input type="text" class="span3" name="query" id="query" placeholder="¿Qué te apetece?">
       <select name="cat" class="span3">
         <option value="0">Todos</option>

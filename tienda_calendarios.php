@@ -3,7 +3,7 @@
   if(!isLogged()){  header('Location: login2.php?goto=tienda_calendarios.php?p=cajacd');};
   $masdatos = empty($_SESSION["usr_apellidos"])? true : false;
 
-  $producto = $_GET["p"];
+  $producto = mysql_real_escape_string($_GET["p"]);
   $colgar = false;
   $mesa = false;
 
@@ -91,6 +91,15 @@
   <div class="span10">
   	<div class="content uploadertienda">
 
+      <?php
+      $max_upload = (int)(ini_get('upload_max_filesize'));
+      $max_post = (int)(ini_get('post_max_size'));
+      $memory_limit = (int)(ini_get('memory_limit'));
+      $upload_mb = min($max_upload, $max_post, $memory_limit);
+       echo $max_upload; 
+      echo $max_post ;
+      echo  $memory_limit ;
+       ?>
       <h2><?php echo $articulo; ?></h2>
 
     <ul class="breadcrumb">
@@ -120,7 +129,7 @@
         <h3>Instrucciones:</h3>
         <ol>
           <li>Elige <strong><?php echo  $n_fotos; ?> fotos</strong>, una por página + la portada.</li>
-          <li>Asegurate de que tienen calidad suficiente.(<a href="calculadora.php" target="_blank">calculadora de imagenes</a>)</li>
+          <li>Asegúrate de que tienen calidad suficiente.(<a class="fancybox_ajax" href="calculadora_ajax.php">calculadora de imágenes</a>)</li>
           <li>Nombra las fotos de acuerdo al orden que deban aparecer.</li>
           <li>Comprímelas en un solo archivo (zip o rar) y súbelas en esta página.</li>
           <li>Elije el resto de opciones.</li>

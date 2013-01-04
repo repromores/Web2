@@ -74,6 +74,11 @@ $(".fancybox").fancybox({
     	openEffect	: 'elastic',
     	closeEffect	: 'elastic'	
 });
+$(".fancybox_ajax").fancybox({
+    	openEffect	: 'elastic',
+    	closeEffect	: 'elastic',
+    	type 		:'ajax'
+});
 
 var contacto = {
 	init : function(){
@@ -654,3 +659,45 @@ verPedidos = {
 	}
 }
 verPedidos.init();
+$("#acordeon").accordion({ collapsible: true , heightStyle: "content"});
+
+trackEvents = {
+	init: function(){
+		TrackEvents 			= this;
+		TrackEvents.entrar 		= $(".tr_entrar");
+		TrackEvents.login 		= $(".tr_login");
+		TrackEvents.register 	= $(".tr_register");
+		TrackEvents.passlost 	= $(".tr_passlost");
+		TrackEvents.pedidoftp 	= $(".tr_pedidoftp");
+		TrackEvents.pedidoweb 	= $(".tr_pedidoweb");
+		
+		TrackEvents.eventlistener();
+	},
+	eventlistener:function(){
+		TrackEvents.entrar.on("click",TrackEvents.fEntrar);
+		TrackEvents.login.on("click",TrackEvents.fLogin);
+		TrackEvents.register.on("click",TrackEvents.fRegister);
+		TrackEvents.passlost.on("click",TrackEvents.fPasslost);
+		TrackEvents.pedidoftp.on("click",TrackEvents.fPedidoftp);
+		TrackEvents.pedidoweb.on("click",TrackEvents.fPedidoweb);
+	},
+	fEntrar: function(){
+		_gaq.push(['_trackEvent', 'acceso', 'entrar', 'Entrar banner']);
+	},	
+	fLogin: function(){
+		_gaq.push(['_trackEvent', 'acceso', 'logins', 'logins']);
+	},
+	fRegister: function(){
+		_gaq.push(['_trackEvent', 'acceso', 'registros', 'registros']);
+	},
+	fPasslost: function(){
+		_gaq.push(['_trackEvent', 'acceso', 'Passlost', 'contraseña perdida']);
+	},
+	pedidoftp: function(){
+		_gaq.push(['_trackEvent', 'pedidos', 'ftp', 'pedido ftp']);
+	},
+	fPedidoweb: function(){
+		_gaq.push(['_trackEvent', 'pedidos', 'web', 'pedido web']);
+	}
+};
+trackEvents.init();

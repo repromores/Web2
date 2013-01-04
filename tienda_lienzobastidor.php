@@ -62,6 +62,17 @@
       <input type="hidden" name="nombre" id="nombre" value="Lienzo">
       <input type="hidden" name="material" id="material" value="lienzo">
       <input type="hidden" name="seccion" id="seccion" value="carteleria">
+      <input type="hidden" name="categoria" id="categoria" value="carteleria">
+
+      <div class="well">
+        <h3>Instrucciones:</h3>
+        <ol>
+          <li>Sube la imagen que deseas imprimir. Asegúrate de que tiene suficiente resolución para imprimirlo en el tamaño que deseas.<a class="fancybox_ajax" href="calculadora_ajax.php">calculadora de imágenes</a></li>
+          <li>Elije el tamaño de la foto, comprueba que la foto sea proporcional con el tamaño que elijas.</li>
+          <li>Selecciona el acabado, brillo o mate.</li>
+          <li>Elije el método de montaje.</li>
+        </ol>
+      </div>  
       
       <div class="control-group">
         <label class="control-label" for="archivos">Archivos:</label>
@@ -89,15 +100,7 @@
 
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="acabado">Acabado:</label>
-        <div class="controls">
-              <div class="btn-group" data-toggle="buttons-radio">
-                <button type="button" class="btn btnacabado active" data-acabado="brillo">Brillo</button>
-                <button type="button" class="btn btnacabado" data-acabado="mate">Mate</button>
-              </div>
-        </div>
-      </div>
+
       <div class="control-group">
       <label class="control-label" for="inputEmail"><strong>Total</strong></label>
       <div class="controls">

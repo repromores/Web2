@@ -60,13 +60,16 @@ $cp 	= empty($_SESSION["pedido"]["data"]["cp"])		? $_SESSION["usr_cp"] 		: getEn
 			    </div>
           </div>
 
+     	  <div class="m-mensajero-t">
+          	<p>Los gastos de envío en la península son de <?php echo formatoMoneda($def_gastos_envio); ?> €</p>
+		  </div>
+
       	  <div class="control-group">
             <label for="nombre" class="control-label">Nombre Completo*:</label>
         	<div class="controls">
 	            <input  type="text"  name="nombre" class="nombre" value="<?php echo $nombre ?>">
           	</div>
      	  </div>
-          
           <div class="m-tienda-t">
 	          <div class="control-group">
 	            <label for="tienda" class="control-label">Tienda*:</label>
@@ -82,7 +85,6 @@ $cp 	= empty($_SESSION["pedido"]["data"]["cp"])		? $_SESSION["usr_cp"] 		: getEn
 	      </div>
 
 	      <div class="m-mensajero-t">
-
 	          <div class="control-group">
 	            <label for="Direccion1" class="control-label">Dirección de entrega*:</label>
             	<div class="controls">
@@ -113,7 +115,6 @@ $cp 	= empty($_SESSION["pedido"]["data"]["cp"])		? $_SESSION["usr_cp"] 		: getEn
 		            <input  type="text"  name="cp" class="cp" value="<?php echo $cp ?>">
 	          	</div>
 	     	  </div>
-
           </div>
 
 	     	  <div class="control-group">

@@ -20,8 +20,8 @@ require_once ("paypal/paypalfunctions.php");
 
 if ( $PaymentOption == "PayPal" )
 {
-	$_SESSION["payer_id"] 			= $_GET["PayerID"];
-	$_SESSION['TOKEN']				= $_GET["token"];
+	$_SESSION["payer_id"] 			= mysql_real_escape_string($_GET["PayerID"]);
+	$_SESSION['TOKEN']				= mysql_real_escape_string($_GET["token"]);
 	$_SESSION['PaymentType']		= "Sale";
 	$_SESSION['currencyCodeType']	= "EUR";
 	/*

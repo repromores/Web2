@@ -1,4 +1,5 @@
-<?php include_once "config.php"; ?>
+<?php 
+include_once "config.php"; ?>
 <?php
 $function = !empty($_GET["function"])?$_GET["function"] : "";
 
@@ -25,7 +26,6 @@ if($function != ""){
 	}
 	echo($result);
 }
-
 
 function getBorrador($id=""){
 	global $fotoliaKey;

@@ -23,6 +23,7 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
 
   $metodo = getMetodoEnvio();
   if($metodo == "mensajero"){
+    $str_metodo = "Envío";
     $envio = getEnvio("envi");
     $campoEnvio = '
     <p>'.getEnvio("nombre").'</br>
@@ -34,6 +35,7 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
     ';
   } else {
     $envio = "en tienda";
+    $str_metodo = "Recogida";
     switch(getEnvio("ciudad")) {
         case "oviedo": 
             $text = 'Viaducto Ingeniero Marquina, 7 <a  href="https://maps.google.com/maps/ms?msa=0&amp;msid=201196282089870687635.0004b75b2be933103a9c6&amp;ie=UTF8&amp;t=m&amp;ll=43.36557,-5.854683&amp;spn=0.003744,0.006866&amp;z=17&amp;output=embed" class="mapa fancybox.iframe"><img alt="mapa" src="img/mini-map.png"></a>';
@@ -82,6 +84,7 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
         <thead>
         <tr>
           <th>Producto</th>
+          <th>Unidades</th>
           <th>Material</th>
           <th>Tamaño</th>
           <th>Precio</th>
@@ -97,19 +100,19 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
         <tbody>
           <tr>
             <th>Subtotal</th>
-            <td class="sumPrecios"></td>
+            <td class="sumPrecios" style="text-align: right; padding-right: 20px;"></td>
           </tr>
           <tr>
             <th>IVA</th>
-            <td class="sumPreciosIva"></td>
+            <td class="sumPreciosIva" style="text-align: right; padding-right: 20px;"></td>
           </tr>
           <tr>
-            <th>Recogida</th>
-            <td class="sumPrecioEnvio" data-pasta="<?php echo $envio; ?>"></td>
+            <th><?php echo  $str_metodo;?></th>
+            <td class="sumPrecioEnvio" style="text-align: right; padding-right: 20px;" data-pasta="<?php echo $envio; ?>"></td>
           </tr>
           <tr>
             <th>TOTAL</th>
-            <td class="sumPrecioTotal"></td>
+            <td class="sumPrecioTotal" style="text-align: right; padding-right: 20px;"></td>
           </tr>
         </tbody>
       </table>
@@ -117,7 +120,7 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
   </div>
 
   <div class="well span5 dir-envio">
-    <h3>Envio</h3>
+    <h3><?php echo  $str_metodo;?></h3>
     <?php echo $campoEnvio; ?>
   </div>
 
@@ -164,7 +167,7 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
 
     <div class="well navegacion">
       <a class="btn" href="compras_pedido.php">Paso atrás</a>
-      <button class="btn btn-primary btnsubmit pull-right comprasfinal" disabled="disabled" type="submit">Realizar pago</button>
+      <button class="btn btn-primary btnsubmit pull-right comprasfinal tr_pedidoweb" disabled="disabled" type="submit">Realizar pago</button>
     </div>
 
   </fieldset>

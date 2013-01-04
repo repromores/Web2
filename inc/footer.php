@@ -17,7 +17,7 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script src="js/bootstrap-transition.js"></script>
     <script src="js/bootstrap-alert.js"></script>
     <script src="js/bootstrap-modal.js"></script>
@@ -69,6 +69,10 @@
 //<script type="text/javascript" src="http://localhost/clickheat/js/clickheat.js"></script><noscript><p><a href="http://www.dugwood.com/index.html">Heatmap plugin</a></p></noscript><script type="text/javascript"><!--
 //clickHeatSite = 'localhost1';clickHeatGroup = 'localhost';clickHeatServer = 'http://localhost/clickheat/click.php';initClickHeat(); //-->
 //</script>
+
+if($_SESSION["usr_islogged"] == true){
+  include "inc/intercom.php";
+}
 ?>  
   </body>
 </html> 

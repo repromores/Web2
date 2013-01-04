@@ -309,7 +309,7 @@
   sean visibles exteriormente), deber&aacute; notificarlo a Mores.es en el transcurso de
   los 7 d&iacute;as naturales posteriores a la recepci&oacute;n mediante correo
   electr&oacute;nico a la direcci&oacute;n <span class="c3"><u><a href=
-  "mailto:atencioncliente@mores.es">atencioncliente@mores.es</a></u></span></p>
+  "mailto:tiendamores@mores.es">tiendamores@mores.es</a></u></span></p>
 
   <p class="c5 titlec">V. Comunicaci&oacute;n con el usuario/cliente</p>
 

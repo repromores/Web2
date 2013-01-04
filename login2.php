@@ -14,6 +14,7 @@ if(isLogged()){  header('Location: compras_pedido.php');};
   	<div class="content">
 
 	<h2>Loguéate</h2>
+  <p>Te pedimos que te loguées porque en el siguiente paso vas a poder subir archivos e imágenes. </p>
 	<?php if(isset($_GET["new"])&& $_GET["new"]==1){ ?>
     <div class="alert alert-success">
       <p>¡Usuario creado correctamente! logueate para enviar tus archivos</p>
@@ -35,7 +36,7 @@ if(isLogged()){  header('Location: compras_pedido.php');};
         <div class="span5">
           <legend>Administración de Usuarios</legend>
           <div class="well">
-            <a href="nuevo-usuario.php?login=2" class="btn">Crear Nuevo Usuario</a>
+            <a href="nuevo-usuario.php?login=2" class="btn tr_register">Crear Nuevo Usuario</a>
             <br><br>
             <a href="#" class="btn recuperapassbtn">Recuperar contraseña</a>
             <div class="recuperapassdiv">
@@ -50,7 +51,7 @@ if(isLogged()){  header('Location: compras_pedido.php');};
                     </div>
                   </div>
                   <div class="form-actions">
-                    <button class="btn btn-primary" type="submit">Enviar</button>
+                    <button class="btn btn-primary tr_passlost" type="submit">Enviar</button>
                     <button class="btn recuperapasscnl">Cancelar</button>
                     <img class="loading-reset" src="img/loading-mini.gif">
                     <div class="recuperapassmsg"></div>
@@ -69,7 +70,7 @@ if(isLogged()){  header('Location: compras_pedido.php');};
             <label>Contraseña:</label>
             <input type="password" class="span3" name="pass" id="pass" placeholder="Contraseña"> 
             <br>           
-            <button type="submit" class="btn">Enviar</button>
+            <button type="submit" class="btn tr_login">Enviar</button>
           </form>
         </div>
       </div>

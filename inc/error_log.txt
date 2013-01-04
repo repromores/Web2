@@ -1,0 +1,26 @@
+[17-Dec-2012 11:42:08] PHP Notice:  Undefined index:  productos in C:\wamp\www\Web2\inc\config.php on line 523
+[17-Dec-2012 11:42:23] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 78134 bytes) in C:\wamp\www\Web2\inc\apifotolia.php on line 142
+[17-Dec-2012 11:52:55] PHP Notice:  Undefined index:  productos in C:\wamp\www\Web2\inc\config.php on line 523
+[17-Dec-2012 11:53:01] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 76889 bytes) in C:\wamp\www\Web2\inc\apifotolia.php on line 142
+[17-Dec-2012 12:17:32] PHP Notice:  Undefined index:  productos in C:\wamp\www\Web2\inc\config.php on line 531
+[17-Dec-2012 12:17:36] PHP Notice:  Undefined index:  productos in C:\wamp\www\Web2\inc\config.php on line 531
+[17-Dec-2012 12:19:39] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 77637 bytes) in C:\wamp\www\Web2\inc\apifotolia.php on line 136
+[17-Dec-2012 12:51:52] PHP Notice:  Undefined index:  productos in C:\wamp\www\Web2\inc\config.php on line 531
+[17-Dec-2012 18:26:58] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 448
+[17-Dec-2012 18:31:53] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 448
+[17-Dec-2012 18:34:04] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 448
+[17-Dec-2012 18:34:08] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 448
+[17-Dec-2012 18:34:10] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 448
+[17-Dec-2012 18:34:11] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 448
+[17-Dec-2012 18:35:44] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 437
+[17-Dec-2012 18:35:46] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 437
+[17-Dec-2012 18:36:10] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 439
+[17-Dec-2012 18:36:30] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 439
+[17-Dec-2012 18:36:31] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 439
+[17-Dec-2012 18:37:00] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 440
+[17-Dec-2012 19:06:50] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 447
+[17-Dec-2012 19:15:09] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 447
+[17-Dec-2012 19:18:25] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 451
+[17-Dec-2012 19:19:20] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 447
+[18-Dec-2012 11:44:24] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 447
+[18-Dec-2012 11:44:27] PHP Fatal error:  Allowed memory size of 262144 bytes exhausted (tried to allocate 6144 bytes) in C:\wamp\www\Web2\inc\swift\classes\Swift\Transport\AbstractSmtpTransport.php on line 447

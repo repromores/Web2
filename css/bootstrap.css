@@ -4407,6 +4407,13 @@ ul.menu-top li a {
 .nav-header:hover {
   background-color: #EaEaEa;
 }
+.nav-header.destacado {
+  background-color: #bc1922;
+  color: #FFF;
+}
+.nav-header.destacado a {
+  color: #FFF;
+}
 .nav-header:first-child {
   border-top: none;
 }

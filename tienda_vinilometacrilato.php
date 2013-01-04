@@ -72,7 +72,7 @@
       <div class="well">
         <h3>Instrucciones:</h3>
         <ol>
-          <li>Sube la imagen que deseas imprimir. Asegúrate de que tiene suficiente resolución para imprimirlo en el tamaño que deseas.<a href="calculadora.php" target="_blank">calculadora de imagenes</a></li>
+          <li>Sube la imagen que deseas imprimir. Asegúrate de que tiene suficiente resolución para imprimirlo en el tamaño que deseas.<a class="fancybox_ajax" href="calculadora_ajax.php">calculadora de imágenes</a></li>
           <li>Elije el tamaño de la foto, comprueba que la foto sea proporcional con el tamaño que elijas.</li>
           <li>Selecciona el acabado, brillo o mate.</li>
           <li>Elije el método de montaje.</li>
@@ -117,13 +117,13 @@
       <div class="control-group">
         <label class="control-label" for="archivos">Montaje:</label>
         <div class="controls">
-              <div class="btn-group" data-toggle="buttons-radio">
+              <div class="btn-group" data-toggle="buttons-radio" style="width:160px; float:left">
                 <button type="button" class="btn btnmontaje active" data-montaje="bastidor">Bastidor</button>
                 <button type="button" class="btn btnmontaje" data-montaje="chupetes">Chupetes</button>
               </div>
               <span class="help-inline montaje"></span>
         </div>
-        <div class="controls">
+        <div class="controls" style="margin-top:16px">
               <div class="montajefotos fotochupetes hide"><img src="imagenes/tienda/CHUPETE_MACHO.jpg" alt="chupete"></div>
               <div class="montajefotos fotobastidor "><img src="imagenes/tienda/bastidor.jpg" alt="bastidor"></div>
         </div>

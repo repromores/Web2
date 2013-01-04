@@ -42,7 +42,7 @@
         <div class="span5">
           <legend>Administración de Usuarios</legend>
           <div class="well">
-            <a href="nuevo-usuario.php" class="btn">Crear Nuevo Usuario</a>
+            <a href="nuevo-usuario.php" class="btn tr_register">Crear Nuevo Usuario</a>
             <br><br>
             <a href="#" class="btn recuperapassbtn">Recuperar contraseña</a>
             <div class="recuperapassdiv">
@@ -57,7 +57,7 @@
                     </div>
                   </div>
                   <div class="form-actions">
-                    <button class="btn btn-primary" type="submit">Enviar</button>
+                    <button class="btn btn-primary tr_passlost" type="submit">Enviar</button>
                     <button class="btn recuperapasscnl">Cancelar</button>
                     <img class="loading-reset" src="img/loading-mini.gif">
                     <div class="recuperapassmsg"></div>
@@ -75,7 +75,7 @@
             <label>Contraseña:</label>
             <input type="password" class="span3" name="pass" id="pass" placeholder="Contraseña"> 
             <br>           
-            <button type="submit" class="btn">Enviar</button>
+            <button type="submit" class="btn tr_login">Enviar</button>
           </form>
         </div>
       </div>

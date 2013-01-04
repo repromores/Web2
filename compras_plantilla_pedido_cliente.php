@@ -72,6 +72,7 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
         <thead>
         <tr>
           <th>Producto</th>
+          <th>Unidades</th>
           <th>Material</th>
           <th>Tamaño</th>
           <th>Precio</th>

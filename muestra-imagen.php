@@ -180,7 +180,7 @@ if ($foto_tipo !=3) {
 	</div>
 </div>
 <script>
-	$("#canvas").drawImage({
+$("#canvas").drawImage({
   source: "<?php echo $foto_url; ?>",
   scale: 0.4,
   x: 315, y: 150,
@@ -194,12 +194,10 @@ $("#canvas").drawImage({
   fromCenter: false,
     layer: true,
     name: "fondo",
-
+  scale: 1.001,
 });
 
 $('#colorpicker').ColorPicker({
-  onBeforeShow: function(){console.log("antes")},
-  onShow: function(){console.log("despues")},
   onChange: function(hsb, hex, rgb, el){
   		color = "#"+hex;
       $("#canvas").css("background-color",color);

@@ -2,11 +2,7 @@
 $mensaje='
 <div text="#000000" bgcolor="#FFFFFF"><div class="adM">
     <br>
-    </div><div><div class="adM">
-      
-      
-      
-      </div><table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#c0c0c0" align="center">
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#c0c0c0" align="center">
         <tbody>
           <tr>
             <td style="padding:10px">
@@ -188,53 +184,6 @@ $mensaje='
         </tbody>
       </table>
       <br>
-      <div style="font-family:Sans-serif;font-size:10px">
-        <img src="http://www.mores.es/imagenes/mores.png">
-        <br>
-        <p> Tiene a su disposición el compromiso de Cadena de Custodia
-          FSC y PEFC establecido por la Dirección de Morés en el
-          siguiente enlace: <a target="_blank" href="http://www.mores.es/cadenaCustodia/compromisoDireccion.pdf" style="text-decoration:none">Cadena
-            de Custodia - Compromiso de la Dirección</a>
-        </p>
-        <p> <b>CLAÚSULA DE CONFIDENCIALIDAD:</b> La información
-          contenida en el presente documento, así como en su caso, en
-          los documentos adjuntos que pudiera incorporar, es de caracter
-          confidencial y puede contener información privilegiada. Si por
-          error, recibiese este correo electrónico no siendo su
-          destinatario, por favor, remítalo o comuníqueselo
-          inmediatamente al emisor y bórrelo o destrúyalo de su sistema.
-          Asímismo est á prohibida su copia, distribución,
-          almacenamiento, reproducción y utilización, siendo responsable
-          por las infracciones legales que puedan cometerse por su uso
-          no autorizado.
-          El emisor no se hace responsable de las consecuencias
-          derivadas de la manipulación del contenido de este correo
-          electrónico o de un uso ilícito del mismo, pudiendo reclamar
-          ante los organismos oficiales las responsabilidades que
-          correspondan.
-        </p>
-        <p>
-          <b>CONFIDENCIALITY STATEMENT.-</b> The information contained
-          in this message and any attached document thereof may be
-          privileged and is intended only for the personal use of the
-          recipient(s) named
-          above. If you are not the intended recipient or you receive
-          this message in mistake, please notify the sender inmediatly
-          and delete the message and its attachments from your system.
-          Any unauthorised review, copying, distribution, storage, use
-          or disclosure, either whole or partial, is forbidden. Any of
-          the above actiones may result in a legal responsability of the
-          person
-          commiting such offence. The sender will not be responsable for
-          any loss or damage arising from any alteration or ilegal use
-          of this e-mail.
-        </p><div class="yj6qo"></div><div class="adL">
-      </div></div><div class="adL">
-      <br>
-      <br>
-      <br>
-    </div></div><div class="adL">
-    <br>
-  </div></div>
+  </div>
   ';
   ?>

@@ -932,13 +932,13 @@ qq.FineUploader = function(o){
             disableDefaultDropzone: false
         },
         text: {
-            uploadButton: 'Upload a file',
-            cancelButton: 'Cancel',
-            retryButton: 'Retry',
-            failUpload: 'Upload failed',
-            dragZone: 'Drop files here to upload',
-            formatProgress: "{percent}% of {total_size}",
-            waitingForResponse: "Processing..."
+            uploadButton: 'Subir archivo',
+            cancelButton: 'Cancelar',
+            retryButton: 'Reintentar',
+            failUpload: 'Sudida fallida',
+            dragZone: 'Suelta aqui ficheros para subir',
+            formatProgress: "{percent}% de {total_size}",
+            waitingForResponse: "Procesando..."
         },
         template: '<div class="qq-uploader">' +
             ((!this._options.dragAndDrop || !this._options.dragAndDrop.disableDefaultDropzone) ? '<div class="qq-upload-drop-area"><span>{dragZoneText}</span></div>' : '') +

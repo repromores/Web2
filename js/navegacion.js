@@ -701,3 +701,43 @@ trackEvents = {
 	}
 };
 trackEvents.init();
+
+
+chat = {
+	init: function(){
+		Chat = this;
+		Chat.apagado = $(".chat-closed");
+		Chat.activo = $(".chat-activo");
+		Chat.cerrar = $(".chat-cerrar");
+
+
+		Chat.eventlistener();
+	},
+	eventlistener : function(){
+		Chat.apagado.on("click", Chat.activarChat);
+		Chat.cerrar.on("click", Chat.apagarChat);
+	},
+	activarChat : function(){
+		Chat.showChat(0);
+	},
+	apagarChat : function(){
+		Chat.hideChat();
+	},
+	showChat : function(full){
+		altura = full? "400px" : "188px";
+		Chat.apagado.hide();
+		Chat.activo.show();
+		Chat.activo.animate({height: altura},300);
+	},
+	hideChat: function(){
+		Chat.activo.animate({height:"0"},300,function(){
+			Chat.activo.hide();
+			Chat.apagado.show();
+		});
+		
+		
+				
+	}
+}
+chat.init();
+

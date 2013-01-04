@@ -128,4 +128,5 @@
 
   </div>
 </div>
+<?php include "inc/chat.php"; ?>
 <?php include "inc/footer.php"; ?>

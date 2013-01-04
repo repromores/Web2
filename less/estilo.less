@@ -634,3 +634,43 @@ span{
 table .span5.pull-left {
     float: left;
 }
+
+	.chat-container{
+		position: fixed;
+		right: 40px;
+		bottom: 0px;
+		width: 242px;
+
+		.chat-closed{
+			padding: 8px 10px 2px;
+			background-color: @mores;
+			cursor: pointer;
+			width: 100%;
+			p{
+				color: #FFF;
+				font-weight: bold;
+			}
+		}
+
+		.chat-activo{
+			padding: 8px 10px 2px;
+			background-color: @mores;
+			display: none; 
+			width: 100%;
+			.header{
+				color: #FFF;
+				font-weight: bold;
+			}
+			.chat-cerrar{
+				cursor: pointer;
+			}
+			.elige-depto{
+				background-color: #FFF;
+				padding: 10px 4px;
+			}
+		}
+		.chat-btn-picker{
+			margin-top: 30px;
+			.w100;
+		}
+	}

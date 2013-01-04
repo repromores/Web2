@@ -4937,3 +4937,40 @@ span.malacalidad {
 table .span5.pull-left {
   float: left;
 }
+.chat-container {
+  position: fixed;
+  right: 40px;
+  bottom: 0px;
+  width: 242px;
+}
+.chat-container .chat-closed {
+  padding: 8px 10px 2px;
+  background-color: #bc1922;
+  cursor: pointer;
+  width: 100%;
+}
+.chat-container .chat-closed p {
+  color: #FFF;
+  font-weight: bold;
+}
+.chat-container .chat-activo {
+  padding: 8px 10px 2px;
+  background-color: #bc1922;
+  display: none;
+  width: 100%;
+}
+.chat-container .chat-activo .header {
+  color: #FFF;
+  font-weight: bold;
+}
+.chat-container .chat-activo .chat-cerrar {
+  cursor: pointer;
+}
+.chat-container .chat-activo .elige-depto {
+  background-color: #FFF;
+  padding: 10px 4px;
+}
+.chat-container .chat-btn-picker {
+  margin-top: 30px;
+  width: 100%;
+}

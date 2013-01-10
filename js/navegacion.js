@@ -5,6 +5,32 @@
 /*
 Navegacion menu lateral
 */
+
+function createCookie(name,value,days) {
+if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+}
+else var expires = "";
+document.cookie = escape(name)+"="+escape(value)+expires+"; path=/";
+}
+
+function readCookie(name) {
+var nameEQ = escape(name) + "=";
+var ca = document.cookie.split(';');
+for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return unescape(c.substring(nameEQ.length,c.length));
+}
+return null;
+}
+
+function eraseCookie(name) {
+createCookie(name,"",-1);
+}
+
 var navLat = {
 	init : function(){
 		NavLat = this;
@@ -706,9 +732,19 @@ trackEvents.init();
 chat = {
 	init: function(){
 		Chat = this;
-		Chat.apagado = $(".chat-closed");
-		Chat.activo = $(".chat-activo");
-		Chat.cerrar = $(".chat-cerrar");
+		Chat.apagado 	= $(".chat-closed");
+		Chat.activo 	= $(".chat-activo");
+		Chat.cerrar 	= $(".chat-cerrar");
+		Chat.depto 		= $(".chat-btn-picker");
+		Chat.eligeDepto = $(".elige-depto");
+		Chat.chatBox 	= $(".chat-box");
+		Chat.chatTitle	= $(".chat-title");
+		Chat.chatDialog	= $(".dialog");
+		Chat.mensaje	= $(".texto-mensaje");
+		//Chat.btnEnviar	= $(".btn-enviar");
+		Chat.chatForm	= $(".chat-form");
+		Chat.plantillaCliente	= '<div class="mensaje cliente"><span class="cliente">Cliente:</br></span>{{mensaje}}</div>';
+		Chat.plantillaOperador	= '<div class="mensaje operador"><span class="operador">Operador:</br></span>{{mensaje}}</div>';
 
 
 		Chat.eventlistener();
@@ -716,13 +752,20 @@ chat = {
 	eventlistener : function(){
 		Chat.apagado.on("click", Chat.activarChat);
 		Chat.cerrar.on("click", Chat.apagarChat);
+		Chat.depto.on("click", Chat.iniciarChat);
+		Chat.chatForm.on("submit", Chat.sendMensaje);
+		Chat.mensaje.on("keypress",Chat.enterPressed);
+
 	},
 	activarChat : function(){
 		Chat.showChat(0);
+		Chat.titulo("Abriendo chat...");
+
 	},
 	apagarChat : function(){
 		Chat.hideChat();
 	},
+
 	showChat : function(full){
 		altura = full? "400px" : "188px";
 		Chat.apagado.hide();
@@ -733,11 +776,83 @@ chat = {
 		Chat.activo.animate({height:"0"},300,function(){
 			Chat.activo.hide();
 			Chat.apagado.show();
-		});
+			Chat.eligeDepto.show();
+			Chat.chatBox.hide();
+		});	
+	},
+	iniciarChat : function(){
+		Chat.activo.data("depto",$(this).data("depto"));
+		Chat.showChat(true);
+		Chat.eligeDepto.hide();
+		Chat.chatBox.show();
+		Chat.titulo("Conectando...");
+		Chat.scrollDown();
+	},
+	getDatos: function(){
+		datos = {
+			user: 		Chat.activo.data("user"),
+			browser: 	$.browser.name,
+			browserver: $.browser.version,
+			os: 		$.os.name,
+			session: 	Chat.activo.data("chatsession"),
+			chatpcid:	readCookie("chatpcid"),
+			depto: 		Chat.activo.data("depto")
+		};
+		return datos;
+	},
+	identifyUser: function(){
+		datos = Chat.getDatos();
+		datos.f = "newChat";
+
+		if(readCookie("chatpcid") == null){
+
+			$.post("inc/chathandler.php",datos,function(json){
+
+				//data = $.parseJSON(json);
+				//createCookie("chatpcid",data.id,400);
+			})
+			
+		}
 		
-		
-				
-	}
+	},
+	titulo: function(texto){
+		Chat.chatTitle.text(texto);
+	},
+	scrollDown: function(){
+		Chat.chatDialog.scrollTop(Chat.chatDialog[0].scrollHeight);
+	},
+	sendMensaje: function(e){
+		e.preventDefault();
+		mensaje = Chat.mensaje.val();
+		if(mensaje.length >2){
+			Chat.sendMensajeAction(mensaje);
+		}
+	},
+	sendMensajeAction: function(mensaje){
+			texto  = Chat.plantillaCliente.replace("{{mensaje}}",mensaje);
+			localStorage.chat = localStorage.chat + texto;
+			Chat.launchMensaje(mensaje);
+			Chat.chatDialog.append(texto);
+			Chat.scrollDown();
+			Chat.mensaje.val("");
+	},
+	launchMensaje: function(mensaje){
+		console.log("mensaje enviado: "+mensaje);
+		$.browser.name;
+	},
+	enterPressed: function(e){
+	    if(e.which == 13) {
+	    	e.preventDefault();
+	    	Chat.chatForm.submit();
+	    }
+	},
+	publishMensajeExterno: function(mensaje){
+		texto  = Chat.plantillaOperador.replace("{{mensaje}}",mensaje);
+		localStorage.chat = localStorage.chat + texto;
+		Chat.chatDialog.append(texto);
+		Chat.scrollDown();
+	},
+
 }
 chat.init();
 

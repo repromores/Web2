@@ -639,7 +639,7 @@ table .span5.pull-left {
 		position: fixed;
 		right: 40px;
 		bottom: 0px;
-		width: 242px;
+		//width: 242px;
 
 		.chat-closed{
 			padding: 8px 10px 2px;
@@ -656,7 +656,7 @@ table .span5.pull-left {
 			padding: 8px 10px 2px;
 			background-color: @mores;
 			display: none; 
-			width: 100%;
+			width: 100%; 
 			.header{
 				color: #FFF;
 				font-weight: bold;
@@ -667,6 +667,33 @@ table .span5.pull-left {
 			.elige-depto{
 				background-color: #FFF;
 				padding: 10px 4px;
+			}
+			.chat-box{
+				display: none;
+
+				.dialog{
+					background-color: #fff;
+					height: 290px;
+					margin-bottom: 10px;
+					overflow-y: scroll;
+
+					.mensaje{
+						padding: 4px 8px;
+						border-bottom: 1px solid #ddd;
+
+						span.cliente{
+							font-weight: bold;
+							color: #287621;
+						}
+						span.operador{
+							font-weight: bold;
+							color: #9f0000;
+						}
+					}
+					.cliente{
+						text-align: right;
+					}
+				}
 			}
 		}
 		.chat-btn-picker{

@@ -46,6 +46,8 @@
     <script type="text/javascript" src="js/plupload/plupload.full.js"></script>
     <script src="js/plupload/jquery.plupload.queue/jquery.plupload.queue.js"></script>
     <script src="js/plupload/i18n/es.js"></script>
+    
+    <script src="js/detector.js"></script>
     <?php 
     if(!$mantenimiento){
       include "js/analytics.php";

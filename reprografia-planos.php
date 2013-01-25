@@ -69,6 +69,9 @@ Así, encontrará la solución perfecta para la presentación de sus proyectos d
 Le ofrecemos la posibilidad de visualizar los documentos e imágenes correspondientes a  proyectos técnicos o planes generales de urbanismo, permitiendo un fácil manejo y consulta informática de estos contenidos.
 </p>
   
+    <div class="center-btn">
+    <a href="tiendas.php" class="btn btn-primary btn-large">Encuentra nuestras tiendas</a>
+  </div>
   	</div>
   </div>
 

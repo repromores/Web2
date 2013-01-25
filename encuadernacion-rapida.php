@@ -12,7 +12,7 @@
 
 <h2>Encuadernación rápida</h2>
 <p>
-A través de este servicio, le ofrecemos la posibilidad de encuadernar sus trabajos de una forma rápida, sencilla y fácilmente actualizable, con un amplio abanico de recursos puestos a su disposición.
+A través de este servicio, le ofrecemos la posibilidad de encuadernar sus trabajos de una forma rápida, sencilla y fácilmente actualizable, con un amplio abanico de recursos de encuadernación puestos a su disposición.
 </p>
     <ul class="galeria">
       <?php 
@@ -29,7 +29,7 @@ A través de este servicio, le ofrecemos la posibilidad de encuadernar sus traba
           "Encuadernación en canutillo",
           "Encuadernación de tornillo ",
           "Encuadernación de tornillo ",
-          "Enlomado ",
+          "Enlomado",
 
         );
         echo creaListaGaleria($array_imagenes,"imagenes/encuadernacion/rapida/",$array_titulos);
@@ -43,11 +43,13 @@ A través de este servicio, le ofrecemos la posibilidad de encuadernar sus traba
 <h3>Aplicaciones</h3>
 <ul>
 <li>Presentación de proyectos.</li>
-<li>Libros de registro.</li>
-<li>Apuntes y trabajos.</li>
-<li>Contabilidades.</li>
+<li>Encuadernación de libros de registro.</li>
+<li>Encuadernación de apuntes y trabajos.</li>
+<li>Encuadernación de contabilidades.</li>
 </ul> 
-
+  <div class="center-btn">
+    <a href="tiendas.php" class="btn btn-primary btn-large">Encuentra nuestras tiendas</a>
+  </div>
 
   	</div>
   </div>

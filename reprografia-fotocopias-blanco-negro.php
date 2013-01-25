@@ -49,7 +49,9 @@ Siguiendo nuestra actividad original, realizamos fotocopias inmediatas en blanco
 <li><strong>Versatilidad</strong>: Posibilidades de ampliación / reducción en múltiples escalas.</li>
 </ul>
 
-
+  <div class="center-btn">
+    <a href="tiendas.php" class="btn btn-primary btn-large">Encuentra nuestras tiendas</a>
+  </div>
   	</div>
   </div>
 

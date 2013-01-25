@@ -4,7 +4,7 @@
                
                <li><a href="index.php">© Morés 2012</a></li>
                <li><a href="aviso-legal.php">Aviso Legal</a></li>
-               <li><a href="condiciones-uso.php">Condiciones de uso</a></li>
+               <?php if(tiendaPublica()){?> <li><a href="condiciones-uso.php">Condiciones de uso</a></li><?php } ?>
                <li><a href="politica-privacidad.php">Política de Privacidad</a></li>
                <li><a href="cadena-custodia.php">Cadena de Custodia</a></li>
                <li><a href="mapa-web.php">Mapa Web</a></li>

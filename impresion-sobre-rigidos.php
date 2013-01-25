@@ -12,13 +12,13 @@
 
 <h2>Impresión directa sobre rígidos</h2>
 <p>
-La gran versatilidad que aporta esta tecnología al imprimir directamente sobre diferentes materiales rígidos de superficie plana o ligeramente rugosa hacen de ella la solución idónea para realizar todas sus impresiones rígidas o semi-flexibles. Además, la calidad de las tintas hace que la calidad de las impresiones permanezca inalterable, tanto en interior como en exterior.
+La gran versatilidad que aporta esta tecnología al imprimir directamente sobre diferentes materiales rígidos de superficie plana o ligeramente rugosa hacen de ella la solución idónea para realizar todas sus impresiones rígidas o semi-flexibles de cartelería. Además, la calidad de las tintas hace que la calidad de las impresiones permanezca inalterable, tanto en interior como en exterior, para todo tipo de carteles.
 </p>
 
 
 <h3>Materiales</h3>
 <p>
-PVC, metacrilato, cartón pluma, cartón, polipropileno, policarbonato, madera (melamina, trespa, DM), Dibond, Alocubond, moqueta, cerámica, azulejos , metales, plásticos, corcho, acero, cristal , suelos técnicos, etc.
+Imprimimos cartelería sobre todo tipo de materiales, como PVC, metacrilato, cartón pluma, cartón, polipropileno, policarbonato, madera (melamina, trespa, DM), Dibond, Alocubond, moqueta, cerámica, azulejos , metales, plásticos, corcho, acero, cristal , suelos técnicos, etc.
 </p>
 		<ul class="galeria">
 			<?php 

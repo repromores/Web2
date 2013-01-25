@@ -30,7 +30,7 @@
               <li><a href="quienes-somos.php">Quienes Somos</a></li>
               <li><a href="tiendas.php">Tiendas</a></li>
               <li><a href="faq.php">Preguntas Frecuentes</a></li>
-              <li><a href="contacta.php">Contacto</a></li>
+              <li><a href="contacta.php">Contacto y presupuestos</a></li>
             </ul>
           </nav>
         </div>
@@ -120,22 +120,22 @@
     
     
     <?php if(!$COMPATIBLEMODE){ ?>
-        <nav class="menu-left nav nav-list">
+        <nav class="menu-left nav nav-list tienda-wrapper">
 
           <ul class="ie8">
             <li class="nav-header destacado" data-menu="menu0">
               <a href="tienda.php">TIENDA ONLINE <span class="label label-info pull-right">Nuevo!</span></a>
             </li>
             <div class="menu-list menu0">
-              <li><a class="menu-item" href="tienda_calendarios_info.php">Calendarios personalizados</a></li>
-              <li><a class="menu-item" href="tienda_vinilos_info.php">Vinilos</a></li>
-              <li><a class="menu-item" href="tienda_dibond_info.php">Foto + dibond</a></li>
-              <li><a class="menu-item" href="tienda_lienzobastidor_info.php">Canvas</a></li>
-              <li><a class="menu-item" href="tienda_fotopvc_info.php">Foto + PVC</a></li>
+              <li><a class="menu-item" href="tienda_vinilos_info.php">Vinilos decorativos</a></li>
+              <li><a class="menu-item" href="tienda_dibond_info.php">Foto sobre dibond</a></li>
+              <li><a class="menu-item" href="tienda_lienzobastidor_info.php">Lienzo sobre bastidor</a></li>
+              <li><a class="menu-item" href="tienda_fotopvc_info.php">Foto sobre PVC</a></li>
               <li><a class="menu-item" href="tienda_vinilometacrilato_info.php">Vinilo metactrilato</a></li>
               <li><a class="menu-item" href="tienda_fotocartonpluma_info.php">Foto cartón pluma</a></li>
             </div>
-
+          </nav>
+          <nav class="menu-left nav nav-list">
             <li class="nav-header" data-menu="menu1">
               Cartelería
             </li>

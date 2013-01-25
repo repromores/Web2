@@ -48,14 +48,17 @@ input:-ms-input-placeholder {
 
 ul.menu-top{
 	list-style: none;
-	font-size:13pt;
+	font-size:12pt;
 	font-weight: bold;
 	margin-top: 40px;
 	li{
 		.pull-left;
-		padding-left: 35px;
+		padding-left: 20px;
 		color: #91959d;
 		
+		&:nth-child(1){
+			padding-left:0px;
+		}
 		a{color: #91959d;}
 	}
 }
@@ -633,4 +636,16 @@ span{
 }
 table .span5.pull-left {
     float: left;
+}
+.tienda-wrapper{
+	margin-bottom: 10px;
+	.nav-header{
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
+}
+.center-btn{
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 10px;
 }

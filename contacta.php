@@ -12,7 +12,7 @@
 <h2>Contacta con nosotros</h2>
 <div>
 	<br>
-	<p>Contacta con nosotros a través de:</p>
+	<p>Contacta con nosotros para resolver dudas, pedir presupuestos, o lo que necesites, a través de:</p>
 	<ul>
 		<li>Teléfono: &nbsp&nbsp<strong>902 466 737 / 985 963 103 / 985 963 288</strong> </li>
 		<li>El siguiente formulario:</li>

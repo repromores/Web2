@@ -52,7 +52,9 @@ Siguiendo la tradición de los mejores maestros encuadernadores, realizamos todo
   <li>Cajas y estuches a medida para libros.</li>
 </ul>
 
-
+  <div class="center-btn">
+    <a href="tiendas.php" class="btn btn-primary btn-large">Encuentra nuestras tiendas</a>
+  </div>
   	</div>
   </div>
 

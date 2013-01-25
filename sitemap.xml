@@ -7,218 +7,345 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
-  <loc>http://mores.es/index.php</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://mores.es/</loc>
+  <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>http://mores.es/index.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>http://mores.es/quienes-somos.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/tiendas.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mores.es/faq.php</loc>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/contacta.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mores.es/tienda.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mores.es/tienda_vinilos_info.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mores.es/tienda_dibond_info.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mores.es/tienda_lienzobastidor_info.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mores.es/tienda_fotopvc_info.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mores.es/tienda_vinilometacrilato_info.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mores.es/tienda_fotocartonpluma_info.php</loc>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/impresion-sobre-flexibles.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/impresion-sobre-rigidos.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/impresion-fotografica.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/acabado-impresion-gran-formato.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/rotulacion.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/soportes-expositivos.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/impresion-digital.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/imprenta-digital.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/acabado-impresion-digital.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/reprografia-fotocopias-blanco-negro.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/reprografia-fotocopias-color.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/reprografia-planos.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/encuadernacion-rapida.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/encuadernacion-encarpetado-proyectos.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/encuadernacion-artesanal.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/digitalizacion-documentacion.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/digitalizacion-fotografica.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/fotografia-digital.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/material-fotografico.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://mores.es/pdf/bajamos%20precios%20baja.pdf</loc>
-  <lastmod>2012-09-12T17:40:25+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <loc>http://mores.es/pdf/photocall.pdf</loc>
+  <lastmod>2012-11-28T15:37:03+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/login.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mores.es/compras_carrito.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://mores.es/utilidades.php</loc>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/aviso-legal.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/politica-privacidad.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/cadena-custodia.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/mapa-web.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://mores.es/dossier.pdf</loc>
-  <lastmod>2012-09-12T17:40:07+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-12-17T12:09:42+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/calculadora_ajax.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/tienda_vinilos.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/login2.php?goto=tienda_dibond.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/login2.php?goto=tienda_lienzobastidor.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/login2.php?goto=tienda_fotopvc.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/login2.php?goto=tienda_vinilometacrilato.php</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/login2.php?goto=tienda_fotocartonpluma.php</loc>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://mores.es/pdf/re-board-triptico.pdf</loc>
-  <lastmod>2012-09-12T17:40:26+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-11-16T15:32:55+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://mores.es/pdf/catalogo.pdf</loc>
-  <changefreq>monthly</changefreq>
+  <loc>http://mores.es/pdf/estructuras.pdf</loc>
+  <lastmod>2012-11-16T15:32:50+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://mores.es/pdf/BOCETO%20XEIKON.pdf</loc>
-  <lastmod>2012-09-12T17:40:25+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-11-16T15:32:50+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://mores.es/pdf/OFFSET%20DIGITAL%20PRODUCTO%20OK.pdf</loc>
-  <lastmod>2012-09-12T17:40:26+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-11-16T15:32:55+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://mores.es/pdf/presentación%20digitalización%20mores.pdf</loc>
-  <lastmod>2012-09-12T17:40:26+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-11-16T15:32:55+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://mores.es/pdf/Foto%20album.pdf</loc>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-10-16T12:05:05+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://mores.es/pdf/FUJI_20120912065954.pdf</loc>
-  <lastmod>2012-09-17T11:00:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-11-16T15:32:51+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://mores.es/nuevo-usuario.php</loc>
-  <changefreq>monthly</changefreq>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/utilidades/PEDIDO-CAJAS.pdf</loc>
+  <lastmod>2012-11-16T15:33:06+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/utilidades/PEDIDO-SELLOS.pdf</loc>
+  <lastmod>2012-11-16T15:33:06+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/utilidades/CONFORMIDAD-SELLOS.pdf</loc>
+  <lastmod>2012-11-16T15:33:02+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/utilidades/instrucciones-fotografia-digital.pdf</loc>
+  <lastmod>2012-11-16T15:33:05+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/utilidades/instrucciones-autocad-plt.pdf</loc>
+  <lastmod>2012-11-16T15:33:05+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://mores.es/cadenaCustodia/compromisoDireccion.pdf</loc>
-  <lastmod>2012-09-12T17:40:07+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-10-16T12:04:45+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://mores.es/cadenaCustodia/PEFC_14-38-00135.pdf</loc>
-  <lastmod>2012-09-12T17:40:08+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-10-16T12:04:45+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://mores.es/cadenaCustodia/FSC_TT-COC-004060.pdf</loc>
-  <lastmod>2012-09-12T17:40:07+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2012-10-16T12:04:45+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://mores.es/nuevo-usuario.php?login=2</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.51</priority>
 </url>
 </urlset>

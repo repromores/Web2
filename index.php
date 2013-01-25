@@ -11,10 +11,13 @@
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
-            <a target="_black" href="email_firma/firma.pdf"><img src="imagenes/portadas/navidad.jpg" alt="regalos personalizados"></a>
+            <a href="tienda.php"><img src="imagenes/portadas/tienda.jpg" alt="regalos online tienda"></a>
         </div>
         <div class="item">
             <a target="_black" href="pdf/photocall.pdf"><img src="imagenes/portadas/photocall.jpg" alt="photocalls"></a>
+        </div>
+        <div class="item">
+            <img src="imagenes/portadas/calendarios.jpg" alt="calendarios personalizados">
         </div>
           <!-- 
           <div class="carousel-caption">

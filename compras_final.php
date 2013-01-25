@@ -151,10 +151,10 @@ $cp     = empty($_SESSION["pedido"]["data"]["cp"])    ? $_SESSION["usr_cp"]     
       <input type="hidden" name="Ds_Merchant_MerchantURL" value="<?php echo $caixa_API_MerchantURL; ?>">
       <input type="hidden" name="Ds_Merchant_MerchantSignature" value="<?php echo get_caixa_API_Key(((float)$total_AMT)*100); ?>">
       <input type="hidden" name="Ds_Merchant_ProductDescription" value="Pedido web en mores.es">
-      <input type="hidden" name="Ds_Merchant_Titular" value="Titula de prueba">
+      <input type="hidden" name="Ds_Merchant_Titular" value="Mores.es">
       <input type="hidden" name="Ds_Merchant_UrlOK" value="<?php echo $caixa_API_confirmado; ?>">
       <input type="hidden" name="Ds_Merchant_UrlKO" value="<?php echo $caixa_API_cancelado; ?>">
-      <input type="hidden" name="Ds_Merchant_Titular" value="Titula de prueba">
+      <input type="hidden" name="Ds_Merchant_Titular" value="Mores.es">
       <input type="hidden" name="Ds_Merchant_MerchantData" value="<?php echo reservaIdPedido(); ?>">
   </div>     
 

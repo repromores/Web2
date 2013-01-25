@@ -12,7 +12,7 @@
 
 <h2>Impresión digital </h2>
 <p>
-Nuestro sistema de impresión digital está concebido para facilitarle la impresión de sus archivos con múltiples páginas a una velocidad extraordinaria y con calidad láser de alta resolución. Nuestra tecnología de impresión digital combina las ventajas de la impresión offset con las de la reproducción fotoeléctrica de alta calidad:
+Nuestro sistema de <strong>impresión digital</strong> está concebido para facilitarle la impresión de sus archivos con múltiples páginas a una velocidad extraordinaria y con calidad láser de alta resolución. Nuestra tecnología de <strong>impresión digital</strong> combina las ventajas de la impresión offset con las de la reproducción fotoeléctrica de alta calidad:
 </p>
 <ul>
 <li>Personalización de los documentos.</li>
@@ -47,8 +47,8 @@ Nuestro sistema de impresión digital está concebido para facilitarle la impres
 <li>Campañas de marketing sectorial o personalizado.</li>
 
 <li>Duplicación de CD's y DVD's.</li>
-<li>Impresión directa a todo color de galletas de CD y DVD.</li>
-<li>Impresión de elementos contenedores de soportes informáticos: funda de cartón impreso, caja Jewel-Box, Slim, sobre de PVC, botón de color, etc.</li>
+<li>Impresión digital directa a todo color de galletas de CD y DVD.</li>
+<li>Impresión digital de elementos contenedores de soportes informáticos: funda de cartón impreso, caja Jewel-Box, Slim, sobre de PVC, botón de color, etc.</li>
 <li>Tarjetas de PVC, a todo color o en colores planos, con dato variable y foto, y grabación de información en banda magnética.</li>
 </ul>	
 
@@ -64,7 +64,9 @@ Nuestro sistema de impresión digital está concebido para facilitarle la impres
     </a>
     </div>
 
-
+  <div class="center-btn">
+    <a href="tiendas.php" class="btn btn-primary btn-large">Encuentra nuestras tiendas</a>
+  </div>
   	</div>
   </div>
 

@@ -33,11 +33,11 @@
         </div>
         <div class="span5">
           <ul>
-            <li>Consigue un efecto espectacular en tus fotos montándolas sobre metacrilato.  </li>
-            <li>Impresos en los mejores materiales y en los plotter de ultima generación que poseemos.</li>
-            <li>Utilizamos tintas 100% ecológicas que no emiten olores.</li>
+            <li>Consigue un efecto espectacular en tus fotos montándolas en vinilo metacrilato.  </li>
+            <li>Impresos en los mejores materiales y en los plotter de última generación que poseemos.</li>
+            <li>En nuestros vinilos utilizamos tintas 100% ecológicas que no emiten olores.</li>
             <li>Puedes elegir entre un acabado brillo o mate.</li>
-            <li>Este material dará un brillo y una profuncdidad a tus fotos que llamarán la atención de todos.</li>
+            <li>El vinilo metacrilato dará un brillo y una profuncdidad a tus fotos que llamarán la atención de todos.</li>
             <li>La foto se adhesiva por detrás del metacrilato para así darle mayor protección.</li>
             <li>Elige entre los dos metodos de sujección a la pared (bastidor o chupetes).</li>
           </ul>

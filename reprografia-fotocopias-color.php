@@ -46,7 +46,9 @@ Cuando necesite mejorar la calidad de un original antiguo, o bien le interese re
 <li><strong>Versatilidad</strong>: Capacidad de impresión en una amplia variedad de soportes, formatos y escalas, los más adecuados para cada tipo de original.</li>
 <li><strong>Flexibilidad</strong>: Posibilidad de adaptación máxima a sus necesidades, con los sistemas de impresión más avanzados del mercado: inyección de tinta, láser, electrostático o sublimación.</li>
 </ul>
-	
+	<div class="center-btn">
+    <a href="tiendas.php" class="btn btn-primary btn-large">Encuentra nuestras tiendas</a>
+  </div>
 
   	</div>
   </div>

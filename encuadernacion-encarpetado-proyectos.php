@@ -43,6 +43,10 @@ A través de este servicio, le ofrecemos la solución para encuadernar todo tipo
 <li><strong>Variedad</strong> en la oferta.</li>
 </ul>
 
+  <div class="center-btn">
+    <a href="tiendas.php" class="btn btn-primary btn-large">Encuentra nuestras tiendas</a>
+  </div>
+
   	</div>
   </div>
 

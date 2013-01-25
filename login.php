@@ -1,4 +1,7 @@
 <?php include "inc/config.php"; ?>
+<?php
+  if(isLogged()){  header('Location: subir-archivos.php');};
+?>
 <?php include "inc/head.php"; ?>
 <title>morés - Envío de Archivos de Morés</title>
 <?php

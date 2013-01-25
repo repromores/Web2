@@ -4383,14 +4383,17 @@ input:-ms-input-placeholder {
 }
 ul.menu-top {
   list-style: none;
-  font-size: 13pt;
+  font-size: 12pt;
   font-weight: bold;
   margin-top: 40px;
 }
 ul.menu-top li {
   float: left;
-  padding-left: 35px;
+  padding-left: 20px;
   color: #91959d;
+}
+ul.menu-top li:nth-child(1) {
+  padding-left: 0px;
 }
 ul.menu-top li a {
   color: #91959d;
@@ -4936,4 +4939,16 @@ span.malacalidad {
 }
 table .span5.pull-left {
   float: left;
+}
+.tienda-wrapper {
+  margin-bottom: 10px;
+}
+.tienda-wrapper .nav-header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.center-btn {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }

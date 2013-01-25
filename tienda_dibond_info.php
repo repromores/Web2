@@ -36,7 +36,7 @@
           <ul>
             <li>Imprime las fotos que desees en nuestro material 100% fotográfico montado sobre sandwich de aluminio "Dibond".</li>
             <li>Estos materiales consiguen un acabado de altísima calidad inigualables en el mercado.</li>
-            <li>Puedes elegir entre un acabado brillo o mate.</li>
+            <li>Puedes elegir entre "Dibond" con acabado brillo o mate.</li>
             <li>Elige entre los dos métodos de sujección a la pared (bastidor o chupetes).</li>
 
           </ul>

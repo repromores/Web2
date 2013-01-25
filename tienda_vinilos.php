@@ -5,7 +5,7 @@
 
 $vinilos = 1;
 ?>
-<title>morés - Vinilos</title>
+<title>morés - Vinilos decorativos</title>
 <?php
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
   $h1text = "Vinilos - morés";
@@ -19,16 +19,16 @@ include "inc/menu.php"; ?>
     <ul class="breadcrumb">
       <li><a href="index.php">Inicio</a> <span class="divider">/</span></li>
       <li><a href="tienda.php">Tienda</a> <span class="divider">/</span></li>
-      <li><a href="tienda_vinilos_info.php">Vinilos</a> <span class="divider">/</span></li>
-      <li class="active">Pedir vinilo</li>
+      <li><a href="tienda_vinilos_info.php">Vinilos decorativos</a> <span class="divider">/</span></li>
+      <li class="active">Pedir vinilo decorativo</li>
     </ul>
 
       <div class="well">
         <h3>Instrucciones:</h3>
         <ol>
-          <li>Ponemos a tu disposición una amplia colección de vinilos para tu hogar o negocio.</li>
+          <li>Ponemos a tu disposición una amplia colección de vinilos decorativos para tu hogar o negocio.</li>
           <li>Busca abajo una imagen de entre las miles que ofrecemos en el cátalogo.</li>
-          <li>Con el envío te llegarán instrucciones sencillas de como colocarlo sin problemas.</li>
+          <li>Con el envío del vinilo decorativo te llegarán instrucciones sencillas de como colocarlo sin problemas.</li>
         </ol>
       </div>
  

@@ -21,10 +21,10 @@
       <div class="row">
         
         <div class="span5">
-          <a href="imagenes/online/CANVAS_PERSPECTIVA.jpg" data-fancybox-group="items" class="fancybox"><img src="imagenes/online/CANVAS_PERSPECTIVA.jpg" class="img-polaroid" alt="dibond"></a>
+          <a href="imagenes/online/CANVAS_PERSPECTIVA.jpg" data-fancybox-group="items" class="fancybox"><img src="imagenes/online/CANVAS_PERSPECTIVA.jpg" class="img-polaroid" alt="lienzo"></a>
           <div class="row margint20">
-            <div class="span1"><a href="imagenes/online/_MG_6264.jpg" data-fancybox-group="items" class="fancybox"><img src="imagenes/online/_MG_6264.jpg" class="img-polaroid " alt="dibond detalle"></a></div>
-            <div class="span1"><a href="imagenes/online/_MG_6263.jpg" data-fancybox-group="items" class="fancybox"><img src="imagenes/online/_MG_6263.jpg" class="img-polaroid " alt="dibond detalle"></a></div>
+            <div class="span1"><a href="imagenes/online/_MG_6264.jpg" data-fancybox-group="items" class="fancybox"><img src="imagenes/online/_MG_6264.jpg" class="img-polaroid " alt="lienzo detalle"></a></div>
+            <div class="span1"><a href="imagenes/online/_MG_6263.jpg" data-fancybox-group="items" class="fancybox"><img src="imagenes/online/_MG_6263.jpg" class="img-polaroid " alt="lienzo detalle"></a></div>
           </div>
           
 

@@ -1,9 +1,9 @@
 <?php include "inc/config.php"; ?>
 <?php include "inc/head.php"; ?>
-<title>morés - Vinilos</title>
+<title>Vinilos decorativos - morés</title>
 <?php
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
-  $h1text = "Vinilos - morés";
+  $h1text = "Vinilos decorativos - morés";
   
 ?>
 <?php include "inc/menu.php"; ?>
@@ -29,10 +29,10 @@
         </div>
         <div class="span5">
           <ul>
-            <li>Decora tu hogar oficina o negocio con nuestros vinilos, impresos en los mejores materiales y en los plotter de última generación que poseemos.</li>
+            <li>Decora tu hogar oficina o negocio con nuestros vinilos decorativos, impresos en los mejores materiales y en los plotter de última generación que poseemos.</li>
             <li>Utilizamos tintas 100% ecológicas que no emiten olores.</li>
-            <li>Puedes elegir entre un acabado brillo o mate.</li>
-            <li>Te adjuntaremos con tu vinilo unas  sencillas intrucciones de como instalarlo tú mismo.</li>
+            <li>Puedes elegir entre acabado brillo o mate para tu vinilo decorativo.</li>
+            <li>Te adjuntaremos con tu vinilo decorativo unas  sencillas intrucciones de como instalarlo tú mismo.</li>
             <li>Elige una foto de nuestro amplio catálogo de Fotolia.</li>
             
 

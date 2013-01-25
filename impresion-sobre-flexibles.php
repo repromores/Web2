@@ -11,7 +11,7 @@
   	<div class="content">
   		<h2>Impresión sobre flexibles</h2>
 		<p>
-		Contamos con la última tecnología de referencia en el sector de cartelería gran formato, lo que nos permite aplicar los más avanzados medios tecnológicos adaptados a las necesidades específicas de cada cliente. Al mismo tiempo, le ofrecemos el servicio más completo disponible en el mercado, al integrar todas las fases del proceso productivo, desde la impresión hasta el montaje.
+		Contamos con la última tecnología de referencia en el sector de cartelería gran formato, lo que nos permite aplicar los más avanzados medios tecnológicos adaptados a las necesidades específicas de cada cliente. Al mismo tiempo, le ofrecemos el servicio más completo disponible en el mercado, al integrar todas las fases del proceso productivo, desde la impresión hasta el montaje de todo tipo de cartelería.
 		</p>
 		<h3>Materiales</h3>
 		<p>

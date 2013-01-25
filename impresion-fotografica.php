@@ -42,7 +42,9 @@ Papel fotográfico (brillo, semi-mate, perla), Duratrans.
 Reproducción de fotografías, cartelería de alta resolución para interiores, cajas de luz, soportes publicitarios, entre otras.
 </p>
 
-		
+  <div class="center-btn">
+    <a href="tiendas.php" class="btn btn-primary btn-large">Encuentra nuestras tiendas</a>
+  </div>		
   	</div>
   </div>
 

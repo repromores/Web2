@@ -25,7 +25,17 @@
 				</ul>
 			</div>
 	  		<div class="span5">
+	  			<ul>
+				<li><a href="tienda.php">Tienda Online:</a>
 				<ul>
+				<li><a href="tienda_vinilos_info.php">Vinilos decorativos</a></li>
+				<li><a href="tienda_dibond_info.php">Foto + dibond</a></li>
+				<li><a href="tienda_lienzobastidor_info.php">Canvas</a></li>
+				<li><a href="tienda_fotopvc_info.php">Foto + PVC</a></li>
+				<li><a href="tienda_vinilometacrilato_info.php">Vinilo metactrilato</a></li>
+				<li><a href="tienda_fotocartonpluma_info.php">Foto cartón pluma</a></li>
+				</ul>
+				</li>
 				<li><a href="impresion-sobre-flexibles.php">Cartelería:</a>
 				<ul>
 				<li><a href="impresion-sobre-flexibles.php">Impresión sobre flexibles</a></li>

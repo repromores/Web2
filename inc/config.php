@@ -3,7 +3,7 @@
 
 //modo de mantenimiento
 $mantenimiento = false;
-$pagos_activados = false;
+$pagos_activados = true;
 
 if (getIp() =="127.0.0.1"){
 	$pagos_activados = true;
@@ -73,7 +73,7 @@ if($pagos_activados){
 	$caixa_API_cancelado	="http://mores.es/cancelado.php";
 }
 
-$def_gastos_envio 	= 7.50;
+$def_gastos_envio 	= 7.70;
 $def_iva 			= 21;
 
 if(getEnvio("iva")  == ""){setEnvio("iva" ,$def_iva);}
@@ -128,6 +128,13 @@ require_once('swift/swift_required.php');
 $db_conn = mysql_connect($db_host, $db_user, $db_pass);
 mysql_select_db("enviosMores");
 
+function tiendaPublica(){
+	if(getIp() == "212.89.22.73"){
+	return true;
+	}else{
+	return false;
+	}
+}
 
 
 
@@ -855,5 +862,23 @@ function getTiendaFrompedido($npedido){
   	$q = mysql_query($qu);
   	$fila = mysql_fetch_assoc($q); 
 	return $fila["tienda"];
+}
+
+function calculaPrecioDesde($tipo){
+	global $def_iva;
+	if($tipo == "fotodibond" || $tipo == "fotopvc" ||  $tipo == "vinilometacrilato"){
+		$precio = getPrecioProducto($tipo,"40","30","chupetes");
+	}elseif ($tipo == "fotocartonpluma") {
+		$precio = getPrecioProducto($tipo,"40","30","perfil_aluminio");
+	}elseif ($tipo == "lienzobastidor") {
+		$precio = getPrecioProducto($tipo,"40","30");		
+	}elseif ($tipo == "tarjetasvisita") {
+		$precio = getPrecioIDigital($tipo,$unidades,$acabado);
+	}elseif ($tipo == "calendario") {
+		$precio = getPrecioCalendario($producto,$unidades);
+	}elseif ($tipo == "vinilo"){
+		$precio = getPrecioVinilo("impreso","40","30");
+	}
+	return formatoMoneda(((float)$precio*$def_iva/100)+(float)$precio);
 }
 ?>

@@ -14,7 +14,13 @@ if(isLogged()){  header('Location: compras_pedido.php');};
   	<div class="content">
 
 	<h2>Loguéate</h2>
-  <p>Te pedimos que te loguées porque en el siguiente paso vas a poder subir archivos e imágenes. </p>
+  <p>Necesitamos que te loguees, en el siguiente paso podrás elegir el siguente paso podrás:</p>
+  <ul>
+    <li>Subir tus fotos.</li>
+    <li>Elegir el tamaño.</li>
+    <li>Ver los precios.</li>
+  </ul>
+  <p>¡A qué esperas, entra! </p>
 	<?php if(isset($_GET["new"])&& $_GET["new"]==1){ ?>
     <div class="alert alert-success">
       <p>¡Usuario creado correctamente! logueate para enviar tus archivos</p>

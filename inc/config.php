@@ -1,6 +1,5 @@
 <?php
 @session_start();
-
 //modo de mantenimiento
 $mantenimiento = false;
 $pagos_activados = true;

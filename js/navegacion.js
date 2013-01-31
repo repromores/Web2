@@ -133,7 +133,7 @@ $('.contacto:not(.redirect)').ajaxForm({
 	target: 	'.mensaje-exito',
 	clearForm: 	true,
 	beforeSubmit : function(){
-		$(".btn-primary").button('loading');
+		//$(".btn-primary").button('loading');
 	},
 	success : function(){
 		$(".btn-primary").button('Enviado');
@@ -670,6 +670,7 @@ trackEvents = {
 		TrackEvents.passlost 	= $(".tr_passlost");
 		TrackEvents.pedidoftp 	= $(".tr_pedidoftp");
 		TrackEvents.pedidoweb 	= $(".tr_pedidoweb");
+		TrackEvents.contacto 	= $(".tr_contacto");
 		
 		TrackEvents.eventlistener();
 	},
@@ -680,6 +681,7 @@ trackEvents = {
 		TrackEvents.passlost.on("click",TrackEvents.fPasslost);
 		TrackEvents.pedidoftp.on("click",TrackEvents.fPedidoftp);
 		TrackEvents.pedidoweb.on("click",TrackEvents.fPedidoweb);
+		TrackEvents.contacto.on("click",TrackEvents.fContacto);
 	},
 	fEntrar: function(){
 		_gaq.push(['_trackEvent', 'acceso', 'entrar', 'Entrar banner']);
@@ -698,6 +700,9 @@ trackEvents = {
 	},
 	fPedidoweb: function(){
 		_gaq.push(['_trackEvent', 'pedidos', 'web', 'pedido web']);
+	},
+	fContacto: function(){
+		_gaq.push(['_trackEvent', 'contacto', 'formulario contacto', 'contacto web']);
 	}
 };
 trackEvents.init();

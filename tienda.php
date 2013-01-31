@@ -1,11 +1,14 @@
 <?php include "inc/config.php"; ?>
-<?php include "inc/head.php"; ?>
+<?php include "inc/head.php";
+ ?>
 <title>morés - Impresión  directa sobre rígidos</title>
 <?php
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
   $h1text = "Tienda online - morés";
  ?>
-<?php include "inc/menu.php"; ?>
+<?php include "inc/menu.php"; 
+
+?>
 
   <div class="span10">
   	<div class="content tienda">

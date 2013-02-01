@@ -140,7 +140,7 @@
 	    <div class="control-group">
 		    <label class="control-label" for="text">Mensaje:*</label>
 		    <div class="controls">
-		    	<textarea class="span7 required" id="text" name="text"></textarea>
+		    	<textarea style="height:150px;" class="span7 required" id="text" name="text"></textarea>
 		    </div>
 	    </div>
 
@@ -158,7 +158,7 @@
 	    </div>
 
 	    <div class="form-actions">
-            <button class="btn btn-primary" type="submit" data-loading-text="Enviando...">Enviar</button>
+            <button class="btn btn-primary tr_contacto" type="submit" data-loading-text="Enviando...">Enviar</button>
             <div class="mensaje-error">Corrige los campos en rojo</div>
             <div class="mensaje-exito"></div>
           </div>

@@ -1,0 +1,39 @@
+# Habilitar la compresión con mod_deflate
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+
+# Turn on Expires and set default to 0
+ExpiresActive On
+ExpiresDefault "access plus 1 months"
+
+# Set up caching on media files for 1 year (forever?)
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav)$">
+Header set Cache-Control "public"
+Header set Expires "Thu, 15 Apr 2100 20:00:00 GMT"
+</FilesMatch>
+
+# Set up caching on media files for 1 week
+<FilesMatch "\.(gif|jpg|jpeg|png|swf)$">
+ExpiresDefault "access plus 1 weeks"
+Header append Cache-Control "public"
+</FilesMatch>
+
+# Set up caching on media files for 1 week
+<FilesMatch "\.(xml|txt|html|js|css)$">
+ExpiresDefault "access plus 1 weeks"
+Header append Cache-Control "public"
+</FilesMatch>
+
+# Force no caching for dynamic files
+<FilesMatch "\.(php|cgi|pl|htm)$">
+ExpiresActive Off
+Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+Header set Pragma "no-cache"
+</FilesMatch>

@@ -40,8 +40,8 @@ Este servicio incorpora los últimos avances en el tratamiento digital de la ima
 </ul>
 <h3>Ventajas</h3>
 <ul>
-<li><strong>Calidad:</strong> Posibilidad de almacenamiento electrónico de la imagen sin pérdida de calidad.</li>
-<li><strong>Versatilidad:</strong> Nuestro sistema permite realizar copias y ampliaciones directamente a partir de objetos colocados en el scanner del sistema (por ejemplo, etiquetas de envases, objetos de joyería, etc).</li>
+	<li><strong>Calidad:</strong> Posibilidad de almacenamiento electrónico de la imagen sin pérdida de calidad.</li>
+	<li><strong>Versatilidad:</strong> Nuestro sistema permite realizar copias y ampliaciones directamente a partir de objetos colocados en el scanner del sistema (por ejemplo, etiquetas de envases, objetos de joyería, etc).</li>
 </ul>
 
 

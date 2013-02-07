@@ -880,4 +880,8 @@ function calculaPrecioDesde($tipo){
 	}
 	return formatoMoneda(((float)$precio*$def_iva/100)+(float)$precio);
 }
+function conIVA($precio){
+	global $def_iva;
+	return formatoMoneda((float)$precio + $precio*($def_iva/100));
+}
 ?>

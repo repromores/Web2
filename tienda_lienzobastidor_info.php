@@ -1,11 +1,29 @@
 <?php include "inc/config.php"; ?>
 <?php include "inc/head.php"; ?>
-<title>morés - Lienzo en bastidor</title>
+<title>Lienzo en bastidor</title>
 <?php
   $producto = "lienzobastidor";
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
-  $h1text = "Lienzo en bastidor - morés";
+  $h1text = "Lienzo en bastidor";
   
+
+  $q = mysql_query("SELECT * FROM t_producto_cuadro WHERE producto='".$producto."'");
+  $fila = mysql_fetch_assoc($q);  
+
+  $precios = array();
+  $i = 0;
+
+  foreach ($fila as $nombre => $valor) {
+    if($nombre[0] == "m"){
+      if($valor !== null){
+        $medida = substr( $nombre, 1);
+        $precios[$i]["medida"]= $medida;
+        $precios[$i]["precio"]= $valor;
+
+       $i++;
+      }
+    }
+  }
 ?>
 <?php include "inc/menu.php"; ?>
 
@@ -38,6 +56,22 @@
             <li>Este material va montado sobre un bastidor de madera, que crea el efecto de obra de arte.</li>
 
           </ul>
+
+           <table name="" class="table table-striped tabla-precios">
+              <tr>
+                <th>Tamaño en cm</th>
+                <th>Precio</th>
+              </tr>
+  <?php           
+  foreach ($precios as $precio) {
+    $valor = conIVA((float)$precio["precio"]+(float)$precio["chupetes"]) . " €";
+    echo '    <tr>
+                <td>'.$precio["medida"].'</td>
+                <td>'.$valor.'</td>
+              </tr>';
+  }
+  ?>
+            </table>          
         </div>
       </div>
       

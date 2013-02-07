@@ -1,11 +1,35 @@
 <?php include "inc/config.php"; ?>
 <?php include "inc/head.php"; ?>
-<title>morés - Foto en PVC</title>
+<title>Vinilo en metacrilato</title>
 <?php
   $producto = "vinilometacrilato";
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
-  $h1text = "Vinilo en metacrilato - morés";
+  $h1text = "Vinilo en metacrilato";
   
+
+  $q = mysql_query("SELECT * FROM t_producto_cuadro WHERE producto='".$producto."'");
+  $fila = mysql_fetch_assoc($q);  
+
+  $precios = array();
+  $i = 0;
+
+  foreach ($fila as $nombre => $valor) {
+    if($nombre[0] == "m"){
+      if($valor !== null){
+        $medida = substr( $nombre, 1);
+        $precios[$i]["medida"]= $medida;
+        $precios[$i]["precio"]= $valor;
+
+        $q2 = mysql_query("SELECT * FROM t_producto_montaje WHERE producto='".$nombre."'");
+        $fila2 = mysql_fetch_assoc($q2);  
+
+        $precios[$i]["bastidor"] = $fila2["bastidor"];
+        $precios[$i]["chupetes"] = $fila2["chupetes"];
+
+        $i++;
+      }
+    }
+  }
 ?>
 <?php include "inc/menu.php"; ?>
 
@@ -41,6 +65,22 @@
             <li>La foto se adhesiva por detrás del metacrilato para así darle mayor protección.</li>
             <li>Elige entre los dos metodos de sujección a la pared (bastidor o chupetes).</li>
           </ul>
+
+            <table name="" class="table table-striped tabla-precios">
+              <tr>
+                <th>Tamaño en cm</th>
+                <th>Precio</th>
+              </tr>
+  <?php           
+  foreach ($precios as $precio) {
+    $valor = conIVA((float)$precio["precio"]+(float)$precio["chupetes"]) . " €";
+    echo '    <tr>
+                <td>'.$precio["medida"].'</td>
+                <td>'.$valor.'</td>
+              </tr>';
+  }
+  ?>
+            </table>
         </div>
       </div>
       

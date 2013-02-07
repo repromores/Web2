@@ -1,11 +1,34 @@
 <?php include "inc/config.php"; ?>
 <?php include "inc/head.php"; ?>
-<title>morés - Foto en cartón pluma</title>
+<title>Foto en cartón pluma</title>
 <?php
   $producto = "fotocartonpluma";
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
-  $h1text = "Foto en cartón pluma - morés";
+  $h1text = "Foto en cartón pluma";
   
+  $q = mysql_query("SELECT * FROM t_producto_cuadro WHERE producto='".$producto."'");
+  $fila = mysql_fetch_assoc($q);  
+
+  $precios = array();
+  $i = 0;
+
+  foreach ($fila as $nombre => $valor) {
+    if($nombre[0] == "m"){
+      if($valor !== null){
+        $medida = substr( $nombre, 1);
+        $precios[$i]["medida"]= $medida;
+        $precios[$i]["precio"]= $valor;
+
+        $q2 = mysql_query("SELECT * FROM t_producto_montaje WHERE producto='".$nombre."'");
+        $fila2 = mysql_fetch_assoc($q2);  
+
+        $precios[$i]["bastidor"] = $fila2["perfil_aluminio"];
+        $precios[$i]["chupetes"] = $fila2["perfil_aluminio"];
+
+        $i++;
+      }
+    }
+  }
 ?>
 <?php include "inc/menu.php"; ?>
 
@@ -38,6 +61,23 @@
             <li>Puedes elegir entre un acabado brillo o mate.</li>
             <li>Elige entre los diferentes colores de marco de aluminio que mejor se adapte a tu foto.</li>
           </ul>
+
+
+          <table name="" class="table table-striped tabla-precios">
+              <tr>
+                <th>Tamaño en cm</th>
+                <th>Precio</th>
+              </tr>
+  <?php           
+  foreach ($precios as $precio) {
+    $valor = conIVA((float)$precio["precio"]+(float)$precio["chupetes"]) . " €";
+    echo '    <tr>
+                <td>'.$precio["medida"].'</td>
+                <td>'.$valor.'</td>
+              </tr>';
+  }
+  ?>
+            </table>     
         </div>
       </div>
 

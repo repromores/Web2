@@ -1,10 +1,10 @@
 <?php include "inc/config.php"; ?>
 <?php include "inc/head.php"; ?>
-<title>morés - Foto en PVC</title>
+<title>Foto en PVC</title>
 <?php
   $producto = "fotopvc";
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
-  $h1text = "Foto en PVC - morés";
+  $h1text = "Foto en PVC";
   
 
 

@@ -57,7 +57,6 @@ else if($ciudadRecogida == "oviedo" && $seccion == "impresion-digital"){
 }
 
 
-
 else if($ciudadRecogida == "oviedo" && $seccion == "planos"){
 	$email_tienda = "planos@mores.es";	
 }else if($ciudadRecogida == "gijon" && $seccion == "planos"){

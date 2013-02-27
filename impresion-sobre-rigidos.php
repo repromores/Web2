@@ -1,16 +1,16 @@
 <?php include "inc/config.php"; ?>
 <?php include "inc/head.php"; ?>
-<title>morés - Impresión  directa sobre rígidos</title>
+<title>Cartelería - Impresión  directa sobre rígidos</title>
 <?php
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
-  $h1text = "Impresión  directa sobre rígidos - morés";
+  $h1text = "Cartelería - Impresión  directa sobre rígidos";
  ?>
 <?php include "inc/menu.php"; ?>
 
   <div class="span10">
   	<div class="content">
 
-<h2>Impresión directa sobre rígidos</h2>
+<h2>Cartelería - Impresión directa sobre rígidos</h2>
 <p>
 La gran versatilidad que aporta esta tecnología al imprimir directamente sobre diferentes materiales rígidos de superficie plana o ligeramente rugosa hacen de ella la solución idónea para realizar todas sus impresiones rígidas o semi-flexibles de cartelería. Además, la calidad de las tintas hace que la calidad de las impresiones permanezca inalterable, tanto en interior como en exterior, para todo tipo de carteles.
 </p>

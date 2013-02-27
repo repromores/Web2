@@ -18,7 +18,12 @@ if(!$error){
 	if(!empty($_POST["goto"])){
 		header('Location: ../'.$_POST["goto"]);
 	}else if(!empty($_GET["login"])){
-		header('Location: ../compras_pedido.php');
+
+	  if(!empty($_GET["goto"])){
+	    header('Location: '.$_GET["goto"]);
+	  }else{
+	    header('Location: compras_pedido.php');
+	  }
 	}else{
 		header('Location: ../subir-archivos.php');
 	}

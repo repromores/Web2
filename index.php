@@ -11,9 +11,6 @@
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
-            <a href="tienda.php"><img src="imagenes/portadas/valentin.jpg" alt="regalos online valentin"></a>
-        </div>
-        <div class="item">
             <a href="tienda.php"><img src="imagenes/portadas/tienda.jpg" alt="regalos online tienda"></a>
         </div>
         <div class="item">

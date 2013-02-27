@@ -1,18 +1,19 @@
 <?php include "inc/config.php"; ?>
 <?php include "inc/head.php"; ?>
-<title>morés - Impresión sobre flexibles</title>
+<title>Cartelería - Impresión sobre flexibles</title>
 <?php
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
-  $h1text = "Impresión sobre flexibles - morés";
+  $h1text = "Cartelería - Impresión sobre flexibles, lonas publicitarias";
  ?>
 <?php include "inc/menu.php"; ?>
 
   <div class="span10">
   	<div class="content">
-  		<h2>Impresión sobre flexibles</h2>
+  		<h2>Cartelería - Impresión sobre flexibles</h2>
 		<p>
 		Contamos con la última tecnología de referencia en el sector de cartelería gran formato, lo que nos permite aplicar los más avanzados medios tecnológicos adaptados a las necesidades específicas de cada cliente. Al mismo tiempo, le ofrecemos el servicio más completo disponible en el mercado, al integrar todas las fases del proceso productivo, desde la impresión hasta el montaje de todo tipo de cartelería.
 		</p>
+		<p>Todo tipo de pedidos, como lonas publicitarias, vallas retroiluminables, lonas para camiones, exposiciones, grandes superficies y mucho más.</p>
 		<h3>Materiales</h3>
 		<p>
 		Impresión sobre papel (en diferentes calidades: mate, semi-mate, brillo), papel fotográfico Semigloss, lienzo (canvas), lona (plástica, microperforada, Decolite), Duratrans, vinilo (retirable, permanente, ácido, especial para vehículos, transparente, translúcido, perforado), Glaspack, Flagback (bandera), Spinnaker, polycril, etc.

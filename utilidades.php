@@ -19,22 +19,20 @@ La gran versatilidad que aporta esta tecnología al imprimir directamente sobre 
 <p>
 Descarga, rellena y envíanos de vuelta a <a href="mailto:encuadernacion@mores.es">encuadernacion@mores.es</a> los siguientes formularios:</p>
 
-<div class="span3">
+
+<div class="span5">
+<a href="utilidades/PEDIDO-SELLOS.pdf" target="_blank">
+  <div class="pdfdoc doc3"><img src="img/pdf.png" alt="Pedido de sellos"><span>Pedido de sellos</span></div>
+</a>
+</div>
+
+<div class="span4">
 <a href="utilidades/PEDIDO-CAJAS.pdf" target="_blank">
   <div class="pdfdoc doc3"><img src="img/pdf.png" alt="Pedido de cajas para proyectos"><span>Pedido de cajas para proyectos</span></div>
 </a>
 </div>
-<div class="span3">
-<a href="utilidades/PEDIDO-SELLOS.pdf" target="_blank">
-  <div class="pdfdoc doc3"><img src="img/pdf.png" alt="Pedido de sellos"><span>Pedido de sellos</span></div>
-</a>
 
-</div>
-<div class="span3">
-<a href="utilidades/CONFORMIDAD-SELLOS.pdf" target="_blank">
-  <div class="pdfdoc doc3"><img src="img/pdf.png" alt="Conformidad con el formato y diseño del sello"><span>Conformidad con el formato y diseño del sello</span></div>
-</a>
-</div>
+
 
 <h3>Utilidades</h3>
 <strong>Instrucciones</strong>

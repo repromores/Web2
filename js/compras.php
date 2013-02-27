@@ -130,6 +130,7 @@ pedido = {
 		$("#metodo").val(metodo);
 		contrario = (metodo == "m-tienda")? "m-mensajero" : "m-tienda";
 		$("."+metodo).addClass("active");
+		$("."+contrario).removeClass("active");
 
 		$("."+contrario+"-t").slideUp(function(){
 			$("."+metodo+"-t").slideDown();

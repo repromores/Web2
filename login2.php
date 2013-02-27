@@ -1,5 +1,14 @@
 <?php include "inc/config.php"; 
-if(isLogged()){  header('Location: compras_pedido.php');};
+if(isLogged()){
+  if(!empty($_GET["goto"])){
+    header('Location: '.$_GET["goto"]);
+  }else{
+    header('Location: compras_pedido.php');
+  }
+}else{
+  $urlGOTO = !empty($_GET["goto"]) ? "&goto=".$_GET["goto"] : "";
+}
+
 
 ?>
 <?php include "inc/head.php"; ?>
@@ -42,7 +51,7 @@ if(isLogged()){  header('Location: compras_pedido.php');};
         <div class="span5">
           <legend>Administración de Usuarios</legend>
           <div class="well">
-            <a href="nuevo-usuario.php?login=2" class="btn tr_register">Crear Nuevo Usuario</a>
+            <a href="nuevo-usuario.php?login=2<?php echo $urlGOTO;?>" class="btn tr_register">Crear Nuevo Usuario</a>
             <br><br>
             <a href="#" class="btn recuperapassbtn">Recuperar contraseña</a>
             <div class="recuperapassdiv">
@@ -69,7 +78,7 @@ if(isLogged()){  header('Location: compras_pedido.php');};
         </div>
         <div class="span5">
           <legend>Entrar</legend>
-          <form class="well" action="inc/login-entrar.php?login=2" method="post">
+          <form class="well" action="inc/login-entrar.php?login=2<?php echo $urlGOTO;?>" method="post">
             <input type="hidden" name="goto" value="<?php echo(empty($_GET["goto"])? '' : $_GET["goto"]); ?>">
             <label>Email:</label>
             <input type="email" class="span3" name="user" id="user" placeholder="email">

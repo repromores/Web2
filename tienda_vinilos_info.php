@@ -10,12 +10,12 @@
 
   <div class="span10">
    <div class="content  tiendainfo">
-      <h2>Vinilos</h2>
+      <h2>Vinilos decorativos</h2>
 
     <ul class="breadcrumb">
       <li><a href="index.php">Inicio</a> <span class="divider">/</span></li>
       <li><a href="tienda.php">Tienda</a> <span class="divider">/</span></li>
-      <li class="active">Vinilos</li>
+      <li class="active">Vinilos decorativos</li>
     </ul>
 <div class="row">
         

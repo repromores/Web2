@@ -1,16 +1,16 @@
 <?php include "inc/config.php"; ?>
 <?php include "inc/head.php"; ?>
-<title>morés - Impresión fotográfica (Lambda)</title>
+<title>Cartelería - Impresión fotográfica (Lambda)</title>
 <?php
   // $h1text : variable para fijar el H1 en cada pagina para hacerlo único y aprovechar mejor el SEO
-  $h1text = "Impresión fotográfica (Lambda) - morés";
+  $h1text = "Cartelería - Impresión fotográfica (Lambda)";
  ?>
 <?php include "inc/menu.php"; ?>
 
   <div class="span10">
   	<div class="content">
 
-<h2>Impresión fotográfica (Lambda)</h2>
+<h2>Cartelería - Impresión fotográfica (Lambda)</h2>
 <p>
 La tecnología de impresión fotográfica Lambda constituye la solución ideal para trabajos de interior que exigen alta definición (400 dpi, la resolución máxima del mercado). Permite imprimir hasta un ancho máximo de 1,25 m, mediante exposición directa en RGB sobre soporte fotográfico y revelado químico.
 </p>

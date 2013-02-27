@@ -10,7 +10,7 @@ $pobl 	= empty($_SESSION["pedido"]["data"]["pobl"])	? $_SESSION["usr_pob"] 		: g
 $prov 	= empty($_SESSION["pedido"]["data"]["prov"])	? $_SESSION["usr_prov"] 	: getEnvio("prov");
 $cp 	= empty($_SESSION["pedido"]["data"]["cp"])		? $_SESSION["usr_cp"] 		: getEnvio("cp");
 
-
+$masdatos = empty($_SESSION["usr_apellidos"])? true : false;
 ?>
 <?php include "inc/head.php"; ?>
 <title>morés - Pedido</title>

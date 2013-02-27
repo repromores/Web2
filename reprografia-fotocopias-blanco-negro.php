@@ -36,7 +36,7 @@ Siguiendo nuestra actividad original, realizamos fotocopias inmediatas en blanco
   </div>
 <h3>Aplicaciones</h3>
 <ul>
-<li>Copias rápidas de documentos con gran calidad como carnets, certificados, publicaciones, revistas, catálogos, etc.</li>
+<li>Fotocopias rápidas de documentos con gran calidad como carnets, certificados, publicaciones, revistas, catálogos, etc.</li>
 <li>Producción de proyectos con un elevado volumen de páginas y varios juegos de copias.</li>
 <li>Ampliación / reducción de documentos hasta un tamaño final máximo de A3 (entre el 200% y el 10% en un solo proceso).</li>
 <li>Realización de pegatinas y transparencias desde originales en papel.</li>

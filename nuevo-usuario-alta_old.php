@@ -5,21 +5,21 @@ $error = 0;
 $update = 0;
 
 //$ip 	    = isset($_POST["ip"])			? $_POST["ip"] 			: "";
-//$nombre		= isset($_POST["nombre"])		? $_POST["nombre"]		: "";
-//$ape    	= isset($_POST["ape"])			? $_POST["ape"] 		: "";
+$nombre		= isset($_POST["nombre"])		? $_POST["nombre"]		: "";
+$ape    	= isset($_POST["ape"])			? $_POST["ape"] 		: "";
 $email 		= isset($_POST["mail"])			? $_POST["mail"]		: "";
-//$dir     	= isset($_POST["dir"])			? $_POST["dir"]			: ""; 
-//$dir2     	= isset($_POST["dir2"])			? $_POST["dir2"]		: ""; 
-//$cp     	= isset($_POST["cp"])			? $_POST["cp"]			: ""; 
-//$pobl 		= isset($_POST["pobl"])			? $_POST["pobl"]		: "";
-//$tel        = isset($_POST["tel"])			? $_POST["tel"]			: "";
+$dir     	= isset($_POST["dir"])			? $_POST["dir"]			: ""; 
+$dir2     	= isset($_POST["dir2"])			? $_POST["dir2"]		: ""; 
+$cp     	= isset($_POST["cp"])			? $_POST["cp"]			: ""; 
+$pobl 		= isset($_POST["pobl"])			? $_POST["pobl"]		: "";
+$tel        = isset($_POST["tel"])			? $_POST["tel"]			: "";
 $pass       = isset($_POST["pass"])			? $_POST["pass"]		: "";
-//$cif        = isset($_POST["cif"])			? $_POST["cif"] 		: "";
+$cif        = isset($_POST["cif"])			? $_POST["cif"] 		: "";
 
 $news       = isset($_POST["newsletter"])	? 1 : 0;
 
 
-if($email =="" || $pass ==""){
+if($nombre =="" || $ape =="" ||  $email =="" ||  $pobl =="" ||  $tel =="" ||  $pass =="" ||  $cif ==""){
 	$error = 1;
 }else{
 
@@ -37,8 +37,10 @@ if($email =="" || $pass ==""){
 }
 
 if($error == 0 && $update == 0){
-	$q = 'INSERT INTO usuarios (email, password, newsletter) VALUES 
-	("'.$email.'","'.$pass.'",'.$news.')';
+	$q = 'INSERT INTO usuarios (email, password,nombre, apellidos, direccion, direccion2, cp, poblacion, provincia, telefono, cif, newsletter) VALUES 
+	("'.$email.'","'.$pass.'","'.$nombre.'","'.$ape.'","'.$dir.'","'.$dir2.'","'.$cp.'","'.$pobl.'","","'.$tel.'","'.$cif.'",'.$news.')';
+
+	echo $q;
 
 	mysql_query($q);
 }else if($error==0 && $update == 1){
@@ -61,9 +63,7 @@ if($error > 0){
 }else{
 	include "inc/enviar-new.php";
 	if($_POST["login"] == 2){
-		$url = "login2.php?new=1";
-		$url .= !empty($_GET["goto"])? "&goto=".$_GET["goto"] : "";
-		header("location: ".$url);
+		header("location: login2.php?new=1");
 	}else{
 		header("location: login.php?new=1");
 	}

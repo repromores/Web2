@@ -4,21 +4,21 @@ include "inc/config.php";
 $error = 0;
 
 //$ip 	    = isset($_POST["ip"])			? $_POST["ip"] 			: "";
-$nombre		= isset($_POST["nombre"])		? $_POST["nombre"]		: "";
-$ape    	= isset($_POST["ape"])			? $_POST["ape"] 		: "";
-$dir     	= isset($_POST["dir"])			? $_POST["dir"]			: ""; 
-$dir2     	= isset($_POST["dir2"])			? $_POST["dir2"]		: ""; 
-$pobl 		= isset($_POST["pobl"])			? $_POST["pobl"]		: "";
-$tel        = isset($_POST["tel"])			? $_POST["tel"]			: "";
-$pass       = isset($_POST["pass"])			? $_POST["pass"]		: "";
-$cif        = isset($_POST["cif"])			? $_POST["cif"] 		: "";
-$cp        = isset($_POST["cp"])			? $_POST["cp"] 			: "";
+$nombre		= isset($_POST["nombre"])		? mysql_real_escape_string($_POST["nombre"])		: "";
+$ape    	= isset($_POST["ape"])			? mysql_real_escape_string($_POST["ape"]) 			: "";
+$dir     	= isset($_POST["dir"])			? mysql_real_escape_string($_POST["dir"])			: ""; 
+$dir2     	= isset($_POST["dir2"])			? mysql_real_escape_string($_POST["dir2"])			: ""; 
+$pobl 		= isset($_POST["pobl"])			? mysql_real_escape_string($_POST["pobl"])			: "";
+$tel        = isset($_POST["tel"])			? mysql_real_escape_string($_POST["tel"])			: "";
+$pass       = isset($_POST["pass"])			? mysql_real_escape_string($_POST["pass"])			: "";
+$cif        = isset($_POST["cif"])			? mysql_real_escape_string($_POST["cif"]) 			: "";
+$cp        = isset($_POST["cp"])			? mysql_real_escape_string($_POST["cp"]) 			: "";
 
 $news       = isset($_POST["newsletter"])	? 1 : 0;
 
 $pass = empty($pass)? $_SESSION["usr_pass"] : $pass;
 
-if($nombre =="" || $ape =="" ||  $pobl =="" ||  $tel ==""  || $cif ==""|| $cp ==""){
+if($nombre == "" || $ape == "" ||  $pobl == "" ||  $tel == ""  || $cif == ""|| $cp == ""){
 	$error = 1;
 }
 

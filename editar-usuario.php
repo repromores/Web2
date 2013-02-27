@@ -67,7 +67,7 @@
 	    </div>
 
 	    <div class="control-group">
-		    <label class="control-label" for="cp">Código postal:</label>
+		    <label class="control-label" for="cp">Código postal:*</label>
 		    <div class="controls">
 		   		<input type="text" class="span7" id="cp" name="cp" value="<?php echo $_SESSION["usr_cp"] ?>">
 		    </div>
